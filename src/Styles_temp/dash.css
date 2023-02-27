@@ -1,0 +1,74 @@
+.dashboard{
+    display: flex;
+    background-color: gray;
+}
+
+.dashboard-left{
+    height: 93.9vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-events{
+    background-color: lightpink;
+    width: 70vw;
+    height: 30vw;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.campus-ambassador{
+    background-color: lightblue;
+    width: 70vw;
+    margin-top: 20px;
+    height: 55vw;
+    margin-left: 20px;
+}
+.campus-ambassador-un{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;align-items: center;justify-content: center;
+    width: 70vw;
+    margin-top: 20px;
+    height: 55vw;
+    margin-left: 20px;
+}
+.events-un{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;align-items: center;justify-content: center;
+    width: 70%;
+    margin: 20px;
+    margin-left: 10px;
+}
+
+.dashboard-right{
+    background-color: lightgreen;
+    width: 33vw;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.user-events .user{
+    background-color: lightblue;
+    width: 30%;
+    margin: 20px;
+}
+.user-events .events{
+    background-color: lightblue;
+    width: 70%;
+    margin: 20px;
+    margin-left: 10px;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user img{
+    border-radius: 50%;
+    margin-top: 10px;
+}
