@@ -1,6 +1,16 @@
 export const initial={
     user:{},
-    isVerified:false
+    isVerified:false,
+
+    userLocal:{    
+        name:null,
+        email:null,
+        sem:null,
+        branch:null,
+        college:null,
+        id:null
+    }
+
 }
 
 export const reducer=(state,action)=>{
@@ -16,6 +26,11 @@ export const reducer=(state,action)=>{
         case 'SET_VERIFICATION':
             return{
                 ...state,isVerified:action.status
+            }
+        
+        case 'SET_NEW_LOCAL_USER':
+            return{
+                ...state,userLocal:action.userLocal
             }
 
 
