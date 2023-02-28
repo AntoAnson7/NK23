@@ -26,23 +26,6 @@
     height: 55vw;
     margin-left: 20px;
 }
-.campus-ambassador-un{
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: flex;align-items: center;justify-content: center;
-    width: 70vw;
-    margin-top: 20px;
-    height: 55vw;
-    margin-left: 20px;
-}
-.events-un{
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    display: flex;align-items: center;justify-content: center;
-    width: 70%;
-    margin: 20px;
-    margin-left: 10px;
-}
 
 .dashboard-right{
     background-color: lightgreen;
@@ -71,4 +54,12 @@
 .user img{
     border-radius: 50%;
     margin-top: 10px;
+}
+.events{
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    overflow-x: scroll;
 }

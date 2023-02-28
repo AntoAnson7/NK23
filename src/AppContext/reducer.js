@@ -1,16 +1,17 @@
 export const initial={
     user:{},
     isVerified:false,
-
     userLocal:{    
         name:null,
         email:null,
         sem:null,
         branch:null,
         college:null,
-        id:null
-    }
-
+        id:null,
+    },
+    isCA:false,
+    
+    code:null
 }
 
 export const reducer=(state,action)=>{
@@ -32,7 +33,16 @@ export const reducer=(state,action)=>{
             return{
                 ...state,userLocal:action.userLocal
             }
+            
+        case 'SET_CA':
+            return{
+                ...state,isCA:action.isCA
+            }
 
+        case 'SET_CA_CODE':
+            return{
+                ...state,code:action.code
+            }
 
         default :return state
     }

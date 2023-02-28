@@ -1,9 +1,38 @@
+import {storage} from '../../Firebase/config'
+import { getDownloadURL, listAll,ref } from 'firebase/storage'
+import { useEffect, useState } from 'react'
+import { useAppData } from '../../AppContext/AppContext'
+import { useNavigate } from 'react-router-dom'
+import {eventsDatabase} from '../../Firebase/DBtables'
+import {getDocs} from 'firebase/firestore'
+import { EventTemplate } from './EventTemplate'
+import '../../Styles_temp/events.css'
 
+export const Events=()=>{//._document.data.value.mapValue.fields
+    const navigate=useNavigate()
+    const [{user}]=useAppData()
 
-export const Events=()=>{
+    const [Events,setEvents]=useState([])
+    
+    const getEvents=async()=>{
+        const res= await getDocs(eventsDatabase)
+        setEvents(res.docs)
+    }
+
+    useEffect(()=>{
+        if(user.uid==null){
+            navigate("/")
+        }
+        getEvents()
+    },[])
+
     return (
         <div>
-            <h1>Events...</h1>
+            <div className="disp-events">
+                {Events?.map((event)=>(
+                    <EventTemplate event={event._document.data.value.mapValue.fields}/>
+                ))}
+            </div>
         </div>
     )
 }

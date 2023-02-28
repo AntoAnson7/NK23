@@ -4,19 +4,20 @@ import { useAppData } from '../../AppContext/AppContext'
 import * as yup from 'yup'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {addDoc,collection} from 'firebase/firestore'
-import {getCollection} from '../../Firebase/connection'
-import {db} from '../../Firebase/config'
+import {addDoc} from 'firebase/firestore'
+import {usersDatabase} from '../../Firebase/DBtables'
 
 export const Signup=()=>{
-
-    const usersDatabase=collection(db,"users")
 
     const navigate=useNavigate()
     useEffect(()=>{
         if(user.uid==null){
             navigate("/")
         }
+        // console.log(localStorage.getItem("LOCAL_USER"))
+        // if(localStorage.getItem("LOCAL_USER")==null){
+        //     navigate("/")
+        // }
     },[])
 
     const schema=yup.object().shape({
@@ -41,7 +42,8 @@ export const Signup=()=>{
             email:data.email,
             id:user.uid,
             name:data.display_name,
-            sem:data.sem
+            sem:data.sem,
+            isCA:false
         })
 
 

@@ -1,0 +1,56 @@
+
+.imgs img{
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.disp-events{
+    display: flex;
+    gap: 50px;
+    margin: 10% auto;
+    margin-left: 50px;
+    overflow-x: scroll;
+    padding-top: 30px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.template-struct{
+    width: 300px;
+    border: 1px solid silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-height: 500px;
+    border-radius: 20px;
+    padding-bottom: 40px;
+    transition: all 0.2s ease-in;
+}
+.template-struct h1{
+    height: 120px;
+}
+.template-struct button{
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in;
+}
+.template-struct button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.template-struct:hover{
+    transform: scale(1.08);
+}
