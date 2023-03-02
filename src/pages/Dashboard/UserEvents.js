@@ -13,7 +13,7 @@ export const UserEvents=({event})=>{
 
     const getEvents=async()=>{
         const res= await getDocs(eventsDatabase)
-        setEvents(res.docs)
+        setEvents(res.docs.map((doc)=>({...doc.data(),id:doc.id})))
     }
 
     useEffect(()=>{
@@ -27,11 +27,11 @@ export const UserEvents=({event})=>{
         <div>
             <div className="user-events-temp">
                 {Events?.map((_event)=>{
-                    if(_event._document.data.value.mapValue.fields.id.stringValue == event){
-                        return (
+                    if(_event.eventid == event){
+                        return (                           
                             <div className="registered-events">
-                                <img src={event_banner_path[`${_event._document.data.value.mapValue.fields.id.stringValue}`]} alt="" style={{width:"110px"}}/>
-                                <p>{_event._document.data.value.mapValue.fields.name.stringValue}</p>
+                                <img src={event_banner_path[`${_event.eventid}`]} alt="" style={{width:"110px"}}/>
+                                <p>{_event.name}</p>
                             </div>
                         )                                                                     
                     }

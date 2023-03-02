@@ -32,7 +32,7 @@ export const EventTemplate=({event})=>{
     const regUser=async()=>{
         await addDoc(regDatabase,{
             userid:user.uid,
-            eventid:event.id.stringValue,
+            eventid:event.eventid,
             username:userLocal.name
         })
         console.log("registered")
@@ -42,8 +42,8 @@ export const EventTemplate=({event})=>{
         <div className="template">
             <div className="imgs">
                     <div className="template-struct">
-                        <img src={event_banner_path[`${event?.id.stringValue}`]} alt="" />
-                        <h1>{event?.name.stringValue}</h1>
+                        <img src={event_banner_path[`${event?.eventid}`]} alt="" />
+                        <h1>{event?.name}</h1>
                         <button onClick={regUser}>Register</button>
                     </div>
             </div>

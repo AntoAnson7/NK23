@@ -1,6 +1,6 @@
 .dashboard{
     display: flex;
-    background-color: gray;
+    /* background-color: gray; */
 }
 
 .dashboard-left{
@@ -11,7 +11,6 @@
 }
 
 .user-events{
-    background-color: lightpink;
     width: 70vw;
     height: 30vw;
     margin-top: 20px;
@@ -20,7 +19,8 @@
 }
 
 .campus-ambassador{
-    background-color: lightblue;
+    border: 1px solid silver;
+    border-radius: 30px;
     width: 70vw;
     margin-top: 20px;
     height: 55vw;
@@ -28,20 +28,28 @@
 }
 
 .dashboard-right{
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
+    border-radius: 30px;
+    border: 1px solid silver;
     width: 33vw;
     margin-right: 20px;
+    max-height: 90vh;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow-y: scroll;
 }
 
 .user-events .user{
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    border: 1px solid silver;
+    border-radius: 30px;
     width: 30%;
     margin: 20px;
 }
 .user-events .events{
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    border: 1px solid silver;
+    border-radius: 30px;
     width: 70%;
     margin: 20px;
     margin-left: 10px;
@@ -62,4 +70,7 @@
     padding-left: 40px;
     padding-right: 40px;
     overflow-x: scroll;
+}
+.events::-webkit-scrollbar{
+    display: none;
 }

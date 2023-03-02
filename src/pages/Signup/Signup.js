@@ -14,10 +14,6 @@ export const Signup=()=>{
         if(user.uid==null){
             navigate("/")
         }
-        // console.log(localStorage.getItem("LOCAL_USER"))
-        // if(localStorage.getItem("LOCAL_USER")==null){
-        //     navigate("/")
-        // }
     },[])
 
     const schema=yup.object().shape({
@@ -35,15 +31,15 @@ export const Signup=()=>{
     })
 
     const formSubmit=async(data)=>{
-        console.log(data)
+        
         await addDoc(usersDatabase,{
             branch:data.branch,
             college:data.college,
             email:data.email,
-            id:user.uid,
+            uid:user.uid,
             name:data.display_name,
             sem:data.sem,
-            isCA:false
+            isCA:false,
         })
 
 
@@ -53,7 +49,7 @@ export const Signup=()=>{
             sem:data.sem,
             branch:data.branch,
             college:data.college,
-            id:user.uid
+            uid:user.uid
         }
 
         dispatch({

@@ -7,10 +7,10 @@ export const initial={
         sem:null,
         branch:null,
         college:null,
-        id:null,
+        uid:null,
     },
     isCA:false,
-    
+    CA:null,
     code:null
 }
 
@@ -42,6 +42,11 @@ export const reducer=(state,action)=>{
         case 'SET_CA_CODE':
             return{
                 ...state,code:action.code
+            }
+
+        case 'SET_CA_DOC':
+            return{
+                ...state,CA:action.doc
             }
 
         default :return state

@@ -8,7 +8,7 @@ import {getDocs} from 'firebase/firestore'
 import { EventTemplate } from './EventTemplate'
 import '../../Styles_temp/events.css'
 
-export const Events=()=>{//._document.data.value.mapValue.fields
+export const Events=()=>{
     const navigate=useNavigate()
     const [{user}]=useAppData()
 
@@ -16,7 +16,7 @@ export const Events=()=>{//._document.data.value.mapValue.fields
     
     const getEvents=async()=>{
         const res= await getDocs(eventsDatabase)
-        setEvents(res.docs)
+        setEvents(res.docs.map((doc)=>({...doc.data(),id:doc.id})))
     }
 
     useEffect(()=>{
@@ -30,7 +30,7 @@ export const Events=()=>{//._document.data.value.mapValue.fields
         <div>
             <div className="disp-events">
                 {Events?.map((event)=>(
-                    <EventTemplate event={event._document.data.value.mapValue.fields}/>
+                    <EventTemplate event={event}/>
                 ))}
             </div>
         </div>
