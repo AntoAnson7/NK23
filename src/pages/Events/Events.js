@@ -8,6 +8,7 @@ import {getDocs} from 'firebase/firestore'
 import { EventTemplate } from './EventTemplate'
 import '../../Styles_temp/events.css'
 
+
 export const Events=()=>{
     const navigate=useNavigate()
     const [{user}]=useAppData()
@@ -28,11 +29,11 @@ export const Events=()=>{
 
     return (
         <div>
-            <div className="disp-events">
+            {/* <div className="disp-events">
                 {Events?.map((event)=>(
                     <EventTemplate event={event}/>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

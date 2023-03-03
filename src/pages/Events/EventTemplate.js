@@ -5,7 +5,7 @@ import { getDownloadURL, listAll,ref } from 'firebase/storage'
 import {storage} from '../../Firebase/config'
 import { useEffect, useState } from 'react'
 import '../../Styles_temp/events.css'
-import {event_banner_path} from './event_banner_path'
+import {event_banner_path} from './eventDeets'
 
 export const EventTemplate=({event})=>{
     const [images,setImages]=useState([])

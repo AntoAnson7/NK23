@@ -3,7 +3,7 @@ import { useAppData } from "../../AppContext/AppContext"
 import { useState,useEffect } from "react"
 import { eventsDatabase } from "../../Firebase/DBtables"
 import { getDocs } from "firebase/firestore"
-import { event_banner_path } from "../Events/event_banner_path"
+import { event_banner_path } from "../Events/eventDeets"
 import '../../Styles_temp/reco.css'
 
 export const Recommended=()=>{

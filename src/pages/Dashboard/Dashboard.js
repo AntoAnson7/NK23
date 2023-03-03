@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAppData } from "../../AppContext/AppContext"
 import { useNavigate } from "react-router-dom"
-import { getDocs,setDoc,doc, addDoc } from 'firebase/firestore'
+import { getDocs,setDoc,doc, addDoc, collection } from 'firebase/firestore'
 import {usersDatabase,regDatabase, CADatabase} from '../../Firebase/DBtables'
 import { UserEvents } from "./UserEvents"
 import {db} from '../../Firebase/config'
@@ -18,7 +18,8 @@ export const Dashboard=()=>{
     const [CA,setCA]=useState()
     const navigate=useNavigate()
 
-    const [{user,isVerified,isCA,code,userLocal},dispatch]=useAppData()
+
+    const [{user,isVerified,isCA,userLocal},dispatch]=useAppData()
 
 
     const getUsersFromDatabase=async()=>{
@@ -80,9 +81,10 @@ export const Dashboard=()=>{
     }
 
     const checkUser=()=>{
+        console.log(usersDatabase)
+        console.log(user.uid)
         let status=false
         let ctr=0
-        // console.log(CAinfo?CAinfo:"not loaded")
 
         CAinfo.map((CA)=>{
             if(CA.userid==user.uid){
@@ -90,7 +92,7 @@ export const Dashboard=()=>{
                     type:"SET_CA_DOC",
                     doc:CA
                 })
-            }
+            }    
         })
 
         for(let i=0;i<dbUsers.length;i++){
@@ -135,7 +137,7 @@ export const Dashboard=()=>{
     const makeUserCA=async()=>{
 
         let code=""
-    
+        // const CAdocRef=collection(db,"CAEvent",user.uid)
         for(let i=0;i<4;i++){
             code+=user?.displayName[i]
         }
@@ -171,20 +173,37 @@ export const Dashboard=()=>{
             }
             setDoc(docref,payload)
 
-            addRefferaltoDB(code.toUpperCase())
+            dispatch({
+                type:"SET_CA_DOC",
+                doc:{
+                    name:userLocal.name,
+                    userid:user.uid,
+                    refCode:code.toUpperCase(),
+                    count:0
+                }
+            })
+
+            await setDoc(doc(db,"CAEvent",user.uid),{
+                name:userLocal.name,
+                userid:user.uid,
+                refCode:code.toUpperCase(),
+                count:0
+            })
+
+            // addRefferaltoDB(code.toUpperCase())
             console.log("added new ambassador")
         }
 
     }
 
-    const addRefferaltoDB=async(refCode)=>{
-        await addDoc(CADatabase,{
-            name:userLocal.name,
-            userid:user.uid,
-            refCode:refCode,
-            count:0
-        })
-    }
+    // const addRefferaltoDB=async()=>{
+    //     await setDoc(doc(db,"CAEvent",user.uid),{
+    //         name:userLocal.name,
+    //         userid:user.uid,
+    //         refCode:refCode,
+    //         count:0
+    //     })
+    // }
 
     return (
         <div className="dashboard">
@@ -212,7 +231,7 @@ export const Dashboard=()=>{
                         <div className="events">
                             {isVerified?"":<p>Complete your profile to access more options</p>}
                             {registeredEvents?.length>0?(registeredEvents.map((_event)=>(
-                                <UserEvents event={_event}/>
+                                <UserEvents key={_event.eventid} event={_event}/>
                             ))):<h2>You havent registered for any events</h2>}
 
                         </div>
@@ -228,7 +247,7 @@ export const Dashboard=()=>{
                         </div>:<button onClick={()=>setRegCheck(true)}>Register Now</button>}
                         
                     </div>
-
+                        
                 </div>
 
 

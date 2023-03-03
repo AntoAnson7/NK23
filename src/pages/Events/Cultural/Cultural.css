@@ -1,0 +1,28 @@
+.cultural-events-main{
+    background-color: gray;
+    height: 94vh;
+}
+.cultural-events-sub{
+    background-color: lightblue;
+    position: fixed;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 30px;
+    right: 50px;
+    top: 13%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.cultural-event-card{
+    background-color: lightcoral;
+    margin: 10px;
+    border-radius: 20px;
+}
+.cultural-event-card-2{
+    background-color: lightcoral; 
+    grid-column: span 2;
+    margin: 10px;
+    border-radius: 20px;
+}

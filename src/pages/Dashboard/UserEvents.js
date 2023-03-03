@@ -1,4 +1,4 @@
-import { event_banner_path } from "../Events/event_banner_path"
+import { event_banner_path } from "../Events/eventDeets"
 import {eventsDatabase} from '../../Firebase/DBtables'
 import {getDocs} from 'firebase/firestore'
 import { useState,useEffect } from "react"
@@ -29,7 +29,7 @@ export const UserEvents=({event})=>{
                 {Events?.map((_event)=>{
                     if(_event.eventid == event){
                         return (                           
-                            <div className="registered-events">
+                            <div key={_event.eventid} className="registered-events">
                                 <img src={event_banner_path[`${_event.eventid}`]} alt="" style={{width:"110px"}}/>
                                 <p>{_event.name}</p>
                             </div>

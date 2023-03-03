@@ -1,5 +1,5 @@
 import { useAppData } from "../../AppContext/AppContext"
-
+import { Link } from "react-router-dom"
 export const Home=()=>{
     const [{user,userLocal,isCA}]=useAppData()
     return (
@@ -20,6 +20,9 @@ export const Home=()=>{
                 <h3>{isCA?"CA":"Not CA"}</h3>
             </div>
             ):<h3>Not signed in</h3>}
+
+            <Link to="/events/cultural">Cultural Events</Link>
+            <Link to="/events/technical">Technical Events</Link>
 
         </div>
     )

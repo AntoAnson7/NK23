@@ -4,11 +4,12 @@ import { useAppData } from '../../AppContext/AppContext'
 import * as yup from 'yup'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {addDoc} from 'firebase/firestore'
+import {addDoc,doc,setDoc} from 'firebase/firestore'
 import {usersDatabase} from '../../Firebase/DBtables'
+import { db } from '../../Firebase/config'
 
 export const Signup=()=>{
-
+    const [{user},dispatch]=useAppData()
     const navigate=useNavigate()
     useEffect(()=>{
         if(user.uid==null){
@@ -24,15 +25,15 @@ export const Signup=()=>{
         sem:yup.number().min(1).max(8).required()
     })
 
-    const [{user},dispatch]=useAppData()
+    
 
     const {register,handleSubmit,formState:{errors}}=useForm({
         resolver:yupResolver(schema)
     })
 
     const formSubmit=async(data)=>{
-        
-        await addDoc(usersDatabase,{
+
+        await setDoc(doc(db,"users",user.uid),{
             branch:data.branch,
             college:data.college,
             email:data.email,

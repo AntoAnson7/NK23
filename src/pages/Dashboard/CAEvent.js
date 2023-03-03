@@ -6,7 +6,7 @@ import {WhatsappShareButton,WhatsappIcon} from 'react-share'
 
 
 export const CAEvent=()=>{
-        const [{user,CA}]=useAppData()
+        const [{CA}]=useAppData()
         const shareText=`Hey guys use my refferal code to register for events at Nakshatra 2023 code: *${CA.refCode}*`
 
     return (
@@ -22,6 +22,7 @@ export const CAEvent=()=>{
             <div className='score'>
                 <h1>{CA.count*1000}</h1>
             </div>
+            
 
         </div>
     )
