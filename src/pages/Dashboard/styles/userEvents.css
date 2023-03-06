@@ -1,0 +1,101 @@
+.user-events-temp{
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.user-events-temp::-webkit-scrollbar{
+    display: none;
+}
+.user-events-temp img{
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+}
+.user-events-temp img:hover{
+    transform: scale(1.08);
+    filter: blur(2px);
+}
+
+.sub{
+    position: relative;
+}
+.deets{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    pointer-events: none;
+    font-weight: bold;
+}
+.sub:hover p{
+    opacity: 1;
+}
+
+.vt{
+    width: 100px;
+    height: 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: #8C2725;
+    color: white;
+    font-weight: bold;
+    transition: all 0.2s ease-in;
+}
+.vt:hover{
+    background-color: white;
+    color: #8C2725;
+}
+.ticket{
+    z-index: 1000;
+    position: fixed;
+    top: 20vh;
+    left: 38vw;
+    border: 2px solid green;
+    width: 400px;
+    height: 600px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    transition: all 0.2s ease-in;
+    display: flex; 
+    flex-direction: column;
+    padding: 20px;
+}
+.ticket .qr-div{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.ticket button{
+    margin-left: 90%;
+    height: 30px;
+    width: 30px;
+    background-color: #8C2725;
+    border: none;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%; 
+    transition: all 0.2s ease-in;
+}
+.ticket button:hover{
+    background-color: white;
+    color: #8C2725;
+    border: 1px solid #8C2725;
+}
+
+
+@media screen and (max-width:600px) {
+    .ticket{
+        left: 20px;
+        top: 80px;
+    }
+}

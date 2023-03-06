@@ -1,28 +1,154 @@
 .cultural-events-main{
-    background-color: gray;
-    height: 94vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
+    height: 100vh;
 }
 .cultural-events-sub{
-    background-color: lightblue;
+    background-color: #16171B;
     position: fixed;
-    width: 80vw;
+    width: 75vw;
     height: 80vh;
     border-radius: 30px;
     right: 50px;
     top: 13%;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    /* gap: 10px; */
 }
 .cultural-event-card{
-    background-color: lightcoral;
-    margin: 10px;
+    margin: 12px;
     border-radius: 20px;
+    transition: all 0.2s ease-in;
+}
+.cultural-event-card:hover{
+    transform: scale(1.08);
 }
 .cultural-event-card-2{
-    background-color: lightcoral; 
     grid-column: span 2;
-    margin: 10px;
+    margin: 20px;
+    transition: all 0.2s ease-in;
     border-radius: 20px;
+}
+.cultural-event-card-2:hover{
+    transform: scale(1.08);
+}
+.cultural-event-card-2{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fgeneral.png?alt=media&token=0e9d6901-9794-42f9-a47d-8795c6deaaf1");
+    background-position: center center;
+}
+.cultural-event-card-2 button{
+    width: 100%;
+    height: 100%;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+}
+.cultural-event-card button{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+#art{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fart.png?alt=media&token=06f2d3d9-cff4-4e50-93de-92a77a10ee2b");
+    background-position: center center;
+}
+#board{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fboard.png?alt=media&token=6b8b069b-02bc-4cc9-8971-8c044828ac70");
+    background-position: center center;
+}
+
+#cookery{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fcookery.png?alt=media&token=2806e05c-e554-4532-92a8-bb44adf1ba97");
+    background-position: center center;
+}
+#dance{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fdance.png?alt=media&token=94fd9c63-bc89-49f4-8782-e10aeb1411ee");
+    background-position: center center;
+}
+#gaming{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fgaming.png?alt=media&token=a82b9999-8667-46e1-92b5-a7229314f90e");
+    background-position: center center;
+}
+
+#movie{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fmovie.png?alt=media&token=25a5e8ff-8bca-4b48-a3a0-548d0c176ba5");
+    background-position: center center;
+}
+#music{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fmusic.png?alt=media&token=96ca7813-afc8-436e-823f-9122f2624968");
+    background-position: center center;
+}
+#photography{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fphotography.png?alt=media&token=30c98e17-bbe2-452c-b633-72e9d39d50f0");
+    background-position: center center;
+}
+#quiz{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fquiz.png?alt=media&token=b834c147-bdd5-4ae0-afd0-de8422b49eca");
+    background-position: center center;
+}
+
+#sports{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fsports.png?alt=media&token=2298b378-4235-4f8d-a68f-d96f858f2649");
+    background-position: center center;
+}
+
+.vector-cultural{
+
+    width: 20vw;
+    height: 94vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/3.png?alt=media&token=654afab1-cebf-447b-8e02-77970a3bf32f");
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in;
+    position: fixed;
+}
+.vector-cultural:hover{
+    transform: scale(1.08);
+}
+
+
+
+@media screen and (max-width:900px) {
+    .vector-cultural{
+        display: none;
+    }
+
+    .cultural-events-sub{
+        background-color: transparent;
+        left: 27px;
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        overflow-y: scroll;
+        height: 85vh;
+        gap: 30px;
+        padding-left: 20px; 
+        padding-right: 20px; 
+        
+    }
+
+    .cultural-events-sub::-webkit-scrollbar{
+        display: none;
+    }
+    .cultural-event-card,.cultural-event-card-2{
+        min-height: 30vh;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0,0.8);
+        margin-right: 40px;
+    }
+    
+}
+@media screen and (min-width:900px) and (max-width:1200px){
+    .cultural-event-card-2 button{
+        font-size: 30px;
+    }
+    .cultural-event-card button{
+        font-size: 25px;
+    }
 }

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react"
 import { useAppData } from "../../AppContext/AppContext"
 import { useNavigate } from "react-router-dom"
-import { getDocs,setDoc,doc, addDoc, collection } from 'firebase/firestore'
+import { getDocs,setDoc,doc, addDoc, collection, updateDoc, getDoc } from 'firebase/firestore'
 import {usersDatabase,regDatabase, CADatabase} from '../../Firebase/DBtables'
 import { UserEvents } from "./UserEvents"
 import {db} from '../../Firebase/config'
 import {CAEvent} from './CAEvent'
 import { Recommended } from "./Recommended"
 import '../../Styles_temp/dash.css'
+import {motion} from 'framer-motion'
+import { get } from "react-hook-form"
+// import './Dashboard.css'
  
 export const Dashboard=()=>{
     const [regCheck,setRegCheck]=useState(false)
@@ -26,31 +29,18 @@ export const Dashboard=()=>{
         const userData=await getDocs(usersDatabase)
         setdbUsers(userData.docs.map((doc)=>({...doc.data(),id:doc.id})))
     }
-    const getCAinfofromDB=async()=>{
-        const CA=await getDocs(CADatabase)
-        setCAinfo(CA.docs.map((doc)=>({...doc.data(),id:doc.id})))
-    }
 
-    const getRegisteredUsers=async()=>{
-        let temp=[]
-        const res= await getDocs(regDatabase)
-        res.docs.map((doc)=>{
-            if(doc._document.data.value.mapValue.fields.userid.stringValue===user.uid){
-                temp.push(doc._document.data.value.mapValue.fields.eventid.stringValue)
-            }
-        })
-        setregisteredEvents(temp)
+    const getRegistrations=async()=>{
+        const res=await getDoc(doc(db,"users",user.uid))
+        setregisteredEvents(res.data().registered)
     }
 
     useEffect(() => {
         if(user.uid==null){
             navigate("/")
         }
-        getUsersFromDatabase()
-        getCAinfofromDB()
-        
-        getRegisteredUsers()
-
+        getUsersFromDatabase()        
+        getRegistrations()
 
       },[]);
 
@@ -137,9 +127,15 @@ export const Dashboard=()=>{
     const makeUserCA=async()=>{
 
         let code=""
-        // const CAdocRef=collection(db,"CAEvent",user.uid)
         for(let i=0;i<4;i++){
-            code+=user?.displayName[i]
+            if(userLocal.name[i]==" ")
+            {
+                code+="X"
+            }
+            else{
+                code+=userLocal.name[i]
+            }
+            
         }
         for(let i=0;i<6;i++){
             code+=user?.uid[i]
@@ -152,61 +148,29 @@ export const Dashboard=()=>{
             isCA:true
         })
 
-        let tempDOC=""
-        dbUsers.map((doc)=>{
-            
-            if(doc.uid==user.uid){
-                tempDOC=doc.id
-            }
-        })
-        
-        if(tempDOC!=""){
-            const docref=doc(db,"users",tempDOC)
-            const payload={
-                name:userLocal.name,
-                college:userLocal.college,
-                email:user.email,
-                uid:user.uid,
-                isCA:true,
-                sem:userLocal.sem,
-                branch:userLocal.branch
-            }
-            setDoc(docref,payload)
-
-            dispatch({
-                type:"SET_CA_DOC",
-                doc:{
-                    name:userLocal.name,
-                    userid:user.uid,
-                    refCode:code.toUpperCase(),
-                    count:0
-                }
-            })
-
-            await setDoc(doc(db,"CAEvent",user.uid),{
+        dispatch({
+            type:"SET_CA_DOC",
+            doc:{
                 name:userLocal.name,
                 userid:user.uid,
                 refCode:code.toUpperCase(),
                 count:0
-            })
+            }
+        })
 
-            // addRefferaltoDB(code.toUpperCase())
-            console.log("added new ambassador")
-        }
+        await updateDoc(doc(db,"users",user.uid),{
+            isCA:true,
+            refcode:code.toUpperCase(),
+            refcount:0
+        })
 
+        await setDoc(doc(db,"CAMap",code.toUpperCase()),{
+            uid:user.uid
+        })
     }
 
-    // const addRefferaltoDB=async()=>{
-    //     await setDoc(doc(db,"CAEvent",user.uid),{
-    //         name:userLocal.name,
-    //         userid:user.uid,
-    //         refCode:refCode,
-    //         count:0
-    //     })
-    // }
-
     return (
-        <div className="dashboard">
+        <motion.div className="dashboard">
 
                 {/* DASHBOARD LEFT */}
                 <div className="dashboard-left">
@@ -218,9 +182,11 @@ export const Dashboard=()=>{
                             <div className="pfp">
                                 {user.uid?<img src={user.photoURL} alt="" />:<i></i>}
                             </div>
+
                             <div className="user-info">
                                 {isVerified?<h3>{user.displayName}</h3>:checkUser()}
                             </div>
+                            
                             <div className="logout">
                                 <button onClick={logout}>Logout</button>
                             </div> 
@@ -230,9 +196,8 @@ export const Dashboard=()=>{
                         {/* REGISTERED EVENTS SECTION */}
                         <div className="events">
                             {isVerified?"":<p>Complete your profile to access more options</p>}
-                            {registeredEvents?.length>0?(registeredEvents.map((_event)=>(
-                                <UserEvents key={_event.eventid} event={_event}/>
-                            ))):<h2>You havent registered for any events</h2>}
+                            {registeredEvents?.length>0?(<UserEvents event={registeredEvents}/>):
+                            <h2>You havent registered for any events</h2>}
 
                         </div>
 
@@ -240,11 +205,13 @@ export const Dashboard=()=>{
                     
                     {/* CAMPUS AMBASSADOR */}
                     <div className="campus-ambassador">
-                        {isCA?<CAEvent/>:regCheck?<div>
-                            Are you sure you want to become a Campus Ambassador
-                            <button onClick={()=>setRegCheck(false)}>Cancel</button>
-                            <button onClick={makeUserCA}>Ok</button>
-                        </div>:<button onClick={()=>setRegCheck(true)}>Register Now</button>}
+                        {isCA?<CAEvent/>:regCheck?<div className="ca-reg-inter">
+                            <p>Are you sure you want to become a Campus Ambassador</p>
+                            <div className="butts">
+                                <button onClick={()=>setRegCheck(false)}>Cancel</button>
+                                <button onClick={makeUserCA}>Ok</button>
+                            </div>
+                        </div>:<button className="ca-reg-button" onClick={()=>setRegCheck(true)}>Register Now</button>}
                         
                     </div>
                         
@@ -255,6 +222,6 @@ export const Dashboard=()=>{
                 <div className="dashboard-right">
                     <Recommended/>
                 </div>
-        </div>
+        </motion.div>
     )
 }

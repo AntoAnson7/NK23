@@ -11,7 +11,9 @@ export const initial={
     },
     isCA:false,
     CA:null,
-    code:null
+    code:null,
+    eventTemp:null,
+    RegEvent:null
 }
 
 export const reducer=(state,action)=>{
@@ -47,6 +49,16 @@ export const reducer=(state,action)=>{
         case 'SET_CA_DOC':
             return{
                 ...state,CA:action.doc
+            }
+
+        case 'SET_EVENT_TEMP':
+            return{
+                ...state,eventTemp:action.eventTemp
+            }
+
+        case 'SET_EVENT':
+            return{
+                ...state,RegEvent:action.RegEvent
             }
 
         default :return state

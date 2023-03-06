@@ -23,7 +23,7 @@ export const Home=()=>{
 
             <Link to="/events/cultural">Cultural Events</Link>
             <Link to="/events/technical">Technical Events</Link>
-
+            <div id="test">TEST</div>
         </div>
     )
 }

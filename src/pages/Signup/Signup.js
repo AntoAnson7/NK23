@@ -41,6 +41,9 @@ export const Signup=()=>{
             name:data.display_name,
             sem:data.sem,
             isCA:false,
+            registered:[],
+            refcode:"nor",
+            refcount:0
         })
 
 

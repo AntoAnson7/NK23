@@ -1,11 +1,11 @@
 .technical-events-main{
-    background-color: gray;
-    height: 94vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
+    height: 100vh;
 }
 .technical-events-sub{
-    background-color: lightblue;
+    background-color: #16171B;
     position: fixed;
-    width: 80vw;
+    width: 70vw;
     height: 70vh;
     border-radius: 20px;
     right: 50px;
@@ -16,10 +16,48 @@
 }
 
 .workshops,.competitions{
-    background-color: lightpink;
     width: 90%;
     margin: 0 auto;
+    display: flex;
     border-radius: 30px;
     height: 30vh;
+    transition: all 0.2s ease-in;
     margin-top: 25px ;
+}
+.workshops:hover,.competitions:hover{
+    transform: scale(1.08);
+}
+
+.workshops button,.competitions button{
+    width: 100%;
+    height: 100%;
+    font-size: 70px;
+    letter-spacing: 4px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+}
+#workshops{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FTechnical%2Fworkshops.png?alt=media&token=21b939af-1799-440f-9e13-6a2e414006b7");
+    background-position: center center;
+}
+#competitions{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FTechnical%2Fworkshops.png?alt=media&token=21b939af-1799-440f-9e13-6a2e414006b7");
+    background-position: center center;
+}
+
+.vector-technical{
+
+    width: 15vw;
+    height: 75vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/2.png?alt=media&token=058e37a8-2b9d-4354-81f1-7c1b46fbda0e");
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+    transition: all 0.2s ease-in;
+    position: fixed;
+}
+.vector-technical:hover{
+    transform: rotate(180deg) scale(1.08);
 }

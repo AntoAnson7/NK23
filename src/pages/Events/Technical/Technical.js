@@ -5,21 +5,22 @@ export const Technical=()=>{
     const navigate=useNavigate()
     return (
         <div className="technical-events-main">
-            <div className='technical-events-sub'>
-
-
+            <div className='vector-technical'>
                 
-                <div className="workshops">
+                </div>
+            
+            <div className='technical-events-sub'>
+                <div className="workshops" id='workshops'>
                     {/* MAKE THIS BUTTON IMAGE */}
                     <button onClick={()=>navigate("/events/technical/workshops")}>Workshops</button>
                 </div>
 
-                <div className="competitions">
+                <div className="competitions" id="competitions">
                     {/* MAKE THIS BUTTON IMAGE */}
                     <button onClick={()=>navigate("/events/technical/competitions")}>Competitions</button>
                 </div>
-
             </div>
+
         </div>
     )
 }
