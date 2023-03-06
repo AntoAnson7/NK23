@@ -22,6 +22,11 @@ import {Quiz} from '../pages/Events/Cultural/Quiz/Quiz'
 import {Sports} from '../pages/Events/Cultural/Sports/Sports'
 import { Registration } from './Registration'
 
+import {Contact} from '../components/FooterElements/Contact/Contact'
+import {Privacy} from './FooterElements/Privacy/Privacy'
+import {Terms} from '../components/FooterElements/Terms/Terms'
+import {Refund} from './FooterElements/Refund/Refund'
+
 import {AnimatePresence} from 'framer-motion' //framer-motion/dist/framer-motion
 
 export function RouterPaths() {
@@ -52,6 +57,11 @@ export function RouterPaths() {
           <Route path="/events/cultural/sports" element={<Sports/>}/>
     
           <Route path="/events/registration" element={<Registration/>}/>
+
+          <Route path='/contact-us' element={<Contact/>}/>
+          <Route path='/terms' element={<Terms/>}/>
+          <Route path='/refunds' element={<Refund/>}/>
+          <Route path='/privacy-policy' element={<Privacy/>}/>
     </Routes>
   </AnimatePresence>
   )

@@ -68,7 +68,7 @@
 }
 .leaderboard{
     flex: 3;
-    max-height: 23rem;
+    max-height: 20rem;
     overflow-y: scroll;
 }
 .leaderboard::-webkit-scrollbar{

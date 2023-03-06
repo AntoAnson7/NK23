@@ -4,10 +4,10 @@
     width: 90vw;
     border-radius: 30px;
     margin: 0 auto;
-    margin-top: 85px;
+    margin-top: 140px;
     background-color: #1E1E1E;
     display: flex;
-    color: white;
+    color: white
 }
 .render-main .left{
     flex: 0.35;
@@ -67,7 +67,7 @@
 .reg-button{
     width: 20rem;
     height: 4rem;
-    border-radius: 50px;
+    border-radius: 25px;
     border: none;
     outline: none;
     font-size: 25px;

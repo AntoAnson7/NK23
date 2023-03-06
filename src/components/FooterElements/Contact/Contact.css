@@ -1,0 +1,188 @@
+.contact{
+    padding-top: 4rem;  
+    padding-bottom: 2rem;
+    background-color: black;
+}
+.contact-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4rem;
+    padding-right: 2rem;
+    margin-top: 10vh;
+}
+.contact-heading h2{
+    color: #287ff9;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position:relative;
+    font-family: "Bai Jamjuree",sans-serif;
+}
+.contact-heading h2::before{
+    position: absolute;
+    top: 50%;
+    right: -80px;
+    content: '';
+    width: 70px;
+    height: 2px;
+    background: #287ff9;
+}
+.contact-heading h2::after{
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    content: '';
+    width: 70px;
+    height: 2px;
+    background: #287ff9;
+} 
+.container {
+    max-width: 1170px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.column{
+    flex: 0 0 auto;
+    width: 50%;
+}
+.contact-widget{
+    margin-bottom: 40px;
+    padding-right: 10px;
+}
+.contact-widget-item{
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.icon{
+    height: 60px;
+    width: 60px;
+    background: #287ff9;
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
+    margin-right: 30px;
+    float: left;
+}
+.icon i{
+    font-size: 24px;
+    color: #fff;
+    position: relative;
+    top: 3px;
+}
+.text{
+    overflow: hidden;
+}
+.text h5{
+    color: #111;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.text p{
+    font-size: 16px;
+    font-family: "Bai Jamjuree",sans-serif;
+    color: white;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0 0 15px 0;
+}
+.contact-form{
+    text-align: center;
+    margin-bottom: 40px;
+}
+form{
+    display: block;
+    margin-top: 0em;
+}
+form input{
+    height: 46px;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 15px;
+    color: #111;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    -webkit-transition: all , .3s;
+    -o-transition: all , .3s;
+    transition: all , .3s;
+}
+form textarea{
+    height: 110px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 12px;
+    font-size: 15px;
+    color: #111;
+    border: 1px solid #e1e1e1;
+    resize: none;
+    margin-bottom: 9px;
+    border-radius: 4px;
+    -webkit-transition: all , .3s;
+    -o-transition: all , .3s;
+    transition: all , .3s;
+}
+form button{
+    width: 100%;
+    cursor: pointer;
+}
+.site-btn{
+    border: none;
+    display: inline-block;
+    background: rgba(255,215,35,.3);
+    color: #111;
+    font-size: 14px;
+    font-family: "Rubik",sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    padding: 12px 40px 10px;
+}
+.column-map{
+    flex: 0 0 auto;
+    width: 100%;
+}
+.contact-map iframe{
+    width: 100%;
+}
+@media screen and (max-width:1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+@media screen and (max-width:990px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (max-width: 768px){
+   .container {
+    max-width: 540px;
+   }
+   .column{
+    width: 100%;
+   }
+}
+@media (max-width: 500px){
+    .contact-heading{
+        padding-right: 0;
+    }
+    .contact-heading h2{
+        font-size: 22px; 
+    }
+    .contact-heading h2::before{
+        right: -60px;
+        width: 50px;
+    }
+    .contact-heading h2::after{
+        left: -60px;
+        width: 50px;
+    } 
+}

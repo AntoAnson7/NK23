@@ -1,29 +1,36 @@
 import { useAppData } from "../../AppContext/AppContext"
-import { Link } from "react-router-dom"
+import {event_banner_path} from '../Events/eventDeets'
+import {Footer} from '../../components/Footer'
+import './Home.css'
+
 export const Home=()=>{
     const [{user,userLocal,isCA}]=useAppData()
     return (
-        <div>
-
-            <h1>HOME</h1>
-
-            {user.uid?(
-
-            <div className="user-info">
-                <h3>{user.displayName}</h3>
-                <h3>{userLocal.name}</h3>
-                <h3>{userLocal.email}</h3>
-                <h3>{userLocal.college}</h3>
-                <h3>{userLocal.branch}</h3>
-                <h3>{userLocal.sem}</h3>
-                <h3>{userLocal.id}</h3>
-                <h3>{isCA?"CA":"Not CA"}</h3>
+        <div className="home-parent"> 
+            <div className="home-main">
+                <div className="nk-text">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/nktext.png?alt=media&token=981f2431-cc5a-4920-8f0d-51530394d0f2" alt="" />
+                </div>
             </div>
-            ):<h3>Not signed in</h3>}
 
-            <Link to="/events/cultural">Cultural Events</Link>
-            <Link to="/events/technical">Technical Events</Link>
-            <div id="test">TEST</div>
+            <div className="home-about-us" id="about">
+                s
+            </div>
+
+            <div className="home-events">
+                
+                <div className="flage-top">
+                    <img src={event_banner_path["test"]} alt="" />
+                    <img src={event_banner_path["test"]} alt="" />
+                    <img src={event_banner_path["test"]} alt="" />
+                </div>
+
+                <div className="flage-bot">
+                    <img src={event_banner_path["test"]} alt="" />
+                    <img src={event_banner_path["test"]} alt="" />
+                </div>
+            </div>
+                <Footer/>
         </div>
     )
 }

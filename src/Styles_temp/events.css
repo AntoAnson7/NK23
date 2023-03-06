@@ -21,19 +21,19 @@
 }
 .events-right{
     flex: 1;
-
 }
 .title{
     position: absolute;
     left: 30px;
     max-width: 300px;
     pointer-events: none;
+    margin-top: 100px;
 }
 .title-r{
     position: absolute;
     right: 0;
     max-width: 270px;
-    margin-top: 100px;
+    margin-top: 200px;
     pointer-events: none;
     margin-right: 30px;
 }
@@ -87,6 +87,7 @@
         margin-top: 70px;
     }
     .title-r{
+        margin-top: 70px;
         max-width: 150px;
         max-height: 250px;
     }

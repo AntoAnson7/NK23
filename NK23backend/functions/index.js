@@ -13,7 +13,6 @@ app.use(cors())
 app.use(bodyParser.json())
 
 var serviceAccount = require("./service.json");
-const { increment, QuerySnapshot, doc, arrayUnion } = require("firebase/firestore");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)

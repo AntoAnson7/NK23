@@ -1,0 +1,62 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.home-main{
+    height: 100vh;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+.home-about-us{
+    background-color: black;
+    height: 100vh;
+}
+.nk-text{
+    transition: all 0.2s ease-in;
+}
+.nk-text:hover{
+    transform: scale(1.08);
+}
+
+.home-events{
+    height: 100vh;
+    background-color:#16171B;
+    display: flex;
+    flex-direction: column;
+}
+
+.flage-top{
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding: 20px;
+}
+
+.flage-bot{
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 550px;
+    margin-right: 550px;
+    padding: 20px;
+}
+
+.flage-top img,.flage-bot img{
+    max-width: 28vh;
+    border-radius: 20px;
+    transition: all 0.2s ease-in;
+}
+.flage-top img:hover,.flage-bot img:hover{
+    transform: scale(1.2);
+}
+
+.footer{
+    height: 40vh;
+}

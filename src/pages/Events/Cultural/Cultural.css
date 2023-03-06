@@ -9,7 +9,7 @@
     height: 80vh;
     border-radius: 30px;
     right: 50px;
-    top: 13%;
+    top: 17%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* gap: 10px; */
@@ -101,9 +101,9 @@
 }
 
 .vector-cultural{
-
     width: 20vw;
     height: 94vh;
+    margin-top: 80px;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/3.png?alt=media&token=654afab1-cebf-447b-8e02-77970a3bf32f");
     background-repeat: no-repeat;
     transition: all 0.2s ease-in;

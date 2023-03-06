@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -81,4 +81,145 @@
         font-size: 50px;
     }
 
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
+
+.navbar{
+    border: 0px solid white;
+    width: 100%;
+    background-color: transparent;
+    position: absolute;
+    height: fit-content;
+    z-index: 1;
+    margin: 0;
+    color: white;
+}
+#logo{
+    border: 0px solid yellow;
+    width: 7%;
+    transition: all 0.2s ease-in;
+    margin-left: 80px;
+}
+
+#logo:hover{
+    transform: scale(1.08);
+}
+#logo img{
+    width: 100%;
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+}
+.navbar button{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+}
+.navbar button:hover{
+    cursor: pointer;
+}
+.navbar .links{
+    font-size: 1.3rem;
+    display: flex;
+    gap: 50px;
+    margin-right: 50px;
+    color: white;
+    display: flex;
+    height: 140px;
+    justify-content: space-around;
+    align-items: center;
+}
+.links p{
+    color: white;
+    z-index: 1;
+    cursor: pointer;
+}
+#smallNav{
+    border: 0px solid white;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#headinglogo{
+    border: 0px solid white;
+    color: white;
+}
+.nav-elements active {
+    border : 1px solid black;
+    color: #574c4c;
+    font-weight: 500;
+    position: relative;
+  }
+  #sidebarLinks{
+    display: none;
+  }
+@media (max-width:720px){
+    .links{
+        max-height: 0px;
+        display: none;
+    }
+    .links p{
+        display: none;
+    }
+    #logo{
+        display: none;
+    }
+    #smallNav{
+        display:flex;
+        margin-top: 0;
+        background-color: black;
+        position: fixed;
+        width: 100%;
+        height: 60px;
+    }
+    .logo-small{
+        width: 70px;
+        transition: all 0.2s ease-in;
+    }
+    .logo-small:hover{
+        transform: scale(1.08);
+    }
+    .nav-elements {
+        position: absolute;
+        left: 0;
+        top: 50px;
+        background-color: black;
+        width: 0px;
+        height: calc(100vh - 60px);
+        transition: all 0.2s ease-in;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .nav-elements.active {
+        border: 0px solid white;
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 20px;
+        position: fixed;
+      }
+      #sidebarLinks{
+        margin-top: 50px;
+        display: grid;
+        gap: 50px;
+        border: 0px solid white;
+      }
+      #userBox{
+        border: 0px solid white;
+        margin: auto;
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+}
+
