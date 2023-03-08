@@ -115,7 +115,7 @@ export const Navbar=()=>{
         <div className="navbar">
             {/* Desktop Navbar */}
             <div className="links">
-                <Link to="/">
+                <Link to="/contact-us">
                     <p>Contact Us</p></Link>
                 <a href="#about">
                     <p>About Us</p>

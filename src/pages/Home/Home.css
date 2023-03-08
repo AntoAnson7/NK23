@@ -13,6 +13,41 @@ html{
 .home-about-us{
     background-color: black;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.home-about-us .top{
+    display: flex;
+    flex: 1.2;
+}
+.home-about-us .bot{
+    flex: 1;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bot p{
+    width: 1000px;
+    line-height: 25px;
+}
+
+.home-about-us .nk-log{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-about-us .gits-log{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-about-us .nk-log img,.home-about-us .gits-log img{
+    width: 450px;
 }
 .nk-text{
     transition: all 0.2s ease-in;

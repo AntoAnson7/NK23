@@ -1,0 +1,46 @@
+.reg{
+    background-color: #16171B;
+    height: 100vh;
+    width: 100vw;
+}
+
+.reg .form .i1{
+    margin-top: 250px;
+}
+.reg .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reg .form input{
+    max-width: 500px;
+    border-radius: 13px;
+    border: none;
+    transition: all 0.2s ease-in;
+    outline: 3px solid #8C2725;
+}
+.pay-alerts{
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 40px;
+    max-width: 500px;
+}
+.reg .form .i-sub{
+    max-width: 180px;
+    border-radius: 20px;
+    background-color: #8C2725;
+    border: none;
+    font-weight: bold;
+    color: white;
+    height: 50px;
+    font-size: 18px;
+    padding: 0;
+    transition: all 0.2s ease-in;
+}
+.reg .form .i-sub:hover{
+    background-color: white;
+    color: #8C2725;
+    border: 1px solid #8C2725;
+    outline: none;
+}

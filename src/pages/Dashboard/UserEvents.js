@@ -28,7 +28,7 @@ export const UserEvents=({event})=>{
             <div className="user-events-temp">
                 {event.map((e)=>(
                     <div className="sub">
-                        <img src={event_banner_path[e]} alt="" style={{width:"8rem"}}/>
+                        <img onClick={()=>setFlag(!flag)} src={event_banner_path[e]} alt="" style={{width:"8rem"}}/>
                         <p className="deets">Click to view ticket</p>
                     </div>
                 ))}
@@ -37,7 +37,8 @@ export const UserEvents=({event})=>{
             <button className="vt" onClick={()=>setFlag(!flag)}>View ticket</button>
             
             {flag?<div className="ticket">
-                <button onClick={()=>setFlag(!flag)}>X</button>
+                <button className="x" onClick={()=>setFlag(!flag)}>X</button>
+                
                 <div className="qr-div">
                     <QRCode className="qr" value={str}/>
                 </div>

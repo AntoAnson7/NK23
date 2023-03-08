@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import './Registration.css'
 
 export function Registration() {
   const navigate=useNavigate()
@@ -39,17 +40,19 @@ export function Registration() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(proceedtoPay)}>
-        <input type="text" value={e.name} />
+    <div className='reg'>
+      <form className='form' onSubmit={handleSubmit(proceedtoPay)}>
+        <input className='i1' type="text" value={e.name} />
         <input type="text" value={e.eventid}/>
         <input type="text" placeholder='Do you have a referral code?'{...register('ref')}/>
         <p></p>
-        <p>Alert: Please do not refresh the page after you hit pay</p>
-        <p>There wont be any refunds after you have paid the registration fee</p>
-        <p>You will be charged extra 2% as payment gateway charges</p>
-        <p>Wait for the payment window to close automatically after the payment is done</p>
-        <input type="submit" value={`Pay rs ${e.regfee}`}/>
+        <ul className="pay-alerts">
+          <li>Alert: Please do not refresh the page after you hit pay</li>
+          <li>There wont be any refunds after you have paid the registration fee</li>
+          <li>You will be charged extra 2% as payment gateway charges</li>
+          <li>Wait for the payment window to close automatically after the payment is done</li>
+        </ul>
+        <input className='i-sub' type="submit" value={`Pay ₹${e.regfee}`}/>
       </form>
     </div>
   )

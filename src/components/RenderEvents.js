@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './RenderEvents.css'
 import { event_banner_path } from '../pages/Events/eventDeets'
-import {getDoc,doc, updateDoc, arrayUnion} from 'firebase/firestore'
+import {getDoc,doc, updateDoc, collection, arrayUnion} from 'firebase/firestore'
 import {db} from '../Firebase/config'
 import { useNavigate } from 'react-router-dom'
 import { useAppData } from '../AppContext/AppContext' 
@@ -10,18 +10,22 @@ import {motion} from 'framer-motion'
 export function RenderEvents({name}) {
 
   const [{user},dispatch]=useAppData()
-
+  const [loginStat,setloginStat]=useState(false)
   const navigate=useNavigate()
   const [Event,setEvent]=useState([])
 
-
+  
   const getEvent=async()=>{
-    const res= await getDoc(doc(db,"Events","NK007"))//Add {name} as ID here 
-    setEvent(res.data())
+    const res= await getDoc(doc(db,"Events",name))//Add {name} as ID here 
+    setEvent(res.data().category==undefined?"NK007":res.data())
   }
+
 
   useEffect(()=>{
     getEvent()
+    if(user.uid!=null){
+      setloginStat(true)
+    }
   },[])
 
   const initiateRegistration=()=>{
@@ -38,7 +42,13 @@ export function RenderEvents({name}) {
     navigate("/events/registration")
   }
 
-  
+  const regFree=async()=>{
+    await updateDoc(doc(db,"EventRegs",Event.eventid),{
+      registrations:arrayUnion(user.uid)
+    })
+  }
+
+  console.log(Event.eventid)
   return (
     <motion.div className='render-main'
     initial={{opacity:0}}
@@ -47,15 +57,22 @@ export function RenderEvents({name}) {
     
     >
         <div className="left">
-          <img className='banner-img' src={event_banner_path["test"]} alt="" style={{width:"600px"}}/>
-          {/* {user.uid?<button className='reg-button' onClick={{initiateRegistration}}>Register Now</button>:<button className='reg-button'>Sign in to Register</button>} */}
-          <button className='reg-button' onClick={initiateRegistration}>Register Now</button>
+          
+          <img className='banner-img' src={event_banner_path[Event.eventid?Event.eventid:"test"]} alt="" style={{width:"600px"}}/>
+          
+          {loginStat?
+          (Event.eventid=="NK066"?<button className='reg-button' onClick={regFree}>Register Free</button>:(
+            Event.isActive?
+            <button className='reg-button' onClick={initiateRegistration}>Register Now</button>:
+            <button className='reg-button'>Registration closed</button>
+          )):<button className='reg-button'>Sign in to Register</button>}
+          
         </div>
 
         <div className="right">
 
           <div className="title-bar">
-            <h1>{Event.name}</h1>
+            <h1>{`${Event.name} (${name})`}</h1>
             <div className='deet'>
               <p>{Event.isTeam?"Team":"Individual"}</p>
               <p>{`Fee : ${Event.regfee}`}</p>
@@ -78,6 +95,16 @@ export function RenderEvents({name}) {
                 <p dangerouslySetInnerHTML={{__html:Event.rules}}></p>
               </div>
           ):<></>}
+          <div className="medals-a">
+              <div className="first-a">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c" alt="" style={{width:"35px"}}/>
+                  <p>{`${Event.first}/-`}</p>
+              </div>
+              <div className="second-a">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000" alt="" style={{width:"35px"}}/>
+                  <p>{`${Event.second}/-`}</p>
+              </div>
+          </div>
 
         </div>  
         

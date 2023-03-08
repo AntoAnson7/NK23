@@ -106,6 +106,13 @@ app.post('/verification',(req,res)=>{
       })}catch(e){console.log("addingFail: "+e)}
 
     }
+    try{
+      db.collection("EventRegs").doc(req.body.payload.payment.entity?.notes.eventid).update({
+        registrations:admin.firestore.FieldValue.arrayUnion(req.body.payload.payment.entity.notes.userid)
+      })
+    }catch(e){
+      console.log("eventRegPushFail: "+e)
+    }
 
     
     

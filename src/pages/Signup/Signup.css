@@ -1,0 +1,38 @@
+.signup{
+    height: 100vh;
+    width: 100vw;
+    background-color: #16171B;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-form .i1{
+    margin-top: 250px;
+}
+
+.signup-form input{
+    max-width: 500px;
+    border-radius: 13px;
+    border: none;
+    transition: all 0.2s ease-in;
+    outline: 3px solid #8C2725;
+}
+.signup-form .sub-i{
+    max-width: 180px;
+    border-radius: 20px;
+    background-color: #8C2725;
+    border: none;
+    font-weight: bold;
+    color: white;
+    height: 50px;
+    font-size: 18px;
+    padding: 0;
+    transition: all 0.2s ease-in;
+}
+.signup-form .sub-i:hover{
+    background-color: white;
+    color: #8C2725;
+    border: 1px solid #8C2725;
+}

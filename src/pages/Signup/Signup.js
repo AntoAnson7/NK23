@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import {addDoc,doc,setDoc} from 'firebase/firestore'
 import {usersDatabase} from '../../Firebase/DBtables'
 import { db } from '../../Firebase/config'
+import './Signup.css'
 
 export const Signup=()=>{
     const [{user},dispatch]=useAppData()
@@ -75,12 +76,12 @@ export const Signup=()=>{
         <div className="signup">
             <form className='signup-form' onSubmit={handleSubmit(formSubmit)}>
                 <p>Note : The display name you choose will be your name in certificates</p>
-                <input type="text" placeholder='Display name' {...register("display_name")}/>
+                <input className='i1' type="text" placeholder='Display name' {...register("display_name")}/>
                 <input type="text" placeholder='Email' defaultValue={user.email} {...register("email")}/>
                 <input type="text" placeholder='College name' {...register("college")}/>
                 <input type="text" placeholder='Branch' {...register("branch")}/>
                 <input type="number" placeholder='Semester' {...register("sem")}/>
-                <input type="submit" value="Sign Up"/>
+                <input className='sub-i' type="submit" value="Sign Up"/>
             </form>
         </div>
     )

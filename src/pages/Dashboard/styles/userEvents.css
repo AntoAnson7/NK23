@@ -76,7 +76,6 @@
     flex-direction: column;
 }
 .ticket button{
-    margin-left: 90%;
     height: 30px;
     width: 30px;
     background-color: #8C2725;
@@ -86,6 +85,7 @@
     border-radius: 50%; 
     transition: all 0.2s ease-in;
 }
+
 .ticket button:hover{
     background-color: white;
     color: #8C2725;

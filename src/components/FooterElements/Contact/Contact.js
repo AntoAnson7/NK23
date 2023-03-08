@@ -45,7 +45,7 @@ const messageUser = async ()=>{
                     </div>
                     <div className="text">
                       <h5>Contact Us</h5>
-                      <p>+91-6238830855</p>
+                      <p>+91-9526075975*</p>
                     </div>
                 </div>
                 <div className="contact-widget-item">

@@ -1,88 +1,3 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-
-.navbar{
-    background-color: rgba(0,0,0,0.6);
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    position: fixed;
-    width: 100%;
-    z-index: 100000;
-}
-.navbar a{
-    text-decoration: none;
-    color: white;
-}
-.navbar button{
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
-}
-.navbar button:hover{
-    cursor: pointer;
-}
-.navbar .links{
-    width: 100%;
-    font-size: 2rem;
-    display: flex;
-    margin-left: 100px;
-    margin-right: 100px;
-    justify-content: space-between;
-}
-.nav2{
-    display: none;
-}
-
-@media screen and (max-width:1060px) {
-    .navbar{
-        display: none;
-    }
-    .nav2{
-        display: flex;
-        height: 70px;
-        position: fixed;
-        z-index: 1000;
-        width: 100%;
-        background-color: rgba(0,0,0,0.6);
-    }
-    .ham{
-        color: white;
-        font-size: 50px;
-        padding: 10px;
-        cursor: pointer;
-        opacity: 90%;
-    }
-    .menu{
-        background-color: rgba(0,0,0,0.6);
-        position: absolute;
-        height: 100vh;
-        width: 100vw;
-        color: white;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 100px;
-        transition: all 0.2s ease-in;
-        z-index: 500;
-    }
-    .menu h1{
-        transition: all 0.2s ease-in;
-        cursor: pointer;
-    }
-    .menu h1:hover{
-        font-size: 50px;
-    }
-
-} */
-
 *{
     margin: 0;
     padding: 0;
@@ -103,7 +18,7 @@
     border: 0px solid yellow;
     width: 7%;
     transition: all 0.2s ease-in;
-    margin-left: 80px;
+    margin-left: 20px;
 }
 
 #logo:hover{

@@ -76,7 +76,7 @@
     transition: all 0.2s ease-in;
     color: white;
     position: absolute;
-    left: 0px;
+    left: 65px;
     bottom: 100px;
 }
 .reg-button:hover{
@@ -104,6 +104,24 @@
 .title-bar p:hover{
     background-color: white;
     color: #8C2725;
+}
+
+.medals-a .first-a img,.medals-a .second-a img{
+    max-width: 30px;
+}
+.medals-a{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+}
+.medals-a .first-a,.medals-a .second-a{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 500;
+    font-size: 23px;
+    letter-spacing: 3px;
 }
 
 @media screen and (max-width:600px) {
@@ -162,8 +180,6 @@
     .reg-button{
         position: absolute;
         bottom: -1200px;
-        margin-left: 40px;
+        margin-left: -20px;
     }
-
-
 }

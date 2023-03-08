@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useAppData } from "../../AppContext/AppContext"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { getDocs,setDoc,doc, addDoc, collection, updateDoc, getDoc } from 'firebase/firestore'
 import {usersDatabase,regDatabase, CADatabase} from '../../Firebase/DBtables'
 import { UserEvents } from "./UserEvents"
@@ -9,8 +9,7 @@ import {CAEvent} from './CAEvent'
 import { Recommended } from "./Recommended"
 import '../../Styles_temp/dash.css'
 import {motion} from 'framer-motion'
-import { get } from "react-hook-form"
-// import './Dashboard.css'
+
  
 export const Dashboard=()=>{
     const [regCheck,setRegCheck]=useState(false)
@@ -20,7 +19,6 @@ export const Dashboard=()=>{
     const [refCode,setrefCode]=useState("")
     const [CA,setCA]=useState()
     const navigate=useNavigate()
-
 
     const [{user,isVerified,isCA,userLocal},dispatch]=useAppData()
 
@@ -41,7 +39,7 @@ export const Dashboard=()=>{
         }
         getUsersFromDatabase()        
         getRegistrations()
-
+        
       },[]);
 
     const logout=()=>{
@@ -197,7 +195,7 @@ export const Dashboard=()=>{
                         <div className="events">
                             {isVerified?"":<p>Complete your profile to access more options</p>}
                             {registeredEvents?.length>0?(<UserEvents event={registeredEvents}/>):
-                            <h2>You havent registered for any events</h2>}
+                            <h2>You havent registered for any <strong>{<Link to="/events">Events</Link>}</strong></h2>}
 
                         </div>
 
@@ -211,7 +209,46 @@ export const Dashboard=()=>{
                                 <button onClick={()=>setRegCheck(false)}>Cancel</button>
                                 <button onClick={makeUserCA}>Ok</button>
                             </div>
-                        </div>:<button className="ca-reg-button" onClick={()=>setRegCheck(true)}>Register Now</button>}
+                        </div>:
+                        <div className="unregistered">
+                            <div className="caleft">
+                                <div className="cadescr">
+                                <h2>Campus <strong>Ambassador</strong></h2><br /><br />
+                                <p>Have you dreamed of being a superhero ? Who needs superheroes when you can be a campus ambassador.
+                                    “With great power comes great responsibility”.    
+                                    Here’s an opportunity to explore your inner influencer.
+                                    Let’s see who will become the next face of Nakshatra 🎭.  
+                                    It all starts with you...</p>
+
+                                    <div className="medals">
+                                        <div className="first">
+                                            <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c" alt="" style={{width:"35px"}}/>
+                                            <p>₹ 7000</p>
+                                        </div>
+                                        <div className="second">
+                                            <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000" alt="" style={{width:"35px"}}/>
+                                            <p>₹ 3000</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="caright">
+                                <div className="carules">
+                                    <h1>Rules and Regulations</h1><br /><br />
+                                    <ul>
+                                        <li>Each participant will have a unique referral code, and the points won't start accruing until the other participants use the code to register for other events.</li><br />
+                                        <li> Referral codes generated through either app or website can only be used for event registrations and sign-ups.</li> <br />
+                                        <li> If tied, prize money will be shared.</li><br />
+                                        <li>The winners should submit their valid college id cards to get the cash prize.</li> <br />
+                                        <li>Certificates will be provided to the winners only.</li>   <br />
+                                        <li>Committee decisions will be final.</li>
+                                    </ul>
+                                </div>
+                                
+                                <button className="ca-reg-button" onClick={()=>setRegCheck(true)}>Register Now</button>
+                            </div>
+                            
+                        </div>}
                         
                     </div>
                         
