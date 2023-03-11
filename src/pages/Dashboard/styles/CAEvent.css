@@ -33,23 +33,27 @@
 }
 
 .share{
-    height: 62px;
-    margin-left: -10px;
-    margin-top: 4px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    height: 64px;
+    width: 50px;
+    background-color: #8C2725;
+    font-size: 30px;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     border: none;
 }
 .CA-top p{
     border: 2px solid #8C2725;
     height: 60px;
+    border-right: none;
     font-weight: bold;
+    background-color: rgba(0,0,0,0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 200px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .CA-bot{
     flex: 4;   
@@ -77,6 +81,7 @@
     height: 10vw;
     border-radius: 50%;
     z-index: 2;
+    left: -50px;
     transition: all 0.2s ease-in;
 }
 .score:hover .orange{
@@ -156,6 +161,19 @@
 .p3:hover{
     height: 110px;
 }
+
+.no-ref{
+    height: 50px;
+    width: 200px;
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #8C2725;
+    margin-bottom: 150px;
+}
+
 @media screen and (max-width:720px) {
     .is-CA{
         display: flex;
@@ -177,6 +195,39 @@
     .CA-bot .score{
         width: 100%;
         max-height: 400px;
+    }
+    .score h2{
+        font-size: 50px;  
+    }
+    .items .orange{
+        position: absolute;
+        background-color: #FF5B5B;
+        width: 40vw;
+        height: 40vw;
+        border-radius: 50%;
+        z-index: 2;
+        left: -50px;
+        transition: all 0.2s ease-in;
+    }
+    .items .blue{
+        position: absolute;
+        background-color: #014960;
+        width: 30vw;
+        height: 30vw;
+        border-radius: 50%;
+        right: 0;
+        top: 0;
+        transition: all 0.2s ease-in;
+    }
+    .no-ref{
+        height: 50px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background-color: #8C2725;
+        margin-bottom: 150px;
     }
 
 }

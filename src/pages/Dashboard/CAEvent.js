@@ -4,6 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 import { useEffect, useState } from "react";
 import "./styles/CAEvent.css";
+import { RiShareForwardFill } from "react-icons/ri";
 
 export const CAEvent = () => {
   //TEMP
@@ -49,20 +50,28 @@ export const CAEvent = () => {
         <p>{tempUser?.refcode}</p>
         <div className="share-whatsapp">
           <WhatsappShareButton url={shareText}>
-            <WhatsappIcon className="share" />
+            <button className="share">
+              <RiShareForwardFill />
+            </button>
           </WhatsappShareButton>
         </div>
       </div>
 
       <div className="CA-bot">
-        <div className="score">
-          <h2>Score</h2>
-          <div className="items">
-            <div className="orange"></div>
-            <h1>{tempUser.refcount * 100}</h1>
-            <div className="blue"></div>
+        {tempUser.refcount > 0 ? (
+          <div className="score">
+            <h2>Score</h2>
+            <div className="items">
+              <div className="orange"></div>
+              <h1>{tempUser.refcount * 100}</h1>
+              <div className="blue"></div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="no-ref">
+            <p>No Refferals Yet</p>
+          </div>
+        )}
 
         <div className="leaderboard">
           <div className="podium">
