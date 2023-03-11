@@ -8,6 +8,10 @@ html{
     background-size: cover;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.nk-text img{
+    width: 1200px;
 }
 
 .home-about-us{
@@ -87,6 +91,7 @@ html{
     max-width: 28vh;
     border-radius: 20px;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 .flage-top img:hover,.flage-bot img:hover{
     transform: scale(1.2);
@@ -94,4 +99,45 @@ html{
 
 .footer{
     height: 40vh;
+}
+@media screen and (max-width:600px) {
+    .home-parent{
+        max-width: 100vw;
+    }
+    .home-main{
+        max-width: 100vw;
+        padding: 0;
+    }
+    .home-main .nk-text img{
+        max-width: 100vw;
+    }
+
+    .home-about-us img{
+        max-width: 150px;
+    }
+    .home-about-us .nk-log,.home-about-us .gits-log{
+        max-height: 40vh;
+    }
+    .top{
+        max-height: 30vh;
+    }
+
+    .home-about-us .bot{
+        margin-top: 0;
+    }
+    .home-about-us .bot p{
+        max-width: 80vw;
+    }
+    .home-events{
+        max-width: 100vw;
+    }
+    .home-events .flage-top img,.home-events .flage-bot img{
+        max-width: 220px;
+        margin: 20px;
+    }
+    .home-events .flage-top,.home-events .flage-bot{
+        margin: 0;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
 }

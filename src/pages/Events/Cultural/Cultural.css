@@ -115,23 +115,32 @@
 
 
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:720px) {
     .vector-cultural{
         display: none;
     }
+    .cultural-events-main{
+        width: 100vw;
+    }
 
     .cultural-events-sub{
-        background-color: transparent;
-        left: 27px;
+        width: 95vw;
+        position: absolute;
+        left: 2.5vw;
         display: flex;
         flex-direction: column;
-        width: 90vw;
+        gap: 20px;
         overflow-y: scroll;
-        height: 85vh;
-        gap: 30px;
-        padding-left: 20px; 
-        padding-right: 20px; 
-        
+    }
+    .cultural-events-sub button{
+        width: 350px;
+        display: flex;
+        font-size: 35px;
+        font-weight: 500;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in;
     }
 
     .cultural-events-sub::-webkit-scrollbar{
@@ -139,16 +148,16 @@
     }
     .cultural-event-card,.cultural-event-card-2{
         min-height: 30vh;
+        width: 90;
         box-shadow: 5px 5px 15px rgba(0, 0, 0,0.8);
-        margin-right: 40px;
     }
     
 }
 @media screen and (min-width:900px) and (max-width:1200px){
     .cultural-event-card-2 button{
-        font-size: 30px;
+        font-size: 25px;
     }
     .cultural-event-card button{
-        font-size: 25px;
+        width: 100%;
     }
 }

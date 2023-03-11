@@ -12,12 +12,20 @@
     flex-direction: column;
     align-items: center;
 }
-.reg .form input{
+.reg .form input,.reg .form textarea{
     max-width: 500px;
     border-radius: 13px;
     border: none;
     transition: all 0.2s ease-in;
     outline: 3px solid #8C2725;
+}
+.reg .form textarea{
+    height: 200px;
+}
+.form textarea::placeholder{
+    color: red;
+    opacity: 80%;
+    max-width: 80%;
 }
 .pay-alerts{
     color: white;
@@ -43,4 +51,28 @@
     color: #8C2725;
     border: 1px solid #8C2725;
     outline: none;
+}
+
+@media screen and (max-width:720px) {
+    .reg{
+        min-height: 160vh;
+    }
+    .reg .form input.reg .form textarea{
+        max-width: 290px;
+    }
+    .reg .form textarea{
+        height: 150px;
+    }
+    .reg .form li{
+        list-style: none;
+        max-width: 320px;
+        padding: 20px;
+        text-align: center;
+        font-weight: 500;
+        border-radius: 20px;
+        color: white;
+        margin:20px;
+        margin-bottom: 30px;
+        background-color: rgba(140, 39, 37,0.5);
+    }
 }

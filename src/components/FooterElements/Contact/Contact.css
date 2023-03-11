@@ -79,7 +79,7 @@
     overflow: hidden;
 }
 .text h5{
-    color: #111;
+    color: white;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 6px;
@@ -103,6 +103,7 @@ form{
 form input{
     height: 46px;
     width: 100%;
+    outline: 1px solid #8C2725;
     padding-left: 20px;
     font-size: 15px;
     color: #111;
@@ -118,9 +119,10 @@ form textarea{
     width: 100%;
     padding-left: 20px;
     padding-top: 12px;
+    outline: none;
     font-size: 15px;
     color: #111;
-    border: 1px solid #e1e1e1;
+    outline: 1px solid #8C2725;
     resize: none;
     margin-bottom: 9px;
     border-radius: 4px;
@@ -135,15 +137,23 @@ form button{
 .site-btn{
     border: none;
     display: inline-block;
-    background: rgba(255,215,35,.3);
-    color: #111;
-    font-size: 14px;
+    background: #8C2725;
+    font-size: 15px;
     font-family: "Rubik",sans-serif;
-    font-weight: 500;
+    font-weight: bold;
+    color: white;
+    width: 250px;
+    height: 50px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border-radius: 50px;
     padding: 12px 40px 10px;
+    transition: all 0.2s ease-in;
+}
+.site-btn:hover{
+    background-color: #fff;
+    color: #8C2725;
+    border: 1px solid #8C2725;
 }
 .column-map{
     flex: 0 0 auto;

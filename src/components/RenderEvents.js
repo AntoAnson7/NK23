@@ -1,113 +1,200 @@
-import React, { useEffect, useState } from 'react'
-import './RenderEvents.css'
-import { event_banner_path } from '../pages/Events/eventDeets'
-import {getDoc,doc, updateDoc, collection, arrayUnion} from 'firebase/firestore'
-import {db} from '../Firebase/config'
-import { useNavigate } from 'react-router-dom'
-import { useAppData } from '../AppContext/AppContext' 
-import {motion} from 'framer-motion'
+import React, { useEffect, useState } from "react";
+import { event_banner_path } from "../pages/Events/eventDeets";
+import { getDoc, doc, updateDoc, setDoc, arrayUnion } from "firebase/firestore";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../Firebase/config";
+import { db } from "../Firebase/config";
+import { useNavigate } from "react-router-dom";
+import { useAppData } from "../AppContext/AppContext";
+import { motion } from "framer-motion";
+import { AiOutlineClose } from "react-icons/ai";
+import { freeEvents } from "../pages/Events/eventDeets";
+import "./styles/RenderEvents.css";
 
-export function RenderEvents({name}) {
+export function RenderEvents() {
+  const [{ rend }] = useAppData();
+  const [{ user, userLocal }, dispatch] = useAppData();
+  const [loginStat, setloginStat] = useState(false);
+  const navigate = useNavigate();
+  const [Event, setEvent] = useState([]);
+  const [tempUser, setTempUser] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
-  const [{user},dispatch]=useAppData()
-  const [loginStat,setloginStat]=useState(false)
-  const navigate=useNavigate()
-  const [Event,setEvent]=useState([])
+  const googleLogin = async () => {
+    try {
+      const res = await signInWithPopup(auth, provider);
 
-  
-  const getEvent=async()=>{
-    const res= await getDoc(doc(db,"Events",name))//Add {name} as ID here 
-    setEvent(res.data().category==undefined?"NK007":res.data())
-  }
+      dispatch({
+        type: "SET_USER",
+        user: res.user,
+      });
 
-
-  useEffect(()=>{
-    getEvent()
-    if(user.uid!=null){
-      setloginStat(true)
+      navigate("/dashboard");
+    } catch (e) {
+      console.log(`Google sign in failed: ${e}`);
+      alert("Oops server down please try again after some time!");
     }
-  },[])
+  };
 
-  const initiateRegistration=()=>{
+  const getEvent = async () => {
+    const res = await getDoc(doc(db, "Events", rend));
+    setEvent(res.data().category == undefined ? "NK007" : res.data());
+  };
 
+  const getUSERDB = async () => {
+    const res = await getDoc(doc(db, "users", user.uid));
+    setTempUser(res.data().registered);
+  };
+
+  const frReg = user.uid + Event.eventid;
+
+  useEffect(() => {
+    getUSERDB();
+    getEvent();
+    if (user.uid != null) {
+      setloginStat(true);
+    }
+  }, [rend, refresh]);
+
+  const initiateRegistration = () => {
     dispatch({
-      type:'SET_EVENT_TEMP',
-      eventTemp:Event.eventid
-    })
+      type: "SET_EVENT_TEMP",
+      eventTemp: Event.eventid,
+    });
     dispatch({
-      type:'SET_EVENT',
-      RegEvent:Event
-    })
+      type: "SET_EVENT",
+      RegEvent: Event,
+    });
 
-    navigate("/events/registration")
-  }
+    navigate("/events/registration");
+  };
 
-  const regFree=async()=>{
-    await updateDoc(doc(db,"EventRegs",Event.eventid),{
-      registrations:arrayUnion(user.uid)
-    })
-  }
+  const regFree = async () => {
+    await updateDoc(doc(db, "EventRegs", Event.eventid), {
+      registrations: arrayUnion(user.uid),
+    });
 
-  console.log(Event.eventid)
+    await updateDoc(doc(db, "users", user.uid), {
+      registered: arrayUnion(Event.eventid),
+    });
+
+    await setDoc(doc(db, "Registrations", frReg), {
+      amount: Event.regfee,
+      eventid: Event.eventid,
+      eventname: Event.name,
+      method: "FREE",
+      order_id: `free_${user.uid.substring(0, 6)}${Event.eventid}`,
+      payment_id: "free_",
+      refcode: "",
+      userid: user.uid,
+      username: userLocal.name,
+    });
+    setRefresh(!refresh);
+  };
   return (
-    <motion.div className='render-main'
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    exit={{x:0,transition:{duration:1}}}
-    
+    <motion.div
+      className="render-main"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ x: 0, transition: { duration: 1 } }}
     >
-        <div className="left">
-          
-          <img className='banner-img' src={event_banner_path[Event.eventid?Event.eventid:"test"]} alt="" style={{width:"600px"}}/>
-          
-          {loginStat?
-          (Event.eventid=="NK066"?<button className='reg-button' onClick={regFree}>Register Free</button>:(
-            Event.isActive?
-            <button className='reg-button' onClick={initiateRegistration}>Register Now</button>:
-            <button className='reg-button'>Registration closed</button>
-          )):<button className='reg-button'>Sign in to Register</button>}
-          
+      <div className="left">
+        <img
+          className="banner-img"
+          src={event_banner_path[Event.eventid ? Event.eventid : "test"]}
+          alt=""
+        />
+
+        <div className="button-div">
+          {loginStat ? (
+            tempUser.includes(Event.eventid) ? (
+              <button className="reg-button-true-registered">Registered</button>
+            ) : freeEvents.includes(Event.eventid) ? (
+              <button className="reg-button" onClick={regFree}>
+                Register Free
+              </button>
+            ) : Event.isActive ? (
+              <button className="reg-button" onClick={initiateRegistration}>
+                Register now ₹{Event.regfee}
+              </button>
+            ) : (
+              <button className="reg-button-true">
+                Registration Unavailable
+              </button>
+            )
+          ) : (
+            <button className="reg-button" onClick={googleLogin}>
+              Sign in to Register
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="right">
+        <button
+          className="close-1"
+          onClick={() => {
+            dispatch({
+              type: "SET_REND",
+              rend: "",
+            });
+          }}
+        >
+          <AiOutlineClose />
+        </button>
+
+        <div className="title-bar">
+          <h1>{`${Event.name}`}</h1>
+          {/* <div className="deet"></div> */}
         </div>
 
-        <div className="right">
+        <p className="cat-tags">{`${Event.category} | ${Event.subcategory}`}</p>
 
-          <div className="title-bar">
-            <h1>{`${Event.name} (${name})`}</h1>
-            <div className='deet'>
-              <p>{Event.isTeam?"Team":"Individual"}</p>
-              <p>{`Fee : ${Event.regfee}`}</p>
-              <p>{`Seats left: ${Event.spots}`}</p>
-            </div>
+        <div className="details">
+          <p>{Event.isTeam ? "Team" : "Individual"}</p>
+          <p>{`Fee : ${Event.regfee}`}</p>
+          <p>{`Spots : ${Event.spots}`}</p>
+        </div>
+
+        <div className="medals-a">
+          <div className="first-a">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c"
+              alt=""
+              style={{ width: "35px" }}
+            />
+            <p>{`₹${Event.first}/-`}</p>
           </div>
-          
-          <p className='cat-tags'>{`${Event.category} | ${Event.subcategory}`}</p>
-          <p className='descr-tag' dangerouslySetInnerHTML={{__html:Event.description}}></p>
-
-          <div className='coord-deets'>
-            <p>{`Head : ${Event.headName} | ${Event.headPhno}`}</p>
-            <p>{`Subhead : ${Event.sub1Name} | ${Event.sub1Phno}`}</p>
-            <p>{`Subhead : ${Event.sub2Name} | ${Event.sub2Phno}`}</p>
+          <div className="second-a">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000"
+              alt=""
+              style={{ width: "35px" }}
+            />
+            <p>{`₹${Event.second}/-`}</p>
           </div>
+        </div>
 
-          {Event.rules?(
-              <div className="rules-section">
-                <h1 className='rules'>Rules and Regulations</h1>
-                <p dangerouslySetInnerHTML={{__html:Event.rules}}></p>
-              </div>
-          ):<></>}
-          <div className="medals-a">
-              <div className="first-a">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c" alt="" style={{width:"35px"}}/>
-                  <p>{`${Event.first}/-`}</p>
-              </div>
-              <div className="second-a">
-                  <img src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000" alt="" style={{width:"35px"}}/>
-                  <p>{`${Event.second}/-`}</p>
-              </div>
+        <p
+          className="descr-tag"
+          dangerouslySetInnerHTML={{ __html: Event.description }}
+        ></p>
+
+        <div className="coord-deets">
+          <p>{`Head : ${Event.headName} | ${Event.headPhno}`}</p>
+          <p>{`Subhead : ${Event.sub1Name} | ${Event.sub1Phno}`}</p>
+          <p>{`Subhead : ${Event.sub2Name} | ${Event.sub2Phno}`}</p>
+        </div>
+
+        {Event.rules ? (
+          <div className="rules-section">
+            <h1 className="rules">Rules and Regulations</h1>
+            <p dangerouslySetInnerHTML={{ __html: Event.rules }}></p>
           </div>
-
-        </div>  
-        
+        ) : (
+          <></>
+        )}
+      </div>
     </motion.div>
-  )
+  );
 }

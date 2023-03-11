@@ -1,7 +1,10 @@
+import { EventID } from '../../eventDeets'
+import {RenderSubPage} from '../../../../components/RenderSubPage'
 
+export function Competitions() {
+  const Events=EventID.technical_competitions
 
-export const Competitions=()=>{
-    return (
-        <div>Competitions</div>
-    )
+  return (
+    <RenderSubPage subEvent={Events}/>
+  )
 }

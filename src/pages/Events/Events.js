@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import '../../Styles_temp/events.css'
 import {motion} from 'framer-motion'
+import './Events.css'
 
 export const Events=()=>{
     const navigate=useNavigate()

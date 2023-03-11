@@ -3,6 +3,9 @@ import './Contact.css';
 import { useState } from 'react';
 import { db } from '../../../Firebase/config';
 import { collection, addDoc } from "firebase/firestore"; 
+import {FaRegAddressCard} from 'react-icons/fa'
+import {IoIosContact} from 'react-icons/io'
+import {AiOutlineMail} from 'react-icons/ai'
 
 export function Contact() {
 const [name,setName]= useState("");
@@ -32,7 +35,7 @@ const messageUser = async ()=>{
             <div className="contact-widget">
                 <div className="contact-widget-item">
                     <div className="icon"> 
-                      <i class="fa-solid fa-location-dot"></i>
+                      <FaRegAddressCard style={{color:"white",fontSize:"35px",marginTop:"12px"}}/>
                     </div>
                     <div className="text">
                       <h5>Address</h5>
@@ -41,7 +44,7 @@ const messageUser = async ()=>{
                 </div>
                 <div className="contact-widget-item">
                     <div className="icon">
-                      <i class="fa-solid fa-phone"></i>
+                      <IoIosContact style={{color:"white",fontSize:"35px",marginTop:"12px"}}/>
                     </div>
                     <div className="text">
                       <h5>Contact Us</h5>
@@ -50,7 +53,7 @@ const messageUser = async ()=>{
                 </div>
                 <div className="contact-widget-item">
                     <div className="icon">
-                      <i class="fa-regular fa-envelope"></i>
+                      <AiOutlineMail style={{color:"white",fontSize:"35px",marginTop:"12px"}}/>
                     </div>
                     <div className="text">
                       <h5>Mail</h5>

@@ -1,7 +1,10 @@
+import { EventID } from '../../eventDeets'
+import {RenderSubPage} from '../../../../components/RenderSubPage'
 
+export function Workshops() {
+  const Events=EventID.technical_workshop
 
-export const Workshops=()=>{
-    return (
-        <div>Workshops</div>
-    )
+  return (
+    <RenderSubPage subEvent={Events}/>
+  )
 }

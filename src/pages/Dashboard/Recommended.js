@@ -1,15 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { useAppData } from "../../AppContext/AppContext"
-import { useState,useEffect } from "react"
-import { eventsDatabase } from "../../Firebase/DBtables"
-import { getDocs } from "firebase/firestore"
+import { useEffect } from "react"
 import { event_banner_path } from "../Events/eventDeets"
-import '../../Styles_temp/dash.css'
+import './styles/Reccomended.css'
 
 export const Recommended=()=>{
     const navigate=useNavigate()
     const [{user}]=useAppData()
-    const Events=["NK007","test"]
+    const Events=["NK007","test","NK066","NK038","NK065","NK067"]
 
     useEffect(()=>{
         if(user.uid==null){

@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: auto;
+}
+
 .render-sub-main{
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
     background-repeat: no-repeat;
@@ -13,8 +17,10 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     margin: 0 auto;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 70px;
-    margin-top: 170px;
+    margin-top: 140px;
 }
 
 .sub-page-event-banner{
@@ -28,9 +34,9 @@
     transform: scale(1.08);
     cursor: pointer;
     filter: blur(2px);
-
 }
 .image-text-wrap{
+    border-radius: 30px;
     position: relative;
 }
 .image-text-wrap p{
@@ -54,13 +60,49 @@
     opacity: 1;
 }
 
+.back{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 120px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: white;
+    background-color: rgba(140, 39, 37,0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+.back:hover{
+    background-color: #fff;
+    color: #8C2725;
+}
+
 @media screen and (max-width:600px) {
     .sub-page-events{
         display: flex;
         flex-direction: column;
     }
+    .render-sub-main{
+        margin:0;
+        padding: 0;
+    }
+    .image-text-wrap{
+        max-width: 350px;
+        margin: 0;
+    }
     .image-text-wrap p{
         margin-left: 0;
+        width: 300px;
+    }
+    .sub-page-event-banner{
+        max-width: 300px;
+        margin: 30px auto;
+        margin-top: 0px;
     }
 }
 

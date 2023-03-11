@@ -1,78 +1,70 @@
+const loadScript = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
 
-const loadScript=()=>{
+    script.onload = () => {
+      resolve(true);
+    };
 
-    return new Promise((resolve)=>{
-    const script=document.createElement('script')
-    script.src="https://checkout.razorpay.com/v1/checkout.js"
-    
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
 
-    script.onload=()=>{resolve(true)}
+export const displayRazorpay = async (token, remarks) => {
+  const res = await loadScript();
 
-    script.onerror=()=>{resolve(false)}
-    document.body.appendChild(script)
-  })
-
-    
-
+  if (!res) {
+    alert("Payment Failed");
+    return;
   }
 
-export const displayRazorpay=async(token)=>{
-    
-    const res=await loadScript()
-
-    if(!res){// http://localhost:1337/razorpay
-      alert("Payment Failed")
-      return
+  const eventFee = {
+    amount: parseInt(token.amount) * 100,
+  };
+  const data = await fetch(
+    "https://asia-south1-nk23-a5689.cloudfunctions.net/app/razorpay",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(eventFee),
     }
+  )
+    .then((t) => t.json())
+    .catch((error) => {
+      console.log(error);
+    });
 
-    const eventFee ={
-      amount: parseInt(token.amount)*100
-      }
+  const options = {
+    key: process.env.REACT_APP_RZP_TEST_APIKEY,
+    amount: data.amount,
+    currency: data.currency,
+    name: "Nakshatra23",
+    description: "Event Registration",
 
-    const data=await fetch("http://localhost:1337/razorpay",{method: 'POST',headers:{
-      'Content-Type':'application/json'
-    },body:JSON.stringify(eventFee)}).then((t)=>
-      t.json()
-    )
-    console.log(data)
+    order_id: data.id,
 
-    const options = {
-      key: "rzp_test_b2ZGEzmaegiFWh", // Enter the Key ID generated from the Dashboard
-      amount: data.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency: data.currency,
-      name: "Nakshatra23", //your business name
-      description: "Test Transaction",
+    notes: {
+      eventid: token.eventid,
+      eventname: token.eventname,
+      username: token.username,
+      userid: token.uid,
+      amount: token.amount,
+      referral: token.ref,
+      remarks: remarks,
+    },
 
-      // image: "https://example.com/your_logo",
+    theme: {
+      color: "#1E1E1E",
+    },
 
-      order_id: data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      
-      // callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
-      
-      notes: {
-          eventid:token.eventid,
-          eventname:token.eventname,
-          username:token.username,
-          userid:token.uid,
-          amount:token.amount,
-          referral:token.ref,
-      },
-
-      theme: {
-          color: "#1E1E1E"
-      },
-
-      handler:function(res){
-        console.log(res.razorpay_payment_id)
-        console.log(res.razorpay_order_id)
-        console.log(res.razorpay_signature)
-      },
-
-      prefill: {
-        name: "Anto", //your customer's name
-        phone_number:"9526075975"
-    }
-  }
-  const paymentObject=new window.Razorpay(options)
-  paymentObject.open()
-  }
+    handler: function (res) {},
+  };
+  const paymentObject = new window.Razorpay(options);
+  paymentObject.open();
+};

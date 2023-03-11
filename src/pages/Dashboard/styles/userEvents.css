@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow-y: hidden;
 }
 .user-events-temp::-webkit-scrollbar{
     display: none;
@@ -60,6 +61,7 @@
     position: fixed;
     top: 20vh;
     left: 38vw;
+    color: black;
     border: 2px solid green;
     width: 400px;
     height: 600px;
@@ -92,10 +94,32 @@
     border: 1px solid #8C2725;
 }
 
-
+.user-deets{
+    color: black;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.user-deets h1{
+    max-width: 350px;
+}
+.user-deets p{
+    font-weight: bold;
+}
+.registered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
 @media screen and (max-width:600px) {
     .ticket{
-        left: 20px;
+        left: 0px;
         top: 80px;
+        width: 87vw;
     }
 }

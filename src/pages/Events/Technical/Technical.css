@@ -1,6 +1,7 @@
 .technical-events-main{
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
     height: 100vh;
+    position: relative;
 }
 .technical-events-sub{
     background-color: #16171B;
@@ -12,11 +13,11 @@
     top: 15%;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
 .workshops,.competitions{
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     border-radius: 30px;
@@ -40,24 +41,64 @@
     background-color: transparent;
 }
 #workshops{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FTechnical%2Fworkshops.png?alt=media&token=21b939af-1799-440f-9e13-6a2e414006b7");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/images%2FTechical%20Workshop.jpg?alt=media&token=51f8330e-a8d1-4c6b-8eb2-2c701ec0a7e9 ");
     background-position: center center;
 }
 #competitions{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FTechnical%2Fworkshops.png?alt=media&token=21b939af-1799-440f-9e13-6a2e414006b7");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/images%2FTechical%20competition.jpg?alt=media&token=29eaa20b-70cc-435d-b466-67e436667c5e ");
     background-position: center center;
 }
 
 .vector-technical{
-
     width: 15vw;
-    height: 75vh;
+    height: 40vw;
+    margin-left: 100px;
+    margin-top: 100px;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/2.png?alt=media&token=058e37a8-2b9d-4354-81f1-7c1b46fbda0e");
     background-repeat: no-repeat;
     transform: rotate(180deg);
     transition: all 0.2s ease-in;
-    position: fixed;
+    position: absolute;
 }
 .vector-technical:hover{
     transform: rotate(180deg) scale(1.08);
+}
+
+@media screen and (max-width:720px) {
+    .vector-technical{
+        display: none;
+    }
+
+    .technical-events-main{
+        width: 100vw;
+    }
+    .technical-events-sub{
+        width: 95vw;
+        border-radius: 20px;
+        position: absolute;
+        left: 2.5vw;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .technical-events-sub button{
+        width: 350px;
+        display: flex;
+        font-size: 35px;
+        font-weight: 500;
+        letter-spacing: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease-in;
+    }
+
+    .workshops,.competitions{
+        width: 90vw;
+    }
+    .workshops button,.competitions button{
+        font-size: 40px;
+    }
+    
 }

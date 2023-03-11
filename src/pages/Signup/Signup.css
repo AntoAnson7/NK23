@@ -36,3 +36,19 @@
     color: #8C2725;
     border: 1px solid #8C2725;
 }
+@media screen and (max-width:720px) {
+    .signup-form input{
+        max-width: 290px;
+    }   
+    .signup-form p{
+        max-width: 320px;
+        padding: 20px;
+        text-align: center;
+        font-weight: 500;
+        border-radius: 20px;
+        color: white;
+        margin:20px;
+        margin-bottom: 30px;
+        background-color: rgba(140, 39, 37,0.5);
+    }
+}
