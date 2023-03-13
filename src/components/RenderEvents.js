@@ -105,29 +105,27 @@ export function RenderEvents() {
           alt=""
         />
 
-        <div className="button-div">
-          {loginStat ? (
-            tempUser.includes(Event.eventid) ? (
-              <button className="reg-button-true-registered">Registered</button>
-            ) : freeEvents.includes(Event.eventid) ? (
-              <button className="reg-button" onClick={regFree}>
-                Register Free
-              </button>
-            ) : Event.isActive ? (
-              <button className="reg-button" onClick={initiateRegistration}>
-                Register now ₹{Event.regfee}
-              </button>
-            ) : (
-              <button className="reg-button-true">
-                Registration Unavailable
-              </button>
-            )
-          ) : (
-            <button className="reg-button" onClick={googleLogin}>
-              Sign in to Register
+        {loginStat ? (
+          tempUser.includes(Event.eventid) ? (
+            <button className="reg-button-true-registered">Registered</button>
+          ) : freeEvents.includes(Event.eventid) ? (
+            <button className="reg-button" onClick={regFree}>
+              Register Free
             </button>
-          )}
-        </div>
+          ) : Event.isActive ? (
+            <button className="reg-button" onClick={initiateRegistration}>
+              Register now ₹{Event.regfee}
+            </button>
+          ) : (
+            <button className="reg-button-true">
+              Registration Unavailable
+            </button>
+          )
+        ) : (
+          <button className="reg-button" onClick={googleLogin}>
+            Sign in to Register
+          </button>
+        )}
       </div>
 
       <div className="right">
@@ -145,7 +143,6 @@ export function RenderEvents() {
 
         <div className="title-bar">
           <h1>{`${Event.name}`}</h1>
-          {/* <div className="deet"></div> */}
         </div>
 
         <p className="cat-tags">{`${Event.category} | ${Event.subcategory}`}</p>

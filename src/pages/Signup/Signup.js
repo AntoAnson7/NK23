@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../Firebase/config";
+import { Footer } from "../../components/Footer";
 import "./Signup.css";
 
 export const Signup = () => {
@@ -97,6 +98,7 @@ export const Signup = () => {
         </p>
         <input className="sub-i" type="submit" value="Sign Up" />
       </form>
+      <Footer />
     </div>
   );
 };

@@ -73,30 +73,7 @@ export const CAEvent = () => {
           </div>
         )}
 
-        <div className="leaderboard">
-          <div className="podium">
-            <div className="p1-m">
-              <div className="p1">
-                <p>1200</p>
-              </div>
-              <p>Antony Anson</p>
-            </div>
-
-            <div className="p2-m">
-              <div className="p2">
-                <p>2500</p>
-              </div>
-              <p>Antony Michael Anson</p>
-            </div>
-
-            <div className="p3-m">
-              <div className="p3">
-                <p>300</p>
-              </div>
-              <p>C Jacob Thomas</p>
-            </div>
-          </div>
-        </div>
+        <div className="leaderboard"></div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase/config";
 import { IoArrowBack } from "react-icons/io5";
+import { Footer } from "./Footer";
 import "./styles/EditProfile.css";
 
 export function EditProfile() {
@@ -53,6 +54,7 @@ export function EditProfile() {
           defaultValue={tempUser.name}
           {...register("display_name")}
         />
+
         <input
           type="text"
           placeholder="Email"
@@ -77,12 +79,14 @@ export function EditProfile() {
           defaultValue={tempUser.sem}
           {...register("sem")}
         />
+        <p style={{ margin: "0" }}>Changes will reflect next time you login</p>
         <p>
           Note : The display name you choose will be your name in certificates
         </p>
 
         <input className="sub-i" type="submit" value="Update profile" />
       </form>
+      <Footer />
     </div>
   );
 }

@@ -14,6 +14,7 @@ export const Cultural = () => {
       rend: "",
     });
   }, []);
+
   return (
     <div className="cultural-events-main">
       <div className="vector-cultural"></div>

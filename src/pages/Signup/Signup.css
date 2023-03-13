@@ -2,9 +2,12 @@
     height: 100vh;
     width: 100vw;
     background-color: #16171B;
+    display: flex;
+    flex-direction: column;
 }
 .signup-form{
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
 }

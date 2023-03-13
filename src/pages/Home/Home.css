@@ -48,6 +48,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
 }
 
 .home-about-us .nk-log img,.home-about-us .gits-log img{

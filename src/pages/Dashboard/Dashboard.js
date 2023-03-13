@@ -172,7 +172,7 @@ export const Dashboard = () => {
 
             <div className="user-info">
               {isVerified ? (
-                <h3>{`${user.displayName} (${userLocal.NKID})`}</h3>
+                <h3>{`${userLocal.name} (${userLocal.NKID})`}</h3>
               ) : (
                 checkUser()
               )}

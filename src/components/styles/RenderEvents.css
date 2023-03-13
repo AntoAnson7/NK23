@@ -195,8 +195,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         min-height: 150vh;
-        width: 96vw;
+        width: 99vw;
     }
 
     .left{
@@ -209,26 +210,14 @@
         padding-bottom: 20px;
         border-bottom: 1px solid #8C2725;
     }
-    .button-div{
-        width: 90vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .reg-button{
+
+    .reg-button,.reg-button-true,.reg-button-true-registered{
         bottom: 25px;
         width: 200px;
         font-size: 16px;
-    }
-    .reg-button-true{
-        bottom: 25px;
-        width: 200px;
-        font-size: 16px;
-    }
-    .reg-button-true-registered{
-        bottom: 25px;
-        width: 200px;
-        font-size: 16px;
+        margin: 0;
+        position: sticky;
+        left: 20px;
     }
 
     .left .banner-img{

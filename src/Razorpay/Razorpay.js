@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const loadScript = () => {
   return new Promise((resolve) => {
     const script = document.createElement("script");
@@ -14,7 +16,7 @@ const loadScript = () => {
   });
 };
 
-export const displayRazorpay = async (token, remarks) => {
+export const displayRazorpay = async (token) => {
   const res = await loadScript();
 
   if (!res) {
@@ -41,13 +43,16 @@ export const displayRazorpay = async (token, remarks) => {
     });
 
   const options = {
-    key: process.env.REACT_APP_RZP_TEST_APIKEY,
+    key: process.env.REACT_APP_RZP_APIKEY,
     amount: data.amount,
     currency: data.currency,
     name: "Nakshatra23",
     description: "Event Registration",
 
     order_id: data.id,
+
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/logos%2Fnk23logoblack.jpeg?alt=media&token=20bf02ff-8d1a-48db-9ae4-44a5e1d496e0",
 
     notes: {
       eventid: token.eventid,
@@ -56,14 +61,20 @@ export const displayRazorpay = async (token, remarks) => {
       userid: token.uid,
       amount: token.amount,
       referral: token.ref,
-      remarks: remarks,
+      whatsapp: token.whatsapp,
+      team: token.team,
     },
 
     theme: {
       color: "#1E1E1E",
     },
 
-    handler: function (res) {},
+    handler: function (res) {
+      alert(
+        "Registration succesfull (The registration status may take 2-3 minutes to reflect on your dashboard)"
+      );
+      redirect("/dashboard");
+    },
   };
   const paymentObject = new window.Razorpay(options);
   paymentObject.open();

@@ -20,8 +20,8 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const razorpay = new Razorpay({
-  key_id: "rzp_test_b2ZGEzmaegiFWh", //"rzp_live_pA1PKHzjMTGnSs"
-  key_secret: "JWBTv8IPioNgjegheBZZMDGs", //"xK8D5VFYYWFYvzljId2NQEkR"
+  key_id: "rzp_live_pA1PKHzjMTGnSs", // "rzp_live_pA1PKHzjMTGnSs"
+  key_secret: "xK8D5VFYYWFYvzljId2NQEkR", // "xK8D5VFYYWFYvzljId2NQEkR"
 });
 
 app.get("/", (req, res) => {
@@ -126,7 +126,8 @@ app.post("/verification", (req, res) => {
               order_id: req.body.payload.payment.entity?.order_id,
               method: req.body.payload.payment.entity?.method,
               amount: req.body.payload.payment.entity?.notes.amount,
-              remarks: req.body.payload.payment.entity?.notes.remarks,
+              team: req.body.payload.payment.entity?.notes.team,
+              whatsapp: req.body.payload.payment.entity?.notes.whatsapp,
             });
         } catch (e) {
           console.log("addingFail: " + e);
@@ -153,8 +154,8 @@ app.post("/verification", (req, res) => {
   }
 });
 
-app.listen(1591, () => {
-  console.log("Listening on port 1337");
+app.listen(1745, () => {
+  console.log("Listening on port 1745");
 });
 
 exports.app = functions.region("asia-south1").https.onRequest(app);

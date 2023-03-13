@@ -42,9 +42,9 @@ export const Navbar = () => {
   };
 
   return (
-    <div className={`navbar ${show && "navbg"}`}>
+    <div className={`navbar`}>
       {/* Desktop Navbar */}
-      <div className="links">
+      <div className={`links`}>
         <Link to="/contact-us">
           <p>Contact Us</p>
         </Link>
@@ -54,7 +54,7 @@ export const Navbar = () => {
         <div id="logo">
           <Link to="/">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Untitled-3.png?alt=media&token=45b45e98-7f32-471e-9044-c604aa009a41s"
+              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/logos%2Fnk23logobright.png?alt=media&token=860c6239-e98e-4f5a-ace8-bdf1d57cf274"
               alt="logo"
             />
           </Link>
@@ -94,7 +94,9 @@ export const Navbar = () => {
             </button>
           </Link>
           <button onClick={handleShowNavbar}>
-            <p>About us</p>
+            <a href="#about">
+              <p>About us</p>
+            </a>
           </button>
 
           <Link to="/events">
@@ -105,7 +107,7 @@ export const Navbar = () => {
         </div>
       </div>
       {/* Mobile Navbar */}
-      <div id="smallNav">
+      <div className="smallNav">
         <div onClick={handleShowNavbar}>
           {showNavbar ? (
             <IoClose fontSize={"25px"} opacity={"60%"} />
@@ -116,7 +118,7 @@ export const Navbar = () => {
         <div>
           <img
             className="logo-small"
-            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Untitled-3.png?alt=media&token=45b45e98-7f32-471e-9044-c604aa009a41"
+            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/logos%2Fnk23logobright.png?alt=media&token=860c6239-e98e-4f5a-ace8-bdf1d57cf274"
             alt=""
             onClick={() => navigate("/")}
           />

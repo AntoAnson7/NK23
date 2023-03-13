@@ -19,6 +19,7 @@
     gap: 20px;
 }
 
+
 .user-events{
     width: 70vw;
     height: 25vh;
@@ -419,7 +420,6 @@ border-radius: 50%;
         width: 30px;
         height: 30px;
     }
-
     /* TEMP */
     .dashboard-right{
         display: none;

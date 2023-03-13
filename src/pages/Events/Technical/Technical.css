@@ -26,16 +26,16 @@
     margin-top: 25px ;
 }
 .workshops:hover,.competitions:hover{
-    transform: scale(1.08);
+    transform: scale(1.02);
 }
 
 .workshops button,.competitions button{
     width: 100%;
     height: 100%;
-    font-size: 70px;
-    letter-spacing: 4px;
+    font-size: 60px;
+    letter-spacing: 2px;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
     border-radius: 20px;
     border: none;
     background-color: transparent;
@@ -43,10 +43,14 @@
 #workshops{
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/images%2FTechical%20Workshop.jpg?alt=media&token=51f8330e-a8d1-4c6b-8eb2-2c701ec0a7e9 ");
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #competitions{
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/images%2FTechical%20competition.jpg?alt=media&token=29eaa20b-70cc-435d-b466-67e436667c5e ");
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .vector-technical{

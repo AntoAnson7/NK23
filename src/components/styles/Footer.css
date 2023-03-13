@@ -1,17 +1,17 @@
 .footer {
   font-weight: 400;
   gap: 15px;
-  width: 100%;
+  width: 100vw;
   padding: 20px 0;
   background: rgb(0, 0, 0);
   background: rgb(0, 0, 0);
   background: linear-gradient(to top, #8C2725, rgb(22, 23, 27));
-
   max-height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  overflow-x: hidden;
 }
 .footer .social {
   text-align: center;
