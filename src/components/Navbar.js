@@ -1,25 +1,62 @@
 import { Link } from "react-router-dom";
 import { useAppData } from "../AppContext/AppContext";
 import { signInWithPopup } from "firebase/auth";
-import { auth, provider } from "../Firebase/config";
+import { auth, db, provider } from "../Firebase/config";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiUserCircle } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./styles/Navbar.css";
+import { doc, getDoc } from "firebase/firestore";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const [{ user }, dispatch] = useAppData();
   const [showNavbar, setShowNavbar] = useState(false);
+  const [local, setLocal] = useState({});
 
-  const [show, handleShow] = useState(false);
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.scrollY > 100 ? handleShow(true) : handleShow(false);
-    });
-  });
+  const getU = async (id) => {
+    const res = await getDoc(doc(db, "users", id));
+    setLocal(res.data());
+  };
+
+  const check = async (id) => {
+    const res = await getDoc(doc(db, "users", id));
+    return res.data() != undefined ? true : false;
+  };
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+  //     if (userAuth) {
+  //       dispatch({
+  //         type: "SET_USER",
+  //         user: userAuth,
+  //       });
+  //       dispatch({
+  //         type: "SET_VERIFICATION",
+  //         status: true,
+  //       });
+  //       dispatch({
+  //         type: "SET_NEW_LOCAL_USER",
+  //         userLocal: {
+  //           name: "Anto",
+  //         },
+  //       });
+  //       dispatch({
+  //         type: "SET_CA",
+  //         isCA: false,
+  //       });
+  //     } else {
+  //       console.log("FAIL");
+  //     }
+  //   });
+
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, [dispatch, local]);
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
@@ -42,7 +79,12 @@ export const Navbar = () => {
   };
 
   return (
-    <div className={`navbar`}>
+    <motion.div
+      className={`navbar`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 1 }}
+    >
       {/* Desktop Navbar */}
       <div className={`links`}>
         <Link to="/contact-us">
@@ -54,7 +96,7 @@ export const Navbar = () => {
         <div id="logo">
           <Link to="/">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/logos%2Fnk23logobright.png?alt=media&token=860c6239-e98e-4f5a-ace8-bdf1d57cf274"
+              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fnk23logobright.webp?alt=media&token=8105818c-4e72-437c-8e5c-5f79e995a694"
               alt="logo"
             />
           </Link>
@@ -75,7 +117,6 @@ export const Navbar = () => {
       <div className={`nav-elements  ${showNavbar && "active"}`}>
         <div id="sidebarLinks">
           <div id="userBox">
-            {/* <BiUserCircle fontSize={"30px"}/>   */}
             {user.uid ? (
               <Link to="/dashboard">
                 <button onClick={handleShowNavbar}>
@@ -106,6 +147,7 @@ export const Navbar = () => {
           </Link>
         </div>
       </div>
+
       {/* Mobile Navbar */}
       <div className="smallNav">
         <div onClick={handleShowNavbar}>
@@ -118,8 +160,8 @@ export const Navbar = () => {
         <div>
           <img
             className="logo-small"
-            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/logos%2Fnk23logobright.png?alt=media&token=860c6239-e98e-4f5a-ace8-bdf1d57cf274"
-            alt=""
+            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fnk23logobright.webp?alt=media&token=8105818c-4e72-437c-8e5c-5f79e995a694"
+            alt="LOGO"
             onClick={() => navigate("/")}
           />
         </div>
@@ -138,6 +180,6 @@ export const Navbar = () => {
           />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };

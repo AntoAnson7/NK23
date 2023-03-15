@@ -107,17 +107,24 @@
 }
 .leaderboard{
     flex: 3;
-    max-height: 20rem;
+    max-height: 17rem;
     border-radius: 10px;
-    background-color: rgba(0,0,0,0.6);
+    flex-direction: column;
+    gap: 15px;
     max-width: 50rem;
     margin-right: 30px;
+    overflow-y: scroll;
     position: relative;
     justify-content: center;
-    border: 1px solid #8C2725;
     color: white;
     display: flex;
-
+}
+.leaderboard h2{
+    padding-bottom: 20px;
+}
+.leaderboard h2 strong{
+    font-size: larger;
+    color: #8C2725;
 }
 
 .leaderboard::-webkit-scrollbar{
@@ -139,12 +146,37 @@
     background-color: #8C2725;
     margin-bottom: 150px;
 }
+.ca-board,.ca-board-1,.ca-board-2{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 32vw;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: rgba(217, 217, 217,0.01);
+    transition: all 0.2s ease-in;
+}
+.ca-board:hover,.ca-board-1:hover,.ca-board-2:hover{
+    transform: scale(1.02);
+}
+.ca-board-1{
+    background-color: rgba(218,165,32,0.4);
+}
+.ca-board-2{
+    background-color: rgba(217, 217, 217,0.2);
+}
 
 @media screen and (max-width:720px) {
     .is-CA{
         display: flex;
         flex-direction: column;
-        height: 120vh;
+        height: 140vh;
+        gap: 50px;
     }
     .is-CA .CA-top{
         max-height: 100px;
@@ -194,6 +226,14 @@
         border-radius: 10px;
         background-color: #8C2725;
         margin-bottom: 150px;
+    }
+    .leaderboard{
+        min-height: 60vh;
+        min-width: 90vw;
+    }
+    .ca-board,.ca-board-1,.ca-board-2{
+        margin: 5px auto;
+        width:70vw;
     }
 
 }

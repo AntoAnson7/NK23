@@ -76,9 +76,11 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    height:25%;
 }
+
 .ticket button{
-    height: 30px;
+    height: 70px;
     width: 30px;
     background-color: #8C2725;
     border: none;
@@ -111,10 +113,37 @@
 }
 .registered{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 25px;
     margin-top: 20px;
+    overflow-y:scroll ;
+}
+.registered::-webkit-scrollbar{
+  width: 3px;
+  height: 8px;
+  background-color: rgba(30, 30, 30,0.5);
+  border-radius: 50px;
+}
+.registered::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 50px;
+}
+.user-e{
+    display: flex;
+    gap: 30px;
+    margin-left: 20px;
+}
+.user-e-deet{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.user-e img{
+    width: 100px;
+}
+.user-e h3{
+    font-size: 15px;
+    color: green;
 }
 @media screen and (max-width:600px) {
     .ticket{

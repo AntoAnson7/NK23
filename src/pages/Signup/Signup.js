@@ -24,6 +24,7 @@ export const Signup = () => {
     college: yup.string().required().max(50),
     branch: yup.string().required().max(30),
     sem: yup.number().min(1).max(8).required(),
+    wtsp: yup.number().min(1555555555).required(),
   });
 
   const {
@@ -47,6 +48,7 @@ export const Signup = () => {
       refcode: "nor",
       refcount: 0,
       NKID: `NK-${user.uid.substring(0, 4).toUpperCase()}`,
+      whatsapp: data.wtsp,
     });
 
     const newLocalUser = {
@@ -56,6 +58,7 @@ export const Signup = () => {
       branch: data.branch,
       college: data.college,
       uid: user.uid,
+      whatsapp: data.wtsp,
     };
 
     dispatch({
@@ -93,6 +96,11 @@ export const Signup = () => {
         />
         <input type="text" placeholder="Branch" {...register("branch")} />
         <input type="number" placeholder="Semester" {...register("sem")} />
+        <input
+          type="number"
+          placeholder="Whatsapp number"
+          {...register("wtsp")}
+        />
         <p>
           Note : The display name you choose will be your name in certificates
         </p>

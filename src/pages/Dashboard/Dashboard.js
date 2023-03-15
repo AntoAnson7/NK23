@@ -9,13 +9,13 @@ import { CAEvent } from "./CAEvent";
 import { Recommended } from "./Recommended";
 import { motion } from "framer-motion";
 import { MdModeEdit } from "react-icons/md";
+import { auth } from "../../Firebase/config";
 import "./styles/Reccomended.css";
 
 export const Dashboard = () => {
   const [regCheck, setRegCheck] = useState(false);
   const [dbUsers, setdbUsers] = useState([]);
   const [registeredEvents, setregisteredEvents] = useState([]);
-  const [CAinfo, setCAinfo] = useState([]);
   const navigate = useNavigate();
 
   const [{ user, isVerified, isCA, userLocal }, dispatch] = useAppData();
@@ -26,19 +26,29 @@ export const Dashboard = () => {
   };
 
   const getRegistrations = async () => {
-    const res = await getDoc(doc(db, "users", user.uid));
+    const res = await getDoc(doc(db, "users", userLocal.uid));
     setregisteredEvents(res.data().registered);
   };
+
+  // useEffect(() => {
+  //   if (!isVerified) {
+  //     navigate("/");
+  //   }
+  // }, [isVerified]);
 
   useEffect(() => {
     if (user.uid == null) {
       navigate("/");
     }
+  }, []);
+
+  useEffect(() => {
     getUsersFromDatabase();
     getRegistrations();
   }, []);
 
-  const logout = () => {
+  const logout = async () => {
+    await auth.signOut();
     dispatch({
       type: "SET_VERIFICATION",
       status: false,
@@ -68,23 +78,14 @@ export const Dashboard = () => {
     let status = false;
     let ctr = 0;
 
-    CAinfo.map((CA) => {
-      if (CA.userid == user.uid) {
-        dispatch({
-          type: "SET_CA_DOC",
-          doc: CA,
-        });
-      }
-    });
-
     for (let i = 0; i < dbUsers.length; i++) {
-      console.log(dbUsers[i].uid);
       if (dbUsers[i].uid === user.uid) {
         status = true;
         ctr = i;
         break;
       }
     }
+
     if (status == true) {
       const newLocalUser = {
         name: dbUsers[ctr].name,
@@ -95,6 +96,7 @@ export const Dashboard = () => {
         uid: dbUsers[ctr].uid,
         isCA: dbUsers[ctr].isCA,
         NKID: dbUsers[ctr].NKID,
+        whatsapp: dbUsers[ctr].whatsapp,
       };
 
       dispatch({
@@ -117,7 +119,7 @@ export const Dashboard = () => {
   const makeUserCA = async () => {
     let code = "";
     for (let i = 0; i < 4; i++) {
-      if (userLocal.name[i] == " ") {
+      if (userLocal.name[i] === " ") {
         code += "X";
       } else {
         code += userLocal.name[i];
@@ -167,7 +169,7 @@ export const Dashboard = () => {
               >
                 <MdModeEdit />
               </button>
-              {user.uid ? <img src={user.photoURL} alt="" /> : <i></i>}
+              {isVerified ? <img src={user.photoURL} alt="" /> : <i></i>}
             </div>
 
             <div className="user-info">
@@ -204,7 +206,7 @@ export const Dashboard = () => {
         {/* CAMPUS AMBASSADOR */}
         <div className="campus-ambassador">
           {isCA ? (
-            <CAEvent />
+            <CAEvent users={dbUsers} />
           ) : regCheck ? (
             <div className="ca-reg-inter">
               <p>Are you sure you want to become a Campus Ambassador</p>

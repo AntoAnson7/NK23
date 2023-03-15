@@ -3,12 +3,27 @@ import { event_banner_path } from "../Events/eventDeets";
 import { Footer } from "../../components/Footer";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { getDocs } from "firebase/firestore";
+import { db } from "../../Firebase/config";
+import { collection } from "firebase/firestore";
 
 export const Home = () => {
   const navigate = useNavigate();
   const [{ user }] = useAppData();
+  const [all, setAll] = useState([]);
+
+  const getAll = async () => {
+    const res = await getDocs(collection(db, "users"));
+    setAll(res.data());
+  };
   return (
     <div className="home-parent">
+      <img
+        className="watermark"
+        src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/watermark.png?alt=media&token=5a0445e3-356d-45a6-a510-07520130b8d1"
+        alt=""
+      />
       <div className="home-main">
         <div className="nk-text">
           <img
@@ -27,7 +42,7 @@ export const Home = () => {
           </div>
           <div className="gits-log">
             <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Saintgits%20New%20logo.png?alt=media&token=b0f6f0d6-db66-472b-9d6f-748a5eb7762c"
+              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/watermark.png?alt=media&token=5a0445e3-356d-45a6-a510-07520130b8d1"
               alt=""
             />
           </div>

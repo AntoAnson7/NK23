@@ -8,6 +8,7 @@ export const initial = {
     branch: null,
     college: null,
     uid: null,
+    whatsapp: null,
     NKID: null,
   },
   isCA: false,
@@ -19,8 +20,6 @@ export const initial = {
 };
 
 export const reducer = (state, action) => {
-  // console.log(action)
-
   switch (action.type) {
     case "SET_USER":
       return {

@@ -10,7 +10,7 @@ export function RenderSubPage({ subEvent }) {
   const [{ rend }, dispatch] = useAppData();
   const list = subEvent.map((event, index) => (
     <a href="#re">
-      <div className="image-text-wrap">
+      <div className="image-text-wrap" key={index}>
         <img
           className="sub-page-event-banner"
           src={
@@ -42,7 +42,7 @@ export function RenderSubPage({ subEvent }) {
           <RenderEvents />
         </div>
       ) : (
-        console.log("none")
+        <></>
       )}
       <div className="sub-page-events">{list}</div>
     </div>

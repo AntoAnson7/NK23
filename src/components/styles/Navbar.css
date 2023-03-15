@@ -37,7 +37,6 @@
 }
 .navbar .links{
     font-size: 1.3rem;
-    font-family: Antonio;
     display: flex;
     gap: 50px;
     color: white;
@@ -48,6 +47,12 @@
     align-items: center;
     position: fixed;
     transition: all 0.2s ease-in;
+}
+.navbar .links a{
+    transition: all 0.2s ease-in;
+}
+.navbar .links a:hover{
+    transform: scale(1.08);
 }
 
 .links p{

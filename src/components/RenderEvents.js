@@ -88,7 +88,9 @@ export function RenderEvents() {
       refcode: "",
       userid: user.uid,
       username: userLocal.name,
+      whatsapp: userLocal.whatsapp,
     });
+    alert("Registration succesfull!");
     setRefresh(!refresh);
   };
   return (
@@ -160,7 +162,7 @@ export function RenderEvents() {
               alt=""
               style={{ width: "35px" }}
             />
-            <p>{`₹${Event.first}/-`}</p>
+            <p>{`₹${Event.first > 0 ? Event.first : "TBD"}/-`}</p>
           </div>
           <div className="second-a">
             <img
@@ -168,7 +170,7 @@ export function RenderEvents() {
               alt=""
               style={{ width: "35px" }}
             />
-            <p>{`₹${Event.second}/-`}</p>
+            <p>{`₹${Event.second > 0 ? Event.second : "TBD"}/-`}</p>
           </div>
         </div>
 
@@ -191,6 +193,7 @@ export function RenderEvents() {
         ) : (
           <></>
         )}
+        <p> ( Venue and dates will be provided soon! )</p>
       </div>
     </motion.div>
   );

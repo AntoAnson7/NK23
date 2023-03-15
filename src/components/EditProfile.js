@@ -37,6 +37,7 @@ export function EditProfile() {
       college: data.college == "" ? tempUser.college : data.college,
       branch: data.branch == "" ? tempUser.branch : data.branch,
       sem: data.sem == "" ? tempUser.sem : data.sem,
+      whatsapp: data.wtsp == "" ? tempUser.whatsapp : data.wtsp,
     });
     navigate("/dashboard");
   };
@@ -78,6 +79,12 @@ export function EditProfile() {
           placeholder="Semester"
           defaultValue={tempUser.sem}
           {...register("sem")}
+        />
+        <input
+          defaultValue={tempUser.whatsapp}
+          type="number"
+          placeholder="Whatsapp number"
+          {...register("wtsp")}
         />
         <p style={{ margin: "0" }}>Changes will reflect next time you login</p>
         <p>

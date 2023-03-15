@@ -1,7 +1,17 @@
 import "./Technical.css";
 import { useNavigate } from "react-router-dom";
+import { useAppData } from "../../../AppContext/AppContext";
+import { useEffect } from "react";
 
 export const Technical = () => {
+  const [{}, dispatch] = useAppData();
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_REND",
+      rend: "",
+    });
+  }, []);
   const navigate = useNavigate();
   return (
     <div className="technical-events-main">

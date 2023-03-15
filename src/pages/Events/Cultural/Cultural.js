@@ -1,6 +1,5 @@
 import "./Cultural.css";
 import { useNavigate } from "react-router-dom";
-import { subBanners } from "../eventDeets";
 import { useAppData } from "../../../AppContext/AppContext";
 import { useEffect } from "react";
 export const Cultural = () => {

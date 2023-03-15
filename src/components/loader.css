@@ -1,0 +1,28 @@
+
+#loadingBox{
+    border: 0px solid white;
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loading{
+    border: 0px solid white;
+    display: block;
+    margin: auto;
+    width: 30%;
+}
+
+
+@media (max-width:780px){
+    #loadingBox{
+        border: 0px solid white;
+        height: 100vh;
+    }
+    #loading{
+        border: 0px solid white;
+        width: 80%;
+    }
+}

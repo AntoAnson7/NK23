@@ -12,7 +12,6 @@
     top: 17%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* gap: 10px; */
 }
 .cultural-event-card{
     margin: 12px;
@@ -20,7 +19,7 @@
     transition: all 0.2s ease-in;
 }
 .cultural-event-card:hover{
-    transform: scale(1.08);
+    transform: scale(1.03);
 }
 .cultural-event-card-2{
     grid-column: span 2;
@@ -29,7 +28,7 @@
     border-radius: 20px;
 }
 .cultural-event-card-2:hover{
-    transform: scale(1.08);
+    transform: scale(1.03);
 }
 .cultural-event-card-2{
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fgeneral.png?alt=media&token=0e9d6901-9794-42f9-a47d-8795c6deaaf1");
@@ -110,7 +109,7 @@
     position: fixed;
 }
 .vector-cultural:hover{
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 

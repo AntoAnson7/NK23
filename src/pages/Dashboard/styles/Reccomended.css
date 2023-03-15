@@ -307,7 +307,18 @@ border-radius: 50%;
     background-color: #fff;
     color: #8C2725;
 }
-
+.CA-bot{
+    gap: 150px;
+    margin-left: 20px;
+}
+.no-ref{
+    margin: 0;
+    margin-top: 100px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media screen and (max-width:600px) {
     .dashboard{
@@ -485,6 +496,13 @@ border-radius: 50%;
     }
     .medals .first img,.medals .second img{
         max-width: 23px;
+    }
+    .no-ref{
+        margin: 0;
+        margin-left: -15px;
+    }
+    .leaderboard{
+        margin-left: -15px;
     }
 }
 

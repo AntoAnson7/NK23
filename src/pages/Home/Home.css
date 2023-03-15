@@ -45,10 +45,14 @@ html{
 }
 .home-about-us .gits-log{
     flex: 1;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-y: hidden;
+}
+.home-about-us .gits-log img{
+    max-width: 320px;
 }
 
 .home-about-us .nk-log img,.home-about-us .gits-log img{
@@ -101,7 +105,21 @@ html{
 .footer{
     height: 40vh;
 }
-@media screen and (max-width:600px) {
+.watermark{
+    opacity: 60%;
+    width: 130px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+@media screen and (max-width:800px) {
+    .watermark{
+        position: fixed;
+        width: 60px;
+        top: 80px;
+        left: 10px;
+        
+    }
     .home-parent{
         max-width: 100vw;
     }
@@ -121,6 +139,9 @@ html{
     }
     .top{
         max-height: 30vh;
+    }
+    .home-about-us .gits-log img{
+        max-width: 110px;
     }
 
     .home-about-us .bot{

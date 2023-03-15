@@ -1,4 +1,4 @@
-import { event_banner_path } from "../Events/eventDeets";
+import { event_banner_path, nameMap } from "../Events/eventDeets";
 import { useState, useEffect } from "react";
 import { useAppData } from "../../AppContext/AppContext";
 import { useNavigate } from "react-router-dom";
@@ -18,11 +18,6 @@ export const UserEvents = ({ event }) => {
     setdbU(res.data());
   };
 
-  const getEname = async (id) => {
-    const res = await getDoc(doc(db, "Events", id));
-    return res.data().name;
-  };
-
   useEffect(() => {
     if (user.uid == null) {
       navigate("/");
@@ -33,7 +28,7 @@ export const UserEvents = ({ event }) => {
   const str = `{
         Name : ${userLocal.name},
         ID : NK-${user.uid?.substring(0, 4).toUpperCase()},
-        Events: ${event.map((e) => {
+        Events: ${event.map((e, i) => {
           return e + " | ";
         })}
     }`;
@@ -41,8 +36,8 @@ export const UserEvents = ({ event }) => {
   return (
     <div>
       <div className="user-events-temp">
-        {event.map((e) => (
-          <div className="sub">
+        {event.map((e, i) => (
+          <div className="sub" key={i}>
             <img
               onClick={() => setFlag(!flag)}
               src={
@@ -69,15 +64,23 @@ export const UserEvents = ({ event }) => {
           </button>
 
           <div className="qr-div">
-            <QRCode className="qr" value={str} />
+            <QRCode className="qr" value={str} style={{ width: "150px" }} />
           </div>
           <div className="user-deets">
             <h1>{dbU.name}</h1>
             <p>{dbU.NKID}</p>
           </div>
           <div className="registered">
-            {dbU.registered?.map((r) => (
-              <h3>{`| ${r} |`}</h3>
+            {dbU.registered?.map((r, i) => (
+              <div className="user-e" key={i}>
+                <img src={event_banner_path[r]} alt="" />
+                <div className="user-e-deet">
+                  <h3>{`${r}`}</h3>
+                  <p>{nameMap[r]}</p>
+                  <p>Date : TBD</p>
+                  <p>Venue : TBD</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>

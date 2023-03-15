@@ -65,11 +65,14 @@ footer ul li {
   color: #fff;
 }
   
-  .copy{
-    color: #fff;
-  text-decoration: none;
-  }
-  .copy:hover{
+.copy{
+  color: #fff;
+text-decoration: none;
+}
+.copy{
+  font-size: 12px;
+}
+.copy:hover{
     text-decoration: underline;
   }
   @media screen and (max-width: 1050px) {
