@@ -32,6 +32,7 @@ export const Home = () => {
           />
         </div>
       </div>
+
       <div className="home-about-us" id="about">
         <div className="top">
           <div className="nk-log">
@@ -49,17 +50,23 @@ export const Home = () => {
         </div>
         <div className="bot">
           <p>
-            Place yourself in the middle of the stream of power and wisdom which
-            animates all whom it floats, and you are without effort impelled to
-            truth, to right and a perfect contentment – Spiritual laws. This is
-            what SAINTGITS COLLEGE OF ENGINEERING has been precisely doing since
-            its commencement in 2002. In contemplation to this Saintgits College
-            of Engineering presents Nakshatra 2022, the annual techno-cultural
-            fest. It is hosted every year to recognise fledging engineers who
-            have a flair of technical expertise and artistry. It is one of the
-            largest and eminent fests with more than 4000 entrants from across
-            the nation. This extravaganza unfolds to you a two-day mega event
-            full of merry and rapture.
+            Prepare yourself to open the portal to a new dimension. Step into an
+            unseen universe, witness the luminous stars of the day and immerse
+            yourself in the matrix of technology and cultural celebration.
+            SAINTGITS COLLEGE OF ENGINEERING has been a beacon of learning since
+            it's inception in 2002 and the college encompasses all the virtues
+            of it's slogan - 'Learn, Grow, Excel'.
+          </p>
+          <br />
+          <p>
+            Saintgits College of Engineering presents NAKSHATRA 2023, the annual
+            techno-cultural fest. It is hosted every year to recognise fledging
+            engineers who have a flair of technical expertise and artistry. It
+            is one of the most eminent fests with more than 4000 entrants from
+            across the nation. This extravaganza unfolds a two-day mega event
+            that transports you into a new realm. Get enraptured in performances
+            by budding engineers and artists that will leave you spellbound.
+            Join in to be a part of our exquisite fest, NAKSHATRA 2023.
           </p>
         </div>
       </div>
@@ -67,21 +74,21 @@ export const Home = () => {
       <div className="home-events">
         <div className="flage-top">
           <img
-            src={event_banner_path["NK038"]}
+            src={event_banner_path["NK025"]} //
             alt=""
             onClick={() => {
               navigate("/events/cultural/music");
             }}
           />
           <img
-            src={event_banner_path["NK009"]}
+            src={event_banner_path["NK034"]}
             alt=""
             onClick={() => {
               navigate("/events/technical/competitions");
             }}
           />
           <img
-            src={event_banner_path["NK068"]}
+            src={event_banner_path["NK026"]}
             alt=""
             onClick={() => {
               navigate("/events/cultural/music");
@@ -91,14 +98,14 @@ export const Home = () => {
 
         <div className="flage-bot">
           <img
-            src={event_banner_path["NK057"]}
+            src={event_banner_path["NK033"]}
             alt=""
             onClick={() => {
               navigate("/events/cultural/music");
             }}
           />
           <img
-            src={event_banner_path["NK035"]}
+            src={event_banner_path["NK039"]}
             alt=""
             onClick={() => {
               navigate("/events/cultural/music");

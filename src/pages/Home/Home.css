@@ -32,8 +32,13 @@ html{
     align-items: center;
     justify-content: center;
 }
+.bot{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 .bot p{
-    width: 1000px;
+    width: 1200px;
     line-height: 25px;
 }
 
@@ -112,6 +117,8 @@ html{
     bottom: 25px;
     right: 25px;
 }
+
+
 @media screen and (max-width:800px) {
     .watermark{
         position: fixed;

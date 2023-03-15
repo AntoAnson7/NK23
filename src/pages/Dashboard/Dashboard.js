@@ -45,7 +45,7 @@ export const Dashboard = () => {
   useEffect(() => {
     getUsersFromDatabase();
     getRegistrations();
-  }, []);
+  }, [getRegistrations()]);
 
   const logout = async () => {
     await auth.signOut();

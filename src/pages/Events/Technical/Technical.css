@@ -6,24 +6,24 @@
 .technical-events-sub{
     background-color: #16171B;
     position: fixed;
-    width: 70vw;
-    height: 70vh;
+    width: 60vw;
+    height: 60vh;
     border-radius: 20px;
     right: 50px;
     top: 15%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 15px;
     gap: 20px;
 }
 
 .workshops,.competitions{
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
     border-radius: 30px;
     height: 30vh;
     transition: all 0.2s ease-in;
-    margin-top: 25px ;
 }
 .workshops:hover,.competitions:hover{
     transform: scale(1.02);
