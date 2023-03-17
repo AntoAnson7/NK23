@@ -1,5 +1,8 @@
 export const EventID = {
   technical_competitions: [
+    "NK023",
+    "NK014",
+    "NK024",
     "NK061",
     "NK001",
     "NK002",
@@ -8,13 +11,13 @@ export const EventID = {
     "NK005",
     "NK006",
     "NK007",
+    "NK031",
     "NK008",
     "NK009",
     "NK010",
     "NK011",
     "NK012",
     "NK013",
-    "NK014",
     "NK015",
     "NK016",
     "NK017",
@@ -22,7 +25,6 @@ export const EventID = {
     "NK019",
     "NK020",
     "NK021",
-    // "NK022",
   ],
 
   technical_workshop: ["NK023", "NK024"],
@@ -34,7 +36,6 @@ export const EventID = {
     "NK028",
     "NK029",
     "NK030",
-    "NK031",
     "NK032",
     "NK033",
   ],
@@ -43,7 +44,7 @@ export const EventID = {
 
   cultural_music: ["NK037", "NK038", "NK039"],
 
-  cultural_sports: ["NK040", "NK041", "NK042", "NK043"],
+  cultural_sports: ["NK040", "NK070", "NK042", , "NK041", "NK043"],
 
   cultural_board: ["NK044", "NK045"],
 
@@ -71,103 +72,149 @@ export const teamstat = {
 
 export const event_banner_path = {
   NK001:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK001.webp?alt=media&token=46b04434-c129-4a7c-aa00-7d39393916c6",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK001.webp?alt=media&token=a9a5cf2d-ca5f-451f-88f8-60b7928042ab",
   NK002:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK002.webp?alt=media&token=3ed0ba0c-3404-4e4a-a91a-4d8596afbc74",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK002.webp?alt=media&token=61cf0ce3-ce97-476b-b1fb-6a0560056eca",
   NK003:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK003.webp?alt=media&token=1ab8fa8e-1703-4fd3-850b-9cc8ba1aae44",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK002.webp?alt=media&token=61cf0ce3-ce97-476b-b1fb-6a0560056eca",
   NK004:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK004.webp?alt=media&token=94c6797f-c43f-4af9-83e4-5c403cc5864d",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK004.webp?alt=media&token=afdf792f-89df-4fb7-987c-ab69a674b698",
   NK005:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK004.webp?alt=media&token=94c6797f-c43f-4af9-83e4-5c403cc5864d",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK005.webp?alt=media&token=4cab9116-4e27-416a-8048-953e4d6a6d27",
   NK006:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK006.webp?alt=media&token=8c69ad84-b6f4-489d-86c8-8f8c56b0f6bb",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK006.webp?alt=media&token=3b159de8-ebe7-4738-a5c5-6fe55da048cc",
   NK007:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK007.webp?alt=media&token=03bd890b-03b6-44d2-af42-f1d7475c4f6a",
-  NK009:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK007.webp?alt=media&token=03bd890b-03b6-44d2-af42-f1d7475c4f6a",
-  NK011:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK011.webp?alt=media&token=30433eb6-13d6-47cd-bc8b-c323499613b2",
-  NK013:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK013.webp?alt=media&token=333dd773-01d2-47a9-8ff8-63576ebd5370",
-  NK014:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK014.webp?alt=media&token=e86d69eb-0c4b-48b3-ac45-cce7de7bf173",
-  NK017:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK017.webp?alt=media&token=91f639c5-bc9d-4a2a-8584-4fb67d13069c",
-  NK018:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK018.webp?alt=media&token=41ea78b7-73f6-48e6-9235-5e56fe94e332",
-  NK019:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK019.webp?alt=media&token=914463f7-3996-483a-a650-978a4046b2a5",
-  NK021:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK021.webp?alt=media&token=52433696-0d72-49b9-b4b0-feb4fe9da71d",
-  NK023:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK023.webp?alt=media&token=0894f84a-2d3f-4a60-8539-384aae68f670",
-  NK024:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK034:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK035:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK036:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK038:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK039:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=e8a34ca9-2e91-4553-bdb4-0f20f68233ad",
-  NK041:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK041.webp?alt=media&token=756a9f70-5325-4828-9ecf-3818ab46a44a",
-  NK042:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK042.webp?alt=media&token=df736faf-87ef-44c4-bea6-789850c31307",
-  NK043:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK043.webp?alt=media&token=0b1dbcf4-c1d9-4e23-bb1e-403399796000",
-  NK046:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK046.webp?alt=media&token=627b4f71-3a1e-4b53-ab56-07984bc8c186",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK006.webp?alt=media&token=3b159de8-ebe7-4738-a5c5-6fe55da048cc",
 
+  NK008:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK008.webp?alt=media&token=ee56c049-9fa3-4240-aea1-61c927e28eb4",
+  NK009:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK009.webp?alt=media&token=8dc33868-bbab-4f18-b401-d13f15bd3d64",
+
+  NK010:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK010.webp?alt=media&token=1ab4a6ee-b8d2-4cbc-a377-3d088c141cb5",
+
+  NK011:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK011.webp?alt=media&token=8df5b7e1-09b1-4995-97d7-0d36aa03c050",
+  NK012:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK012.webp?alt=media&token=7ba3e5ef-a29f-4f81-8f37-56ea8fb00248",
+  NK013:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK013.webp?alt=media&token=17798898-6ee2-4c5d-9543-8ab98579b39c",
+  NK014:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK014.webp?alt=media&token=64cce04f-a9df-4a25-9a40-291960adbbab",
+  NK015:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK015.webp?alt=media&token=ea3a65e0-a730-4e03-95f3-19cc4daaf168",
+  NK016:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK016.webp?alt=media&token=f25ec351-0359-4f9e-90a6-a6b5b6ce6d8b",
+  NK017:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK017.webp?alt=media&token=0d72da0f-aa35-4c4b-b158-da4b806904a6",
+  NK018:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK018.webp?alt=media&token=56c85a6b-853c-4dbf-9d52-9b10d3aac6bd",
+  NK019:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK019.webp?alt=media&token=45313c2e-f4ba-4df9-ae4c-04b9eaeeea1f",
+  NK020:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK020.webp?alt=media&token=517ba198-e9c8-4e93-92a0-c6e7d19993a2",
+  NK021:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK021.webp?alt=media&token=1af0877f-ed4a-44ad-beee-16171e45fc7b",
+  NK023:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK023.webp?alt=media&token=ac466e0a-95dd-455f-870f-80728b45880e",
+  NK024:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK024.webp?alt=media&token=93924db9-c6af-49eb-bfa0-facd5d9761a6",
+  NK025:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK025.webp?alt=media&token=900273bf-1315-4f81-acab-7b3eee8f85f5",
+  NK026:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK026.webp?alt=media&token=72ca62f5-9f73-4031-83a8-321df5758d55",
+  NK027:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK027.webp?alt=media&token=4e4c6efc-1190-4a9a-981b-86568aee674a",
+  NK028:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK028.webp?alt=media&token=ac99e474-b8ec-4f01-bc8d-8b51c8ae50b6",
+  NK029:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK029.webp?alt=media&token=39aea4b2-4308-4cc9-9e89-d59128987ffb",
+  NK030:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK030.webp?alt=media&token=0ba0e91d-217a-4041-ae3b-d2b5a9b2454c",
+  NK031:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK031.webp?alt=media&token=be4bdf01-1444-4371-b984-6198cd830e29",
+  NK032:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK032.webp?alt=media&token=b80a4ebb-b077-438c-973a-5a0dc55dbc51",
+  NK033:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK033.webp?alt=media&token=c3e0beff-e20b-4dab-9328-247b5f82e0da",
+  NK034:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK034.webp?alt=media&token=807f1aef-80b2-410c-ae60-a1c2b98a8bb8",
+  NK035:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK035.webp?alt=media&token=c7a8c3cb-b3a5-462d-ad65-65630efda03f",
+  NK036:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK036.webp?alt=media&token=69a23844-4b27-41ec-a60e-b4b821ed6752",
+  NK037:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK037.webp?alt=media&token=23392c30-23e9-48ce-b395-d4ba3e2c54f5",
+  NK038:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK038.webp?alt=media&token=419e7390-4070-4b9b-9089-496f14a2dd20",
+  NK039:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK039.webp?alt=media&token=2abbec89-66b9-4228-831f-5700d3540c88",
+  NK040:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK040.webp?alt=media&token=cad095b7-daf7-43dd-927e-1a099b06c2c4",
+  NK041:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK041.webp?alt=media&token=aea696b2-48fa-4f15-b202-dc31393f595a",
+  NK042:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK042.webp?alt=media&token=37faa386-e08f-485d-ad7e-a1a70dc2e337",
+  NK043:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK043.webp?alt=media&token=ea172bce-e768-467a-a953-f386b21b1857",
+
+  NK044:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK044.webp?alt=media&token=ca4c4c3e-67e6-4d03-b617-434c28735f30",
+  NK045:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK045.webp?alt=media&token=23f9e43d-8cf5-46ab-b689-6f858967b776",
+  NK046:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK046.webp?alt=media&token=ad9abe81-c205-4429-a0e4-fa89c6dd4f4e",
+
+  NK047:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK047.webp?alt=media&token=ee58a3db-3b9c-40fc-8cd5-6a72de741759",
   NK048:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK048.webp?alt=media&token=d895b883-d492-4f88-9b2a-7cc20abd16fe",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK048.webp?alt=media&token=f2d8f295-e6cb-48bb-8c2a-af115a66097d",
   NK049:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK046.webp?alt=media&token=627b4f71-3a1e-4b53-ab56-07984bc8c186",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK049.webp?alt=media&token=f6d1c5e5-f267-4e06-a081-6b6b7fe24606",
   NK050:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK050.webp?alt=media&token=2dca41bb-1f71-48cc-b7ae-c8dbf9ac32df",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK050.webp?alt=media&token=f28f83d4-bb09-497a-9962-0859746cec66",
   NK051:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK051.webp?alt=media&token=fd75a533-cab5-4fbd-9660-196b2a6cab2c",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK051.webp?alt=media&token=13ba82ef-6cfc-430c-b253-81d28ada7c85",
   NK052:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK052.webp?alt=media&token=07590a20-8d83-4e7f-9209-351f64584421",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK052.webp?alt=media&token=7d7c1645-eea2-4cdb-9a2d-5a922bba2790",
   NK053:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK053.webp?alt=media&token=dbfa7237-283f-4025-b4f8-32b2377b3d24",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK053.webp?alt=media&token=8d93ccaf-f7d2-43fb-9124-8741c965fd8c",
   NK054:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK053.webp?alt=media&token=dbfa7237-283f-4025-b4f8-32b2377b3d24",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK054.webp?alt=media&token=fda15da0-ba58-4c10-a0c8-cb1eef016404",
   NK055:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK055.webp?alt=media&token=116306a8-be8d-4cb1-b514-1337fe750a35",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK055.webp?alt=media&token=4ef358a3-875c-4918-b642-903b86eb040a",
 
   NK056:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK056.webp?alt=media&token=eb0a8139-6e9f-47d6-a616-c11b6d390259",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK056.webp?alt=media&token=bb693010-e334-49af-b60b-d35edcc81248",
   NK057:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK057.webp?alt=media&token=0fd9ef1e-571a-4593-b85d-1cd34aa5c837",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK057.webp?alt=media&token=4e9afc49-8247-42d8-b7cd-46762ab3da2d",
   NK058:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK058.webp?alt=media&token=48cbafb5-3c01-4c43-a78f-61a088c053ba",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK058.webp?alt=media&token=2b5eff52-f7c1-4cd6-a0ee-cb90754f45e1",
   NK059:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK059.webp?alt=media&token=b6771707-4600-4e98-9963-4dc12f18d57c",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK059.webp?alt=media&token=1be49d83-b1ca-492b-a3dd-5f64251fd8fe",
   NK060:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK060.webp?alt=media&token=a8a951af-7246-4ade-8e66-ebce91c8b9c0",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK060.webp?alt=media&token=4822ed24-e942-4813-a3fa-f8d5517dd41e",
   NK061:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK061.webp?alt=media&token=1e341f12-c218-4c00-a55a-58de7ee11acb",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK061.webp?alt=media&token=fbacadce-e88a-49b0-9578-a809e95fc348",
   NK062:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK062.webp?alt=media&token=4f1f7243-a6fd-463d-b9d2-a3145276798d",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK062.webp?alt=media&token=4ce27d2f-be2e-455a-ab87-8e139ea3f71c",
   NK063:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK062.webp?alt=media&token=4f1f7243-a6fd-463d-b9d2-a3145276798d",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK063.webp?alt=media&token=eb595acd-cee9-4e17-a37f-2e26e69b62da",
   NK064:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK064.webp?alt=media&token=eff953b3-6b01-480b-8740-429afb2681d6",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK064.webp?alt=media&token=316b0001-c475-4566-baba-7ede16a970ce",
   NK065:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK064.webp?alt=media&token=eff953b3-6b01-480b-8740-429afb2681d6",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK065.webp?alt=media&token=7355554f-d33f-4219-a2a0-7a959fcf87dc",
   NK066:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK066.webp?alt=media&token=11cb7103-fa77-4a95-813d-4be684e462c8",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK066.webp?alt=media&token=d1a03cf1-c042-4df5-9e90-212b748d343a",
   NK067:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK067.webp?alt=media&token=190fff1e-45ad-4f68-a4b0-f914cf3ed258",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK067.webp?alt=media&token=db55c9c1-3991-4f5b-9f1a-26af152ae6fc",
   NK068:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK068.webp?alt=media&token=aaf7a55e-55ac-4ff8-929a-d318e9a29fc0",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK068.webp?alt=media&token=d1356866-daad-49f6-b558-c77e17deba0e",
   NK069:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK069.webp?alt=media&token=311b4c3b-b1aa-4246-849d-9f38813f75ea",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK069.webp?alt=media&token=6ccd5f7c-7cae-45a3-adc6-b020bacd1f85",
+  NK070:
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK070.webp?alt=media&token=8a22db29-daa5-41e0-b335-8e1bdb4207df",
 
   test: "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fcoming%20soon.webp?alt=media&token=7a404447-a9b3-4e42-a883-35637306be8f",
 };

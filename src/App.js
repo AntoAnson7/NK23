@@ -3,7 +3,10 @@ import { Navbar } from "./components/Navbar";
 import { RouterPaths } from "./components/RouterPaths";
 import useReady from "./components/useReady";
 import { Loader } from "./components/Loader";
+import { getAnalytics, logEvent } from "firebase/analytics";
 import "./App.css";
+const analytics = getAnalytics();
+logEvent(analytics, "received");
 
 function App() {
   const { ready } = useReady(3000);

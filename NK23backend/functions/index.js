@@ -1,3 +1,6 @@
+const accountSid = "AC7a549b4521c7e2d0816ed09ade13d84e";
+const authToken = "516dc40075a673a75488ebdc62c424e8";
+const client = require("twilio")(accountSid, authToken);
 const functions = require("firebase-functions");
 const express = require("express");
 const app = express();
@@ -25,7 +28,7 @@ const razorpay = new Razorpay({
 });
 
 app.get("/", (req, res) => {
-  res.send("RAZORPAY VER");
+  res.send("NK23 BACKEND v3");
 });
 
 app.post("/razorpay", async (req, res) => {
@@ -63,6 +66,30 @@ app.post("/verification", (req, res) => {
     if (digest === req.headers["x-razorpay-signature"]) {
       console.log("request is legit");
       if (req.body.payload.payment.entity?.notes?.app !== "isApp") {
+        try {
+          client.messages
+            .create({
+              from: "whatsapp:+14155238886",
+
+              // body
+              body: `Hey ${
+                req.body.payload.payment.entity?.notes?.username
+              }, Welcome to _*Nakshatra23*_!\nYour registration for the event *${
+                req.body.payload.payment.entity?.notes?.eventname
+              }* has been processed succesfully your registration ID is *${
+                req.body.payload.payment.entity?.notes?.userid +
+                req.body.payload.payment.entity?.notes?.eventid
+              }*\nWe are excited to see you soon !`,
+              // body
+
+              mediaUrl: "https://upcdn.io/W142hhQ/raw/msgbanner.jpg",
+              to: `whatsapp:+91${req.body.payload.payment.entity?.notes?.whatsapp}`,
+            })
+            .then((message) => console.log(message.sid));
+        } catch (e) {
+          console.log("wtspFail" + e);
+        }
+
         try {
           db.collection("Events")
             .doc(req.body.payload.payment.entity?.notes?.eventid)
@@ -154,8 +181,8 @@ app.post("/verification", (req, res) => {
   }
 });
 
-app.listen(1745, () => {
-  console.log("Listening on port 1745");
+app.listen(1748, () => {
+  console.log("Listening on port 1748");
 });
 
 exports.app = functions.region("asia-south1").https.onRequest(app);

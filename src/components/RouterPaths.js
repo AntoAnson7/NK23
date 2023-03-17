@@ -6,8 +6,6 @@ import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { Signup } from "../pages/Signup/Signup";
 import { Cultural } from "../pages/Events/Cultural/Cultural";
 import { Technical } from "../pages/Events/Technical/Technical";
-import { Competitions } from "../pages/Events/Technical/Competitions/Competitions";
-import { Workshops } from "../pages/Events/Technical/Workshops/Workshops";
 
 import { Art } from "../pages/Events/Cultural/Art/Art";
 import { Board } from "../pages/Events/Cultural/Board/Board";
@@ -41,12 +39,6 @@ export function RouterPaths() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/events/cultural" element={<Cultural />} />
         <Route path="/events/technical" element={<Technical />} />
-
-        <Route
-          path="/events/technical/competitions"
-          element={<Competitions />}
-        />
-        <Route path="/events/technical/workshops" element={<Workshops />} />
 
         <Route path="/events/cultural/art" element={<Art />} />
         <Route path="/events/cultural/board-games" element={<Board />} />

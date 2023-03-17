@@ -7,12 +7,15 @@ import { UserEvents } from "./UserEvents";
 import { db } from "../../Firebase/config";
 import { CAEvent } from "./CAEvent";
 import { Recommended } from "./Recommended";
+import useReady from "../../components/useReady";
 import { motion } from "framer-motion";
 import { MdModeEdit } from "react-icons/md";
 import { auth } from "../../Firebase/config";
 import "./styles/Reccomended.css";
 
 export const Dashboard = () => {
+  const { ready } = useReady(1500);
+
   const [regCheck, setRegCheck] = useState(false);
   const [dbUsers, setdbUsers] = useState([]);
   const [registeredEvents, setregisteredEvents] = useState([]);
@@ -26,26 +29,24 @@ export const Dashboard = () => {
   };
 
   const getRegistrations = async () => {
-    const res = await getDoc(doc(db, "users", userLocal.uid));
+    const res = await getDoc(doc(db, "users", user?.uid));
     setregisteredEvents(res.data().registered);
   };
 
-  // useEffect(() => {
-  //   if (!isVerified) {
-  //     navigate("/");
-  //   }
-  // }, [isVerified]);
-
   useEffect(() => {
-    if (user.uid == null) {
-      navigate("/");
+    if (ready == true) {
+      if (user.uid == null) {
+        navigate("/");
+      } else if (user.uid != null && !isVerified) {
+        navigate("/signup");
+      }
     }
-  }, []);
+  }, [user, isVerified]);
 
   useEffect(() => {
     getUsersFromDatabase();
     getRegistrations();
-  }, [getRegistrations()]);
+  }, [getRegistrations]);
 
   const logout = async () => {
     await auth.signOut();
@@ -72,48 +73,6 @@ export const Dashboard = () => {
       type: "SET_CA",
       isCA: false,
     });
-  };
-
-  const checkUser = () => {
-    let status = false;
-    let ctr = 0;
-
-    for (let i = 0; i < dbUsers.length; i++) {
-      if (dbUsers[i].uid === user.uid) {
-        status = true;
-        ctr = i;
-        break;
-      }
-    }
-
-    if (status == true) {
-      const newLocalUser = {
-        name: dbUsers[ctr].name,
-        email: dbUsers[ctr].email,
-        sem: dbUsers[ctr].sem,
-        branch: dbUsers[ctr].branch,
-        college: dbUsers[ctr].college,
-        uid: dbUsers[ctr].uid,
-        isCA: dbUsers[ctr].isCA,
-        NKID: dbUsers[ctr].NKID,
-        whatsapp: dbUsers[ctr].whatsapp,
-      };
-
-      dispatch({
-        type: "SET_NEW_LOCAL_USER",
-        userLocal: newLocalUser,
-      });
-      dispatch({
-        type: "SET_VERIFICATION",
-        status: true,
-      });
-      dispatch({
-        type: "SET_CA",
-        isCA: dbUsers[ctr].isCA,
-      });
-    } else {
-      navigate("/signup");
-    }
   };
 
   const makeUserCA = async () => {
@@ -158,7 +117,11 @@ export const Dashboard = () => {
   return (
     <motion.div className="dashboard">
       {/* DASHBOARD LEFT */}
-      <div className="dashboard-left">
+      <motion.div
+        className="dashboard-left"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <div className="user-events" id="unr">
           {/* USER-INFO SECTION */}
           <div className="user">
@@ -174,9 +137,12 @@ export const Dashboard = () => {
 
             <div className="user-info">
               {isVerified ? (
-                <h3>{`${userLocal.name} (${userLocal.NKID})`}</h3>
+                <h3>
+                  {userLocal.name}
+                  <strong>{userLocal.NKID}</strong>
+                </h3>
               ) : (
-                checkUser()
+                <></>
               )}
             </div>
 
@@ -187,11 +153,6 @@ export const Dashboard = () => {
 
           {/* REGISTERED EVENTS SECTION */}
           <div className="events">
-            {isVerified ? (
-              ""
-            ) : (
-              <p>Complete your profile to access more options</p>
-            )}
             {registeredEvents?.length > 0 ? (
               <UserEvents event={registeredEvents} />
             ) : (
@@ -265,6 +226,10 @@ export const Dashboard = () => {
                     </li>
                     <br />
                     <li>
+                      <h3>Higher the registration more the point rewarded!</h3>
+                    </li>
+                    <br />
+                    <li>
                       {" "}
                       Referral codes generated through either app or website can
                       only be used for event registrations and sign-ups.
@@ -288,7 +253,7 @@ export const Dashboard = () => {
                 <a href="#unr">
                   <button
                     className="ca-reg-button"
-                    onClick={() => setRegCheck(true)}
+                    onClick={() => makeUserCA()}
                   >
                     Register Now
                   </button>
@@ -297,12 +262,19 @@ export const Dashboard = () => {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
 
       {/* DASHBOARD RIGHT */}
-      <div className="dashboard-right">
+      <motion.div
+        className="dashboard-right"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <h3>
+          <strong>Recommended</strong> Events
+        </h3>
         <Recommended />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

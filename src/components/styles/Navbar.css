@@ -1,4 +1,3 @@
-
 .navbar{
     border: 0px solid white;
     width: 100vw;
@@ -80,6 +79,11 @@
   }
   #sidebarLinks{
     display: none;
+  }
+
+  .nav-user-pfp{
+    border-radius: 50%;
+    width: 35px;
   }
 
 @media (max-width:720px){

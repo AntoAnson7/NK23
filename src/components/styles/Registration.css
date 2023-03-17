@@ -95,7 +95,7 @@
     margin-right: 200px;
     margin-bottom: 120px;
     background-color: rgba(0,0,0,0.5);
-    border-radius: 50px;
+    border-radius: 10px;
 }
 .lr hr{
     height: 60%;
@@ -174,13 +174,21 @@
     }
     .lr{
         flex-direction: column;
+        gap: 10px;
+    }
+    .form .i-sub{
+        position: fixed;
+        bottom: 0;
     }
     .lr .teamGet{
         width: 100vw;
         margin:0;
+        max-height: fit-content;
         border-radius:0 ;
+        margin-top: 150px;
         border: none;
         border-bottom: none;
+        margin-bottom: 20px;
     }
     .teamGet p{
         max-width: 290px;

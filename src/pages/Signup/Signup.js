@@ -7,16 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 import { Footer } from "../../components/Footer";
+import { motion } from "framer-motion";
 import "./Signup.css";
 
 export const Signup = () => {
-  const [{ user }, dispatch] = useAppData();
+  const [{ user, isVerified }, dispatch] = useAppData();
   const navigate = useNavigate();
   useEffect(() => {
     if (user.uid == null) {
       navigate("/");
+    } else if (user.uid != null && isVerified) {
+      navigate("/dashboard");
     }
-  }, []);
+  }, [isVerified]);
 
   const schema = yup.object().shape({
     display_name: yup.string().max(25).required(),
@@ -75,7 +78,12 @@ export const Signup = () => {
   };
 
   return (
-    <div className="signup">
+    <motion.div
+      className="signup"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <form className="signup-form" onSubmit={handleSubmit(formSubmit)}>
         <input
           className="i1"
@@ -107,6 +115,6 @@ export const Signup = () => {
         <input className="sub-i" type="submit" value="Sign Up" />
       </form>
       <Footer />
-    </div>
+    </motion.div>
   );
 };

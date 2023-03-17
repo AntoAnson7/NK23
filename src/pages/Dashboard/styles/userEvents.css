@@ -80,14 +80,15 @@
 }
 
 .ticket button{
-    height: 70px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
     background-color: #8C2725;
     border: none;
     font-weight: bold;
     color: white;
     border-radius: 50%; 
     transition: all 0.2s ease-in;
+    position: absolute;
 }
 
 .ticket button:hover{
@@ -148,7 +149,7 @@
 @media screen and (max-width:600px) {
     .ticket{
         left: 0px;
-        top: 80px;
+        top: 70px;
         width: 87vw;
     }
 }

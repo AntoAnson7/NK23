@@ -6,7 +6,11 @@ export const Events = () => {
   const navigate = useNavigate();
   return (
     <motion.div className="events-main">
-      <div className="events-left">
+      <motion.div
+        className="events-left"
+        initial={{ x: 250 }}
+        animate={{ x: 0 }}
+      >
         <img
           onClick={() => navigate("/events/cultural")}
           className="banner"
@@ -18,8 +22,12 @@ export const Events = () => {
           src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/3.png?alt=media&token=654afab1-cebf-447b-8e02-77970a3bf32f"
           alt=""
         />
-      </div>
-      <div className="events-right">
+      </motion.div>
+      <motion.div
+        className="events-right"
+        initial={{ x: -250 }}
+        animate={{ x: 0 }}
+      >
         <img
           onClick={() => navigate("/events/technical")}
           className="banner"
@@ -31,7 +39,7 @@ export const Events = () => {
           src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/2.png?alt=media&token=058e37a8-2b9d-4354-81f1-7c1b46fbda0e"
           alt=""
         />
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

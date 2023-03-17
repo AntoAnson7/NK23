@@ -96,12 +96,13 @@ export function RenderEvents() {
   return (
     <motion.div
       className="render-main"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ x: 0, transition: { duration: 1 } }}
+      initial={{ y: 200, scale: 0.8 }}
+      animate={{ y: 0, scale: 1 }}
     >
       <div className="left">
-        <img
+        <motion.img
+          initial={{ x: 350, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
           className="banner-img"
           src={event_banner_path[Event.eventid ? Event.eventid : "test"]}
           alt=""
@@ -130,7 +131,7 @@ export function RenderEvents() {
         )}
       </div>
 
-      <div className="right">
+      <motion.div className="right" initial={{ x: -350 }} animate={{ x: 0 }}>
         <button
           className="close-1"
           onClick={() => {
@@ -156,22 +157,43 @@ export function RenderEvents() {
         </div>
 
         <div className="medals-a">
-          <div className="first-a">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c"
-              alt=""
-              style={{ width: "35px" }}
-            />
-            <p>{`₹${Event.first > 0 ? Event.first : "TBD"}/-`}</p>
-          </div>
-          <div className="second-a">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000"
-              alt=""
-              style={{ width: "35px" }}
-            />
-            <p>{`₹${Event.second > 0 ? Event.second : "TBD"}/-`}</p>
-          </div>
+          {Event.first > 0 ? (
+            <div className="first-a">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca1.png?alt=media&token=fa2f32cc-94fc-48d1-a981-10555f1c0a6c"
+                alt=""
+                style={{ width: "35px" }}
+              />
+
+              <p>{`₹${Event.first}/-`}</p>
+            </div>
+          ) : (
+            <></>
+          )}
+          {Event.second > 0 ? (
+            <div className="second-a">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000"
+                alt=""
+                style={{ width: "35px" }}
+              />
+              <p>{`₹${Event.second}/-`}</p>
+            </div>
+          ) : (
+            <></>
+          )}
+          {Event.third > 0 ? (
+            <div className="second-a">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/ca2.png?alt=media&token=e9764347-f604-47c0-abc2-189fbf62e000"
+                alt=""
+                style={{ width: "35px" }}
+              />
+              <p>{`₹${Event.third}/-`}</p>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
 
         <p
@@ -194,7 +216,7 @@ export function RenderEvents() {
           <></>
         )}
         <p> ( Venue and dates will be provided soon! )</p>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

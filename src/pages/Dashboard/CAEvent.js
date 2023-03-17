@@ -5,6 +5,7 @@ import { db } from "../../Firebase/config";
 import { useEffect, useState } from "react";
 import "./styles/CAEvent.css";
 import { RiShareForwardFill } from "react-icons/ri";
+import { motion } from "framer-motion";
 
 export const CAEvent = ({ users }) => {
   users.sort((a, b) => {
@@ -25,7 +26,11 @@ export const CAEvent = ({ users }) => {
   }, []);
 
   return (
-    <div className="is-CA">
+    <motion.div
+      className="is-CA"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <div className="CA-top">
         <p>{tempUser?.refcode}</p>
         <div className="share-whatsapp">
@@ -52,6 +57,7 @@ export const CAEvent = ({ users }) => {
             <p>No Refferals Yet</p>
           </div>
         )}
+        <hr />
 
         <div className="leaderboard">
           <h2>
@@ -92,6 +98,6 @@ export const CAEvent = ({ users }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

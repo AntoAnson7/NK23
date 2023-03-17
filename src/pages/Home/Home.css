@@ -5,13 +5,14 @@ html{
 .home-main{
     height: 100vh;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Main.png?alt=media&token=dbb94f93-83ed-46fb-83eb-fd1ad698eed7");
-    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
+    background-position: center center;
     justify-content: center;
     align-items: center;
 }
 .nk-text img{
-    width: 1200px;
+    width: 1000px;
 }
 
 .home-about-us{
@@ -76,6 +77,9 @@ html{
     display: flex;
     flex-direction: column;
 }
+.flage-top::-webkit-scrollbar,.flage-bot::-webkit-scrollbar{
+    display: none;
+}
 
 .flage-top{
     height: 50vh;
@@ -120,12 +124,16 @@ html{
 
 
 @media screen and (max-width:800px) {
+    .home-main{
+        background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/mob.png?alt=media&token=8ac38dcd-3e8b-4b54-90f7-f98c8529dcb1");
+        background-position: center center;
+        background-size: 500px;
+    }
+    .nk-text{
+        margin-top: 420px;
+    }
     .watermark{
-        position: fixed;
-        width: 60px;
-        top: 80px;
-        left: 10px;
-        
+        display: none;
     }
     .home-parent{
         max-width: 100vw;

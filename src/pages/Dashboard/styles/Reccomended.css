@@ -82,6 +82,20 @@ border-radius: 20px;
     border-radius: 20px;
     box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.6);
 }
+.user-info h3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.user-info h3 strong{
+    background-color: #8C2725;
+    padding: 3px 12px 3px 12px;
+    margin-top: 4px;
+    border-radius: 3px;
+    font-size: 14px;
+}
 
 .events {
 box-sizing: border-box;
@@ -107,8 +121,8 @@ padding: 20px;
 
 
 .pfp img{
-width: 8rem;
-height: 8rem;
+width: 6rem;
+height: 6rem;
 left: 96px;
 top: 234px;
 border-radius: 50%;
@@ -117,9 +131,9 @@ border-radius: 50%;
 .logout button{
     width: 100px;
     height: 30px;
-    border: none;
-    border-radius: 20px;
-    background-color: #8C2725;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid #8C2725;
     color: white;
     font-weight: bold;
     transition: all 0.2s ease-in;
@@ -252,11 +266,12 @@ border-radius: 50%;
 }
 
 .ca-reg-button{
-    margin-top: 50px;
     margin-left: 70%;
     width: 150px;
     height: 50px;
+    font-size: 17px;
     border-radius: 20px;
+    border: none;
     background-color: #8C2725;
     color: white;
     font-weight: bold;
@@ -275,12 +290,12 @@ border-radius: 50%;
 }
 
 .rec-events h3{
+    width: 100%;
     font-size: 22px;
     position: fixed;
     margin-bottom: 30px;
     z-index: 5;
     background-color: rgba(30, 30, 30, 0.6);
-    width: 385px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,6 +303,10 @@ border-radius: 50%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
+.rec-events{
+    gap: 0;
+}
+
 .pfp {
     position: relative;
 }
@@ -319,8 +338,30 @@ border-radius: 50%;
     align-items: center;
     justify-content: center;
 }
+.dashboard-right{
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-right h3{
+    color: white;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+    max-width: 200px;
+}
+.dashboard-right h3 strong{
+    font-size: 36px;
+    color: #8C2725;
+}
+.rec-events{
+    margin-top: 10px;
+}
 
-@media screen and (max-width:600px) {
+
+@media screen and (min-width:300px) and (max-width:900px) {
     .dashboard{
         display: flex;
         flex-direction: column;  

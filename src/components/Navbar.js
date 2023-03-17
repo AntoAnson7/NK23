@@ -2,62 +2,71 @@ import { Link } from "react-router-dom";
 import { useAppData } from "../AppContext/AppContext";
 import { signInWithPopup } from "firebase/auth";
 import { auth, db, provider } from "../Firebase/config";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BiUserCircle } from "react-icons/bi";
-import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import "./styles/Navbar.css";
 import { doc, getDoc } from "firebase/firestore";
+
+import { GiHamburgerMenu } from "react-icons/gi";
+import { BiUserCircle } from "react-icons/bi";
+import { IoClose } from "react-icons/io5";
+import { FaUserAlt } from "react-icons/fa";
+
+import "./styles/Navbar.css";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const [{ user }, dispatch] = useAppData();
   const [showNavbar, setShowNavbar] = useState(false);
-  const [local, setLocal] = useState({});
-
-  const getU = async (id) => {
+  const checkUser = async (id) => {
     const res = await getDoc(doc(db, "users", id));
-    setLocal(res.data());
+    if (res.data()) {
+      console.log("Fetch success");
+      dispatch({
+        type: "SET_NEW_LOCAL_USER",
+        userLocal: {
+          name: res.data().name,
+          email: res.data().email,
+          sem: res.data().sem,
+          branch: res.data().branch,
+          college: res.data().college,
+          uid: res.data().uid,
+          whatsapp: res.data().whatsapp,
+          NKID: res.data().NKID,
+        },
+      });
+      dispatch({
+        type: "SET_VERIFICATION",
+        status: true,
+      });
+      dispatch({
+        type: "SET_CA",
+        isCA: res.data().isCA,
+      });
+    } else {
+      navigate("/signup");
+      console.log("SED");
+    }
   };
 
-  const check = async (id) => {
-    const res = await getDoc(doc(db, "users", id));
-    return res.data() != undefined ? true : false;
-  };
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch({
+          type: "SET_USER",
+          user: userAuth,
+        });
+        checkUser(userAuth.uid);
+      } else {
+        auth.signOut();
+        console.log("FAIL");
+      }
+    });
 
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-  //     if (userAuth) {
-  //       dispatch({
-  //         type: "SET_USER",
-  //         user: userAuth,
-  //       });
-  //       dispatch({
-  //         type: "SET_VERIFICATION",
-  //         status: true,
-  //       });
-  //       dispatch({
-  //         type: "SET_NEW_LOCAL_USER",
-  //         userLocal: {
-  //           name: "Anto",
-  //         },
-  //       });
-  //       dispatch({
-  //         type: "SET_CA",
-  //         isCA: false,
-  //       });
-  //     } else {
-  //       console.log("FAIL");
-  //     }
-  //   });
-
-  //   return () => {
-  //     unsubscribe();
-  //   };
-  // }, [dispatch, local]);
-
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch]);
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
@@ -74,7 +83,6 @@ export const Navbar = () => {
       navigate("/dashboard");
     } catch (e) {
       console.log(`Google sign in failed: ${e}`);
-      alert("Oops server down please try again after some time!");
     }
   };
 
@@ -95,10 +103,12 @@ export const Navbar = () => {
         </a>
         <div id="logo">
           <Link to="/">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fnk23logobright.webp?alt=media&token=8105818c-4e72-437c-8e5c-5f79e995a694"
-              alt="logo"
-            />
+            <a href="#main">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fnk23logobright.webp?alt=media&token=8105818c-4e72-437c-8e5c-5f79e995a694"
+                alt="logo"
+              />
+            </a>
           </Link>
         </div>
         <Link to="/events">
@@ -168,14 +178,15 @@ export const Navbar = () => {
 
         {user.uid == null ? (
           <BiUserCircle
-            fontSize={"30px"}
+            fontSize={"35px"}
             opacity={"60%"}
             onClick={googleLogin}
           />
         ) : (
-          <BiUserCircle
-            fontSize={"30px"}
-            opacity={"60%"}
+          <img
+            className="nav-user-pfp"
+            src={user.photoURL}
+            alt={"Dash"}
             onClick={() => navigate("/dashboard")}
           />
         )}

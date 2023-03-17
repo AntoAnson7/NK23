@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import { useAppData } from "../../AppContext/AppContext";
 import { useNavigate } from "react-router-dom";
 import QRCode from "react-qr-code";
-import "./styles/userEvents.css";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../Firebase/config";
-
+import { motion } from "framer-motion";
+import "./styles/userEvents.css";
 export const UserEvents = ({ event }) => {
   const navigate = useNavigate();
   const [flag, setFlag] = useState(false);
@@ -34,7 +34,7 @@ export const UserEvents = ({ event }) => {
     }`;
 
   return (
-    <div>
+    <motion.div initial={{ x: -250 }} animate={{ x: 0 }}>
       <div className="user-events-temp">
         {event.map((e, i) => (
           <div className="sub" key={i}>
@@ -58,7 +58,13 @@ export const UserEvents = ({ event }) => {
       </button>
 
       {flag ? (
-        <div className="ticket">
+        <motion.div
+          className="ticket"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.1 }}
+        >
           <button className="x" onClick={() => setFlag(!flag)}>
             X
           </button>
@@ -83,10 +89,10 @@ export const UserEvents = ({ event }) => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       ) : (
         <></>
       )}
-    </div>
+    </motion.div>
   );
 };

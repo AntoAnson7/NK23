@@ -60,6 +60,11 @@
     display: flex;
     margin-top: 30px;
 }
+.CA-bot hr{
+    /* width: 1px; */
+    height: 90%;
+    border: 0.1px solid rgba(217, 217, 217,0.05);
+}
 .score{
     flex: 1;
     display: flex;
@@ -137,14 +142,19 @@
 
 .no-ref{
     height: 50px;
-    width: 200px;
+    max-width: 170px;
     margin-left: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: #8C2725;
+    background-color: rgba(0,0,0,0.6);
+    border: 1px solid #8C2725;
     margin-bottom: 150px;
+    transition: all 0.2s ease-in;
+}
+.no-ref:hover{
+    transform: scale(1.05);
 }
 .ca-board,.ca-board-1,.ca-board-2{
     height: 50px;
@@ -165,21 +175,22 @@
     transform: scale(1.02);
 }
 .ca-board-1{
-    background-color: rgba(218,165,32,0.4);
+    background-color: rgba(217, 217, 217,0.6)
 }
 .ca-board-2{
     background-color: rgba(217, 217, 217,0.2);
 }
 
-@media screen and (max-width:720px) {
+@media screen and (min-width:300px) and (max-width:900px) {
     .is-CA{
         display: flex;
         flex-direction: column;
-        height: 140vh;
+        height: 170vh;
         gap: 50px;
     }
     .is-CA .CA-top{
         max-height: 100px;
+        margin-bottom: 5px;
     }
     .is-CA .CA-bot{
         display: flex;
@@ -190,9 +201,13 @@
         align-items: center;
         justify-content: center;
     }
+    .CA-bot{
+        height: 150px;
+    }
     .CA-bot .score{
         width: 100%;
-        max-height: 400px;
+        flex: 1;
+        min-height: fit-content;
     }
     .score h2{
         font-size: 50px;  
@@ -224,11 +239,15 @@
         align-items: center;
         justify-content: center;
         border-radius: 10px;
-        background-color: #8C2725;
+        background-color: rgba(0,0,0,0.6);
         margin-bottom: 150px;
     }
+    .CA-bot hr{
+        display: none;
+    }
     .leaderboard{
-        min-height: 60vh;
+        flex: 2;
+        min-height: 50vh;
         min-width: 90vw;
     }
     .ca-board,.ca-board-1,.ca-board-2{
