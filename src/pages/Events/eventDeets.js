@@ -31,18 +31,18 @@ export const EventID = {
 
   cultural_general: [
     "NK025",
+    "NK033",
     "NK026",
     "NK027",
     "NK028",
     "NK029",
     "NK030",
     "NK032",
-    "NK033",
   ],
 
   cultural_dance: ["NK034", "NK035", "NK036"],
 
-  cultural_music: ["NK037", "NK038", "NK039"],
+  cultural_music: ["NK038", "NK039", "NK037"],
 
   cultural_sports: ["NK040", "NK070", "NK042", , "NK041", "NK043"],
 
@@ -76,15 +76,16 @@ export const event_banner_path = {
   NK002:
     "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK002.webp?alt=media&token=61cf0ce3-ce97-476b-b1fb-6a0560056eca",
   NK003:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK002.webp?alt=media&token=61cf0ce3-ce97-476b-b1fb-6a0560056eca",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK003.webp?alt=media&token=b6504116-3438-4bc6-a001-14478bb9cd38",
   NK004:
     "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK004.webp?alt=media&token=afdf792f-89df-4fb7-987c-ab69a674b698",
   NK005:
     "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK005.webp?alt=media&token=4cab9116-4e27-416a-8048-953e4d6a6d27",
   NK006:
     "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK006.webp?alt=media&token=3b159de8-ebe7-4738-a5c5-6fe55da048cc",
+
   NK007:
-    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK006.webp?alt=media&token=3b159de8-ebe7-4738-a5c5-6fe55da048cc",
+    "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK007.webp?alt=media&token=a3288f99-e379-4147-8936-740ba2a92f85",
 
   NK008:
     "https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/Compressed%2Fimages%2FNK008.webp?alt=media&token=ee56c049-9fa3-4240-aea1-61c927e28eb4",
@@ -301,4 +302,4 @@ export const nameMap = {
   NK069: "Animezing",
 };
 
-export const freeEvents = ["NK044", "NK050", "NK061"];
+export const freeEvents = ["NK050", "NK061", "NK021"];

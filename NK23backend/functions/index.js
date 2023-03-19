@@ -23,8 +23,8 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const razorpay = new Razorpay({
-  key_id: "rzp_live_pA1PKHzjMTGnSs", // "rzp_live_pA1PKHzjMTGnSs"
-  key_secret: "xK8D5VFYYWFYvzljId2NQEkR", // "xK8D5VFYYWFYvzljId2NQEkR"
+  key_id: "rzp_live_pA1PKHzjMTGnSs",
+  key_secret: "xK8D5VFYYWFYvzljId2NQEkR",
 });
 
 app.get("/", (req, res) => {
@@ -32,6 +32,15 @@ app.get("/", (req, res) => {
 });
 
 app.post("/razorpay", async (req, res) => {
+  // await admin
+  //   .firestore()
+  //   .collection("Events")
+  //   .where("eventid", "==", req.body.id)
+  //   .get()
+  //   .then((value) => {
+  //     const amount = value.docs.map((doc) => doc.data().regfee);
+  //   });
+
   const amount = req.body.amount;
   try {
     const response = await razorpay.orders.create({

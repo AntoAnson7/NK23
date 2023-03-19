@@ -10,6 +10,7 @@ logEvent(analytics, "received");
 
 function App() {
   const { ready } = useReady(3000);
+
   return (
     <div className="App">
       {ready !== true ? (
@@ -22,15 +23,6 @@ function App() {
       )}
     </div>
   );
-
-  // return (
-  //   <div className="App">
-  //     <Router>
-  //       <Navbar />
-  //       <RouterPaths />
-  //     </Router>
-  //   </div>
-  // );
 }
 
 export default App;

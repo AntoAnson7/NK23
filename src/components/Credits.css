@@ -1,0 +1,53 @@
+.credits{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+.c-box{
+    display: flex;
+    gap: 50px;
+}
+.c-box img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.2s ease-in
+}
+.box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.insta{
+    background-color: rgba(0,0,250,0.2);
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+.insta-icon{
+    font-size: 55px;
+}
+.insta:hover {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+}
+.box p{
+    color: white;
+    text-align: center;
+    opacity: 80%;
+}

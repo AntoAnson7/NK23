@@ -112,6 +112,9 @@ export function Registration() {
 
       <div className="lr">
         <form className="form" onSubmit={handleSubmit(proceedtoPay)}>
+          <h1>
+            Only Engineering students can Register<strong> *</strong>
+          </h1>
           <input className="i1" type="text" value={e?.name} />
           <input type="text" value={e?.eventid} />
           <input
@@ -129,6 +132,10 @@ export function Registration() {
 
           <ul className="pay-alerts">
             <li>Alert: Please do not refresh the page after you hit pay</li>
+            <li>
+              You will have to submit your college ID card of a valid
+              engineering college on request
+            </li>
             <li>
               There wont be any refunds after you have paid the registration fee
             </li>

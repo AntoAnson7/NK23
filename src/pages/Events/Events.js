@@ -1,9 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useAppData } from "../../AppContext/AppContext";
+import { useEffect } from "react";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import "./Events.css";
 
-export const Events = () => {
+const Events = () => {
   const navigate = useNavigate();
+  const [{}, dispatch] = useAppData();
+
+  useEffect(() => {
+    dispatch({
+      type: "SET_REND",
+      rend: "",
+    });
+  }, []);
   return (
     <motion.div className="events-main">
       <motion.div
@@ -12,6 +24,7 @@ export const Events = () => {
         animate={{ x: 0 }}
       >
         <img
+          effect="blur"
           onClick={() => navigate("/events/cultural")}
           className="banner"
           src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/culturalBanner.png?alt=media&token=5e6a3612-a6af-4cff-acd3-2e7811419fea"
@@ -29,6 +42,7 @@ export const Events = () => {
         animate={{ x: 0 }}
       >
         <img
+          effect="blur"
           onClick={() => navigate("/events/technical")}
           className="banner"
           src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/technicalBanner.png?alt=media&token=b3d2e76c-cfc0-4856-b8bf-25213fccf44c"
@@ -43,3 +57,5 @@ export const Events = () => {
     </motion.div>
   );
 };
+
+export default Events;

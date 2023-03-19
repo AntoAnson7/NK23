@@ -44,7 +44,7 @@ export const displayRazorpay = async (token) => {
 
   const options = {
     key: process.env.REACT_APP_RZP_APIKEY,
-    amount: data.amount,
+    amount: token.amount,
     currency: data.currency,
     name: "Nakshatra23",
     description: "Event Registration",

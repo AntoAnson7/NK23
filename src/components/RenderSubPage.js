@@ -3,8 +3,10 @@ import { event_banner_path } from "../pages/Events/eventDeets";
 import { useAppData } from "../AppContext/AppContext";
 import { useNavigate } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
-import "./styles/Subpage.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion } from "framer-motion";
+import "./styles/Subpage.css";
 
 export function RenderSubPage({ subEvent }) {
   const navigate = useNavigate();

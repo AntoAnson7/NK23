@@ -6,12 +6,12 @@
     background-color: #16171B;
     position: fixed;
     width: 75vw;
-    height: 80vh;
+    height: 75vh;
     border-radius: 30px;
     right: 50px;
     top: 17%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .cultural-event-card{
     margin: 12px;
@@ -22,7 +22,7 @@
     transform: scale(1.03);
 }
 .cultural-event-card-2{
-    grid-column: span 2;
+    grid-column: span 1;
     margin: 20px;
     transition: all 0.2s ease-in;
     border-radius: 20px;
@@ -30,18 +30,11 @@
 .cultural-event-card-2:hover{
     transform: scale(1.03);
 }
-.cultural-event-card-2{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fgeneral.png?alt=media&token=0e9d6901-9794-42f9-a47d-8795c6deaaf1");
-    background-position: center center;
-    background-size:1200px ;
-    background-repeat:no-repeat ;
-}
+
 .cultural-event-card-2 button{
     width: 100%;
     height: 100%;
     font-size: 60px;
-    color: white;
-    font-weight: bold;
     border-radius: 20px;
     border: none;
     background-color: transparent;
@@ -49,76 +42,20 @@
 .cultural-event-card button{
     width: 100%;
     height: 100%;
-    font-size: 30px;
-    color: white;
-    font-weight: bold;
     border-radius: 20px;
     border: none;
+    cursor: pointer;
     background-color: transparent;
 }
-
-#art{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fart.png?alt=media&token=06f2d3d9-cff4-4e50-93de-92a77a10ee2b");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
+.cultural-events-sub button img{
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
 }
-#board{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fboard.png?alt=media&token=6b8b069b-02bc-4cc9-8971-8c044828ac70");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-
-#cookery{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fcookery.png?alt=media&token=2806e05c-e554-4532-92a8-bb44adf1ba97");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-#dance{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fdance.png?alt=media&token=94fd9c63-bc89-49f4-8782-e10aeb1411ee");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-#gaming{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fgaming.png?alt=media&token=a82b9999-8667-46e1-92b5-a7229314f90e");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-
-#movie{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fmovie.png?alt=media&token=25a5e8ff-8bca-4b48-a3a0-548d0c176ba5");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-#music{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fmusic.png?alt=media&token=96ca7813-afc8-436e-823f-9122f2624968");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-#photography{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fphotography.png?alt=media&token=30c98e17-bbe2-452c-b633-72e9d39d50f0");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-#quiz{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fquiz.png?alt=media&token=b834c147-bdd5-4ae0-afd0-de8422b49eca");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
-}
-
-#sports{
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/subBanners%2FCultural%2Fsports.png?alt=media&token=2298b378-4235-4f8d-a68f-d96f858f2649");
-    background-position: center center;
-    background-size:500px ;
-    background-repeat: no-repeat;
+.cultural-event-card-2 button img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .vector-cultural{
@@ -133,8 +70,6 @@
 .vector-cultural:hover{
     transform: scale(1.05);
 }
-
-
 
 @media screen and (max-width:720px) {
     .vector-cultural{
@@ -162,6 +97,9 @@
         align-items: center;
         justify-content: center;
         transition: all 0.2s ease-in;
+    }
+    .cultural-events-sub button img{
+        min-height: 250px;
     }
 
     .cultural-events-sub::-webkit-scrollbar{

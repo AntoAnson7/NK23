@@ -23,6 +23,13 @@ export const Dashboard = () => {
 
   const [{ user, isVerified, isCA, userLocal }, dispatch] = useAppData();
 
+  useEffect(() => {
+    dispatch({
+      type: "SET_REND",
+      rend: "",
+    });
+  }, []);
+
   const getUsersFromDatabase = async () => {
     const userData = await getDocs(usersDatabase);
     setdbUsers(userData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -247,6 +254,14 @@ export const Dashboard = () => {
                     </li>{" "}
                     <br />
                     <li>Committee decisions will be final.</li>
+                    <br />
+                    <li>For further queries contact:</li>
+                    <br />
+                    <ul>
+                      <li>Head: Airene Ann Mathew | 6282597327</li>
+                      <li>Subhead :David M | 8111867786</li>
+                      <li>Subhead :Geevees K | George 9487894178</li>
+                    </ul>
                   </ul>
                 </div>
 

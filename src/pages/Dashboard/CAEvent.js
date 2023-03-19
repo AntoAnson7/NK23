@@ -61,7 +61,7 @@ export const CAEvent = ({ users }) => {
 
         <div className="leaderboard">
           <h2>
-            <strong>Campus Ambassador</strong> leaderboard
+            <strong>Ambassador</strong> leaderboard
           </h2>
           <div className="ca-board-1">
             <img

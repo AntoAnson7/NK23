@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { doc, getDoc } from "firebase/firestore";
-
+import useReady from "./useReady";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BiUserCircle } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
@@ -16,7 +16,8 @@ import "./styles/Navbar.css";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  const [{ user }, dispatch] = useAppData();
+  const { ready } = useReady(3000);
+  const [{ user, isVerified }, dispatch] = useAppData();
   const [showNavbar, setShowNavbar] = useState(false);
   const checkUser = async (id) => {
     const res = await getDoc(doc(db, "users", id));

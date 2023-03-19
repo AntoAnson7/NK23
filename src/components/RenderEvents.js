@@ -13,7 +13,7 @@ import "./styles/RenderEvents.css";
 
 export function RenderEvents() {
   const [{ rend }] = useAppData();
-  const [{ user, userLocal }, dispatch] = useAppData();
+  const [{ user, userLocal, isVerified }, dispatch] = useAppData();
   const [loginStat, setloginStat] = useState(false);
   const navigate = useNavigate();
   const [Event, setEvent] = useState([]);
@@ -32,7 +32,6 @@ export function RenderEvents() {
       navigate("/dashboard");
     } catch (e) {
       console.log(`Google sign in failed: ${e}`);
-      alert("Oops server down please try again after some time!");
     }
   };
 
@@ -51,7 +50,7 @@ export function RenderEvents() {
   useEffect(() => {
     getUSERDB();
     getEvent();
-    if (user.uid != null) {
+    if (user.uid != null && isVerified) {
       setloginStat(true);
     }
   }, [rend, refresh]);
@@ -147,6 +146,9 @@ export function RenderEvents() {
         <div className="title-bar">
           <h1>{`${Event.name}`}</h1>
         </div>
+        <p className="id-tag">
+          Event ID <strong>{Event.eventid}</strong>
+        </p>
 
         <p className="cat-tags">{`${Event.category} | ${Event.subcategory}`}</p>
 

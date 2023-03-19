@@ -10,59 +10,10 @@ html{
     background-position: center center;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .nk-text img{
     width: 1000px;
-}
-
-.home-about-us{
-    background-color: black;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-.home-about-us .top{
-    display: flex;
-    flex: 1.2;
-}
-.home-about-us .bot{
-    flex: 1;
-    color: white;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.bot{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-.bot p{
-    width: 1200px;
-    line-height: 25px;
-}
-
-.home-about-us .nk-log{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.home-about-us .gits-log{
-    flex: 1;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: hidden;
-}
-.home-about-us .gits-log img{
-    max-width: 320px;
-}
-
-.home-about-us .nk-log img,.home-about-us .gits-log img{
-    width: 450px;
 }
 .nk-text{
     transition: all 0.2s ease-in;
@@ -71,11 +22,139 @@ html{
     transform: scale(1.08);
 }
 
+.home-grad{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    pointer-events: none;
+    height: 150px;
+    pointer-events: none;
+    background-image: linear-gradient(to top,rgba(0,0,0),transparent);
+}
+
+.home-about-us{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding-bottom: 150px;
+}
+
+
+.grad{
+    position: absolute;
+    background-image: linear-gradient(to bottom,rgba(0,0,0),transparent);
+    height: 150px;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+.grad2{
+    position: absolute;
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    z-index: 2;
+    background-image: linear-gradient(to top,rgb(0,0,0),transparent);
+    pointer-events: none;
+}
+/* !OVERLAY */
+.ab-text{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ab-top{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+}
+
+.ab-top img{
+    width: 350px;
+}
+.ab-bot img{
+    width: 350px;
+}
+.ab-bot p{
+    max-width: 500px;
+    line-height: 30px;
+}
+.ab-top p{
+    max-width: 500px;
+    line-height: 30px;
+}
+.home-about-us p{
+    opacity: 70%;
+    letter-spacing: 1.1px;
+}
+.ab-bot{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+}
+.img-box{
+    width: 20vw;
+    background-color: black;
+    height: 20vw;
+    border-radius: 30px;
+    transition: all 0.2s ease-in;
+    opacity: 80%;
+}
+.img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.home-about-us .ab-text .text-title{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3vw;
+    z-index: 5;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+.home-about-us .ab-text .text-title:hover{
+    transform: scale(1.05);
+}
+.home-about-us .ab-text .text-title strong{
+    font-size: 4vw;
+    color: #8C2725;
+}
+
 .home-events{
     height: 100vh;
-    background-color:#16171B;
+    background-image: linear-gradient(to bottom,rgba(0,0,0,1),#16171B);
     display: flex;
     flex-direction: column;
+}
+.home-events h1{
+    color: white;
+    width: 100%;
+    display: flex;
+    font-size: 3vw;
+    gap: 5px;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+}
+.home-events h1 strong a{
+    font-size: 4vw;
+    color: #8C2725;
+}
+.home-events h1:hover{
+    transform: scale(1.05);
 }
 .flage-top::-webkit-scrollbar,.flage-bot::-webkit-scrollbar{
     display: none;
@@ -149,22 +228,26 @@ html{
     .home-about-us img{
         max-width: 150px;
     }
-    .home-about-us .nk-log,.home-about-us .gits-log{
-        max-height: 40vh;
+
+    .home-about-us{
+        display: flex;
+        flex-direction: column;
     }
-    .top{
-        max-height: 30vh;
+    .home-about-us .ab-top{
+        display: none;
     }
-    .home-about-us .gits-log img{
-        max-width: 110px;
+    .home-about-us .ab-bot{
+        flex-direction: column;
+    }
+    .home-about-us .ab-bot .img-box{
+        width: 80vw;
+        height: 30vh;
+    }
+    .ab-bot .img-box img{
+        min-height: 100%;
+        min-width: 100%;
     }
 
-    .home-about-us .bot{
-        margin-top: 0;
-    }
-    .home-about-us .bot p{
-        max-width: 80vw;
-    }
     .home-events{
         max-width: 100vw;
     }
@@ -176,5 +259,26 @@ html{
         margin: 0;
         overflow-x: scroll;
         overflow-y: hidden;
+    }
+    .home-events h1{
+       font-size: 7vw;
+    }
+    .home-events h1 strong a{
+        font-size: 10vw;
+    }
+    .home-about-us{
+        height: 130vh;
+    }
+    .home-about-us .ab-text .text-title{
+        font-size: 7vw;
+        margin-bottom: 50px;
+        margin-top: 40px;
+    }
+    .home-about-us .ab-text .text-title strong{
+        font-size: 10vw;
+    }
+    .home-about-us p{
+        opacity: 70%;
+        letter-spacing: 1.2px;
     }
 }

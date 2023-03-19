@@ -33,9 +33,10 @@
 }
 
 .share{
-    height: 64px;
+    height: 60px;
     width: 50px;
     background-color: #8C2725;
+    background-image: linear-gradient(to left,rgba(140, 39, 37,0.5),rgba(0,0,0,0.6));
     font-size: 30px;
     color: white;
     border-top-right-radius: 10px;
@@ -43,11 +44,10 @@
     border: none;
 }
 .CA-top p{
-    border: 2px solid #8C2725;
     height: 60px;
     border-right: none;
     font-weight: bold;
-    background-color: rgba(0,0,0,0.6);
+    background-image:linear-gradient(to right,rgba(140, 39, 37,0.5),rgba(0,0,0,0.6)) ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,7 +128,7 @@
     padding-bottom: 20px;
 }
 .leaderboard h2 strong{
-    font-size: larger;
+    font-size: 36px;
     color: #8C2725;
 }
 
@@ -168,17 +168,18 @@
     width: 32vw;
     margin-left: 50px;
     margin-right: 50px;
-    background-color: rgba(217, 217, 217,0.01);
+    background-image:linear-gradient(to right,rgba(217, 217, 217,0.05),transparent) ;
     transition: all 0.2s ease-in;
 }
 .ca-board:hover,.ca-board-1:hover,.ca-board-2:hover{
     transform: scale(1.02);
 }
 .ca-board-1{
-    background-color: rgba(217, 217, 217,0.6)
+    background-image:linear-gradient(to right,#8C2725 ,transparent);
+    /* rgba(217, 217, 217,0.6) */
 }
 .ca-board-2{
-    background-color: rgba(217, 217, 217,0.2);
+    background-image:linear-gradient(to right,rgba(217, 217, 217,0.3),transparent) ;
 }
 
 @media screen and (min-width:300px) and (max-width:900px) {

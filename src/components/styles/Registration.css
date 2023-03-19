@@ -9,7 +9,7 @@
     flex: 1;
 }
 .reg .form .i1{
-    margin-top: 200px;
+    margin-top: 20px;
 }
 .reg .form {
     display: flex;
@@ -76,6 +76,17 @@
     padding-left: 30px;
     border-radius: 15px;
 }
+.reg h1{
+    color: white;
+    font-size: 18px;
+    /* background-color: rgba(140, 39, 37,0.5);
+    padding: 10px;
+    border-radius: 10px; */
+    margin-top: 120px;
+}
+.reg h1 strong{
+    color: #8C2725;
+}
 .lr{
     display: flex;
 }
@@ -94,7 +105,7 @@
     margin-left: 100px;
     margin-right: 200px;
     margin-bottom: 120px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2);
     border-radius: 10px;
 }
 .lr hr{
@@ -185,8 +196,9 @@
         margin:0;
         max-height: fit-content;
         border-radius:0 ;
-        margin-top: 150px;
+        margin-top: 0px;
         border: none;
+        border-radius: 20px;
         border-bottom: none;
         margin-bottom: 20px;
     }

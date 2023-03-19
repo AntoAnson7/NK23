@@ -1,7 +1,9 @@
 import React from "react";
+import { lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "../pages/Home/Home";
-import { Events } from "../pages/Events/Events";
+import Events from "../pages/Events/Events";
+
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { Signup } from "../pages/Signup/Signup";
 import { Cultural } from "../pages/Events/Cultural/Cultural";
@@ -25,7 +27,7 @@ import { Privacy } from "./FooterElements/Privacy/Privacy";
 import { Terms } from "../components/FooterElements/Terms/Terms";
 import { Refund } from "./FooterElements/Refund/Refund";
 import { EditProfile } from "./EditProfile";
-
+import Credits from "./Credits";
 import { AnimatePresence } from "framer-motion"; //framer-motion/dist/framer-motion
 
 export function RouterPaths() {
@@ -59,6 +61,7 @@ export function RouterPaths() {
         <Route path="/refunds" element={<Refund />} />
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/dashboard/edit-profile" element={<EditProfile />} />
+        <Route path="/credits" element={<Credits />} />
       </Routes>
     </AnimatePresence>
   );

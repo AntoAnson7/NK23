@@ -112,6 +112,7 @@ export const Signup = () => {
         <p>
           Note : The display name you choose will be your name in certificates
         </p>
+        <p>Registrations for events are only for Engineering students</p>
         <input className="sub-i" type="submit" value="Sign Up" />
       </form>
       <Footer />
