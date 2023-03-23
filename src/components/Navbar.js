@@ -44,6 +44,13 @@ export const Navbar = () => {
         type: "SET_CA",
         isCA: res.data().isCA,
       });
+
+      res.data().isCA
+        ? dispatch({
+            type: "SET_CA_CODE",
+            code: res.data().refcode,
+          })
+        : console.log();
     } else {
       navigate("/signup");
       console.log("SED");

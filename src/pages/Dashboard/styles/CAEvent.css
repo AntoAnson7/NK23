@@ -183,10 +183,14 @@
 }
 
 @media screen and (min-width:300px) and (max-width:900px) {
+    .dashboard{
+        max-height: 150vh;
+    }
+
     .is-CA{
         display: flex;
         flex-direction: column;
-        height: 170vh;
+        height: 120vh;
         gap: 50px;
     }
     .is-CA .CA-top{

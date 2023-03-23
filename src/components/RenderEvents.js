@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import { freeEvents } from "../pages/Events/eventDeets";
 import "./styles/RenderEvents.css";
+import e from "cors";
 
 export function RenderEvents() {
   const [{ rend }] = useAppData();
@@ -198,6 +199,11 @@ export function RenderEvents() {
           )}
         </div>
 
+        <div className="date-time">
+          <p>{Event.Date}</p>
+          <p>|</p>
+          <p>{Event.Time}</p>
+        </div>
         <p
           className="descr-tag"
           dangerouslySetInnerHTML={{ __html: Event.description }}

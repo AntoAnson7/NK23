@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { useAppData } from "../../AppContext/AppContext";
 import { Link, useNavigate } from "react-router-dom";
-import { getDocs, setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import {
+  getDocs,
+  setDoc,
+  doc,
+  updateDoc,
+  getDoc,
+  collection,
+} from "firebase/firestore";
 import { usersDatabase } from "../../Firebase/DBtables";
 import { UserEvents } from "./UserEvents";
 import { db } from "../../Firebase/config";
@@ -11,30 +18,31 @@ import useReady from "../../components/useReady";
 import { motion } from "framer-motion";
 import { MdModeEdit } from "react-icons/md";
 import { auth } from "../../Firebase/config";
+import { IoConstruct } from "react-icons/io5";
 import "./styles/Reccomended.css";
 
 export const Dashboard = () => {
   const { ready } = useReady(1500);
 
   const [regCheck, setRegCheck] = useState(false);
-  const [dbUsers, setdbUsers] = useState([]);
+  // const [dbUsers, setdbUsers] = useState([]);
   const [registeredEvents, setregisteredEvents] = useState([]);
   const navigate = useNavigate();
-
+  const [ld, setLD] = useState([]);
   const [{ user, isVerified, isCA, userLocal }, dispatch] = useAppData();
+
+  const getCAld = async () => {
+    const res = await getDocs(collection(db, "CALeaderboard"));
+    setLD(res.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  };
 
   useEffect(() => {
     dispatch({
       type: "SET_REND",
       rend: "",
     });
+    getCAld();
   }, []);
-
-  const getUsersFromDatabase = async () => {
-    const userData = await getDocs(usersDatabase);
-    setdbUsers(userData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
-
   const getRegistrations = async () => {
     const res = await getDoc(doc(db, "users", user?.uid));
     setregisteredEvents(res.data().registered);
@@ -51,7 +59,6 @@ export const Dashboard = () => {
   }, [user, isVerified]);
 
   useEffect(() => {
-    getUsersFromDatabase();
     getRegistrations();
   }, [getRegistrations]);
 
@@ -174,8 +181,13 @@ export const Dashboard = () => {
         {/* CAMPUS AMBASSADOR */}
         <div className="campus-ambassador">
           {isCA ? (
-            <CAEvent users={dbUsers} />
-          ) : regCheck ? (
+            // <div className="maint">
+            //   <IoConstruct className="wre" />
+            //   <h1>Campus Ambassador dashboard will be back soon! </h1>
+            // </div>
+            <CAEvent ld={ld} />
+          ) : // <CAEvent users={dbUsers} />
+          regCheck ? (
             <div className="ca-reg-inter">
               <p>Are you sure you want to become a Campus Ambassador</p>
               <div className="butts">

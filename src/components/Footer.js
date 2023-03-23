@@ -40,7 +40,7 @@ export function Footer() {
 
         <div>
           <p>Powered by</p>{" "}
-          <Link to="/developers" className="copy">
+          <Link to="/credits" className="copy">
             NK23 Website Team
           </Link>
         </div>

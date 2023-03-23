@@ -6,9 +6,43 @@ import "./Home.css";
 import { useAppData } from "../../AppContext/AppContext";
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Faq from "react-faq-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export const Home = () => {
+  const faq = {
+    title: "FAQ",
+    rows: [
+      {
+        title:
+          "Is there any chance of getting Activity point for participating in an event?",
+        content: `Activity Points is given according to regulations and norms under KTU, However the points varies depending upon the type of event (Technical / Non-technical )which the candidate is participating.`,
+      },
+      {
+        title:
+          "Does everyone who registered for an event will get a  Certificate for Participation ?",
+        content: `No,  Certificate for Participation is only given for those who attend the event on the scheduled day. Those who fail to show on the event  day are not eligible for the certification.`,
+      },
+      {
+        title:
+          "Is there any Transportation Facility available for the participants to attend Nakashtra 23?",
+        content: (
+          <p>
+            Transportation Facility could be arranged for participants. However
+            those who wish to avail transportation Facility should contact the
+            Transportation Head and Inform ASAP and Should Confirm whether you
+            have been arranged a facility or not 3 days prior to the event.
+            <br></br>
+            Transportation Head :<br></br>
+            <h1 style={{ paddingTop: "10px" }}>Abel Binu Eapen</h1>
+            <br></br>
+            <h1>91 70258 16862</h1>
+          </p>
+        ),
+      },
+    ],
+  };
+
   const navigate = useNavigate();
   const [cur, setCur] = useState(0);
   const [size, setSize] = useState({
@@ -70,13 +104,17 @@ export const Home = () => {
     setCur(i);
   };
 
-  const bgStyle = {
-    position: "relative",
-    height: "110vh",
-    width: "100vw",
-    backgroundImage: `url(${bgi[cur]})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
+  const styles = {
+    bgColor: "black",
+    titleTextColor: "white",
+
+    rowTitleTextSize: "17px",
+    rowContentTextSize: "14px",
+    arrowColor: "white",
+    rowContentPaddingLeft: "30px",
+    rowContentColor: "white",
+    rowTitleColor: "white",
+    rowContentPaddingBottom: "40px",
   };
 
   return (
@@ -92,6 +130,12 @@ export const Home = () => {
         alt=""
       />
       <div className="home-main">
+        <div className="dates">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/temp%2Fdates.png?alt=media&token=d4326b0d-717d-4e9e-8216-afa8d0ef2254"
+            alt=""
+          />
+        </div>
         <motion.div
           className="nk-text"
           initial={{ scale: 0.8 }}
@@ -228,6 +272,17 @@ export const Home = () => {
             }}
           />
         </div>
+      </div>
+      <div className="faq-page">
+        <h1 className="he">FAQ</h1>
+        <motion.div
+          className="faq"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Faq data={faq} styles={styles} />
+        </motion.div>
       </div>
 
       <Footer />

@@ -8,7 +8,7 @@ function Credits() {
       <div className="c-box">
         <div className="box">
           <div>
-            <a href="https://www.instagram.com/anto__anson/">
+            <a href="https://www.instagram.com/joel.kjames/" target="_blank">
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/temp%2Fimg.jpg?alt=media&token=49e24253-8c52-4302-9079-7a1a4947c80a"
                 alt=""
@@ -24,9 +24,9 @@ function Credits() {
 
         <div className="box">
           <div>
-            <a href="https://www.instagram.com/anto__anson/">
+            <a href="https://www.instagram.com/anto__anson/" target="_blank">
               <img
-                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/temp%2Fpfp.jpg?alt=media&token=fa999fec-9f6c-4d46-b5ba-b680014e7ed4"
+                src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/temp%2Fme1.jpeg?alt=media&token=8f81ac0f-74ab-4c44-8e2e-447a1e6832b7"
                 alt=""
               />
               <div className="insta">
@@ -40,7 +40,10 @@ function Credits() {
 
         <div className="box">
           <div>
-            <a href="https://www.instagram.com/anto__anson/">
+            <a
+              href="https://www.instagram.com/whensheepsgocrazy/"
+              target="_blank"
+            >
               <img
                 src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/temp%2Fimg1.jpg?alt=media&token=55bda210-551a-438c-8919-d1a3d8de04e5"
                 alt=""

@@ -11,7 +11,7 @@ import "./styles/Registration.css";
 
 export function Registration() {
   const navigate = useNavigate();
-  const [{ user, eventTemp, RegEvent: e }] = useAppData();
+  const [{ user, RegEvent: e, code }] = useAppData();
   const [val, setVal] = useState([]);
   const [err, setErr] = useState("nil");
 
@@ -76,7 +76,7 @@ export function Registration() {
               amount: e.regfee,
               eventid: e.eventid,
               eventname: e.name,
-              ref: data.ref == null ? "nor" : data.ref,
+              ref: data.ref == null || data.ref == code ? "nor" : data.ref,
               whatsapp: data.num,
               team: val.toString(),
             };
@@ -113,7 +113,8 @@ export function Registration() {
       <div className="lr">
         <form className="form" onSubmit={handleSubmit(proceedtoPay)}>
           <h1>
-            Only Engineering students can Register<strong> *</strong>
+            Only Engineering students can Register(Students of saintgits can't
+            register for Nakshatra)<strong> *</strong>
           </h1>
           <input className="i1" type="text" value={e?.name} />
           <input type="text" value={e?.eventid} />

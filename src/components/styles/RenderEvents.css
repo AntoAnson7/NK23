@@ -201,6 +201,16 @@
     transform: scale(1.08);
 }
 
+.date-time{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    background-color: #8C2725;
+    width: fit-content;
+    padding: 3px 10px 3px 10px;
+}
+
 @media screen and (max-width:600px) {
     .render-main{
         display: flex;

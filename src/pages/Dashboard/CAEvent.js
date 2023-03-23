@@ -1,17 +1,13 @@
 import { useAppData } from "../../AppContext/AppContext";
 import { WhatsappShareButton } from "react-share";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/config";
 import { useEffect, useState } from "react";
 import "./styles/CAEvent.css";
 import { RiShareForwardFill } from "react-icons/ri";
 import { motion } from "framer-motion";
 
-export const CAEvent = ({ users }) => {
-  users.sort((a, b) => {
-    return b.refcount - a.refcount;
-  });
-
+export const CAEvent = ({ ld }) => {
   const [{ user }] = useAppData();
   const [tempUser, setUser] = useState([]);
 
@@ -21,6 +17,7 @@ export const CAEvent = ({ users }) => {
     const res = await getDoc(doc(db, "users", user.uid));
     setUser(res.data());
   };
+
   useEffect(() => {
     getCAinfo();
   }, []);
@@ -69,8 +66,8 @@ export const CAEvent = ({ users }) => {
               alt=""
               style={{ width: "15px" }}
             />
-            <p>{users[0]?.name}</p>
-            <p>{users[0]?.refcount * 100}</p>
+            <p>{ld[0]?.name}</p>
+            <p>{ld[0]?.score * 100}</p>
           </div>
           <div className="ca-board-2">
             <img
@@ -78,24 +75,35 @@ export const CAEvent = ({ users }) => {
               alt=""
               style={{ width: "15px" }}
             />
-            <p>{users[1]?.name}</p>
-            <p>{users[1]?.refcount * 100}</p>
+            <p>{ld[1]?.name}</p>
+            <p>{ld[1]?.score * 100}</p>
           </div>
           <div className="ca-board">
             <p>03</p>
-            <p>{users[2]?.name}</p>
-            <p>{users[2]?.refcount * 100}</p>
+            <p>{ld[2]?.name}</p>
+            <p>{ld[2]?.score * 100}</p>
           </div>
           <div className="ca-board">
             <p>04</p>
-            <p>{users[3]?.name}</p>
-            <p>{users[3]?.refcount * 100}</p>
+            <p>{ld[3]?.name}</p>
+            <p>{ld[3]?.score * 100}</p>
           </div>
           <div className="ca-board">
             <p>05</p>
-            <p>{users[4]?.name}</p>
-            <p>{users[4]?.refcount * 100}</p>
+            <p>{ld[4]?.name}</p>
+            <p>{ld[4]?.score * 100}</p>
           </div>
+
+          {/* 
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/nk23-a5689.appspot.com/o/images%2FCampus%20Ambassador.jpg?alt=media&token=2ae244c3-cdcd-493d-9cf8-f731c4aaee4c"
+            style={{
+              maxWidth: "1000%",
+              maxHeight: "550px",
+              borderRadius: "15px",
+            }}
+            alt=""
+          /> */}
         </div>
       </div>
     </motion.div>
