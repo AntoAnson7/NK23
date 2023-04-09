@@ -211,6 +211,19 @@
     padding: 3px 10px 3px 10px;
 }
 
+.venue{
+    margin-bottom: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.venue strong{
+    background-color: #8C2725;
+    width: fit-content;
+    padding: 3px 7px 3px 7px;
+}
+
 @media screen and (max-width:600px) {
     .render-main{
         display: flex;

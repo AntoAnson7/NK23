@@ -71,6 +71,7 @@
 .pay-alerts{
     background-color: rgba(140, 39, 37,0.5);
     padding: 20px;
+    padding-bottom: 0px;
     display: flex;
     flex-direction: column;
     padding-left: 30px;
@@ -79,9 +80,8 @@
 .reg h1{
     color: white;
     font-size: 18px;
-    /* background-color: rgba(140, 39, 37,0.5);
-    padding: 10px;
-    border-radius: 10px; */
+    text-align: center;
+    max-width: 500px;
     margin-top: 120px;
 }
 .reg h1 strong{
@@ -173,9 +173,22 @@
     color: white;
     margin-bottom: 10px;
 }
+
+.bank-error{
+    width: "500px";
+    color: white;
+    background-color: red;
+    padding: 10px;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 5px;
+    text-align: center;
+}
 @media screen and (max-width:720px) {
     .reg{
         min-height: 270vh;
+    }
+    .bank-error{
+        max-width: 300px;
     }
     .reg .form input,.reg .form textarea{
         max-width: 290px;
@@ -221,6 +234,10 @@
     }
     .err{
         max-width: 290px;
+    }
+    .reg h1{
+        width: 300px;
+        margin-top: 140px;
     }
 
 }

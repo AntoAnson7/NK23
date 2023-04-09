@@ -1,5 +1,5 @@
-const accountSid = "AC7a549b4521c7e2d0816ed09ade13d84e";
-const authToken = "516dc40075a673a75488ebdc62c424e8";
+const accountSid = "****************************";
+const authToken = "****************************";
 const client = require("twilio")(accountSid, authToken);
 const functions = require("firebase-functions");
 const express = require("express");
@@ -23,8 +23,8 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const razorpay = new Razorpay({
-  key_id: "rzp_live_pA1PKHzjMTGnSs",
-  key_secret: "xK8D5VFYYWFYvzljId2NQEkR",
+  key_id: "****************************",
+  key_secret: "****************************",
 });
 
 app.get("/", (req, res) => {

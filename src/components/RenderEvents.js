@@ -115,7 +115,7 @@ export function RenderEvents() {
             <button className="reg-button" onClick={regFree}>
               Register Free
             </button>
-          ) : Event.isActive ? (
+          ) : Event.isActive && Event.spots > 0 ? (
             <button className="reg-button" onClick={initiateRegistration}>
               Register now ₹{Event.regfee}
             </button>
@@ -155,7 +155,7 @@ export function RenderEvents() {
 
         <div className="details">
           <p>{Event.isTeam ? "Team" : "Individual"}</p>
-          <p>{`Fee : ${Event.regfee}`}</p>
+          {/* <p>{`Fee : ${Event.regfee}`}</p> */}
           <p>{`Spots : ${Event.spots}`}</p>
         </div>
 
@@ -204,6 +204,13 @@ export function RenderEvents() {
           <p>|</p>
           <p>{Event.Time}</p>
         </div>
+        {Event.venue ? (
+          <p className="venue">
+            Venue :<strong> {Event.venue}</strong>
+          </p>
+        ) : (
+          <></>
+        )}
         <p
           className="descr-tag"
           dangerouslySetInnerHTML={{ __html: Event.description }}
@@ -223,7 +230,6 @@ export function RenderEvents() {
         ) : (
           <></>
         )}
-        <p> ( Venue and dates will be provided soon! )</p>
       </motion.div>
     </motion.div>
   );

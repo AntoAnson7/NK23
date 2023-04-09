@@ -39,7 +39,7 @@ export function Footer() {
         </ul>
 
         <div>
-          <p>Powered by</p>{" "}
+          <p id="pb">Powered by</p>{" "}
           <Link to="/credits" className="copy">
             NK23 Website Team
           </Link>

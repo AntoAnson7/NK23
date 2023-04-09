@@ -63,18 +63,31 @@ footer ul li {
   text-align: center;
   font-size: 13px;
   color: #fff;
+  margin-bottom: 5px;
 }
   
 .copy{
   color: #fff;
-text-decoration: none;
+  text-decoration: none;
+  background-color: rgb(0, 0, 0,0.6);
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid white;
+  transition: all 0.2s ease-in;
 }
-.copy{
-  font-size: 12px;
+
+.copy {
+  font-size: 20px;
+  font-weight: 500;
+}
+#pb{
+  margin-bottom: 25px;
 }
 .copy:hover{
-    text-decoration: underline;
+  color: #8C2725;
+  background-color: #fff;
 }
+
   @media screen and (max-width: 1050px) {
     .footer{
     flex-direction: column;

@@ -22,10 +22,10 @@ export const Signup = () => {
   }, [isVerified]);
 
   const schema = yup.object().shape({
-    display_name: yup.string().max(25).required(),
+    display_name: yup.string().required(),
     email: yup.string().email().required(),
-    college: yup.string().required().max(50),
-    branch: yup.string().required().max(30),
+    college: yup.string().required(),
+    branch: yup.string().required(),
     sem: yup.number().min(1).max(8).required(),
     wtsp: yup.number().min(1555555555).required(),
   });

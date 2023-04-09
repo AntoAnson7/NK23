@@ -274,7 +274,9 @@ export const Home = () => {
         </div>
       </div>
       <div className="faq-page">
-        <h1 className="he">FAQ</h1>
+        <h1 className="he">
+          F<span>.</span>A<span>.</span>Q
+        </h1>
         <motion.div
           className="faq"
           initial={{ opacity: 0 }}

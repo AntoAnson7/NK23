@@ -130,7 +130,10 @@ export function Registration() {
           />
 
           {errors.num ? <p className="err-msg">{errors.num.message}</p> : <></>}
-
+          {/* <p className="bank-error">
+            There might be some issues with the payment server, if your
+            registration fails please try again after 9:00 AM 29/03/2023
+          </p> */}
           <ul className="pay-alerts">
             <li>Alert: Please do not refresh the page after you hit pay</li>
             <li>
@@ -162,6 +165,9 @@ export function Registration() {
           <div className="teamGet">
             <h3>Team Members</h3>
             <p className="note">{`You can have ${e?.min} to ${e?.max} team members for this Event`}</p>
+            <h4 style={{ color: "white", marginBottom: "20px" }}>
+              Add Members one by one using the add button
+            </h4>
             <button
               className="add"
               onClick={handleAdd}

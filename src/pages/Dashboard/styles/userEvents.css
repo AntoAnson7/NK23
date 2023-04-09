@@ -117,6 +117,7 @@
     flex-direction: column;
     gap: 25px;
     margin-top: 20px;
+    margin-bottom: 50px;
     overflow-y:scroll ;
 }
 .registered::-webkit-scrollbar{
@@ -146,10 +147,58 @@
     font-size: 15px;
     color: green;
 }
+.ticket-footer{
+    bottom: 10px;
+    text-align: center;
+    font-size: 15px;
+    position: absolute;
+    color: #8C2725;
+    max-width: 320px;
+    margin-top: 20px;
+}
+.user-events-temp{
+    position: relative;
+}
+.id-alert{
+    width: 600px;
+    top: 20%;
+    left: 25%;
+    height: 200px;
+    position: absolute;
+    background-color: rgba(30, 30, 30,0.9);
+    background-color: rgb(140,39,37,0.9);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+}
+.id-alert button{
+    width: 100px;
+    height: 30px;
+    background-color: #fff;
+    color: #8C2725;
+    border: none;
+    font-weight: bold;
+    border-radius: 15px; 
+    cursor: pointer;
+}
 @media screen and (max-width:600px) {
+    .id-alert{
+        left: 0;
+        right: 0;
+        top: 50%;
+        width: 250px;
+        margin-left:auto;
+        margin-right: auto;
+    }
     .ticket{
         left: 0px;
-        top: 70px;
+        top: 30px;
         width: 87vw;
     }
 }
